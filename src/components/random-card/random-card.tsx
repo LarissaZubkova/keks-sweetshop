@@ -1,30 +1,28 @@
 import { CakeCard } from '../../types/Cake';
-import { getPrice } from '../../utils/utils';
 
-type CakeCardProps = {
-    cake: CakeCard;
+type RandomCardProps = {
+  cake: CakeCard;
 }
 
-function ProductCard({cake}: CakeCardProps) {
-  const {previewImage, previewImageWebp, title, price, isNew} = cake;
+function RandomCard({cake}: RandomCardProps): JSX.Element {
+  const {previewImage, previewImageWebp, title, isNew} = cake;
   return (
-    <li className="catalog__item">
-      <div className="card-item card-item--big">
+    <li className="random-main__item">
+      <div className="card-item">
         <a className="card-item__img-link" href="#">
           <div className="card-item__img-wrapper">
             <picture>
               <source type="image/webp" srcSet={previewImageWebp} />
-              <img src={previewImage} width={326} height={332}alt={title} />
+              <img src={previewImage} width={241} height={245} alt={title} />
             </picture>
           </div>
           {isNew && <span className="card-item__label">Новинка</span>}
         </a>
         <button className="card-item__favorites card-item__favorites--active"><span className="visually-hidden">Добавить в избранное</span>
-          <svg width="51" height="41" aria-hidden="true">
+          <svg width={51} height={41} aria-hidden="true">
             <use xlinkHref="#icon-like"></use>
           </svg>
         </button>
-        <span className="card-item__price">{`${getPrice(price)} p`}</span>
         <a className="card-item__link" href="#">
           <h3 className="card-item__title"><span>{title}</span></h3>
         </a>
@@ -33,4 +31,4 @@ function ProductCard({cake}: CakeCardProps) {
   );
 }
 
-export default ProductCard;
+export default RandomCard;

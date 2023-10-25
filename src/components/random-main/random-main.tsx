@@ -1,37 +1,32 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
+import { getRandomCakes } from '../../utils/utils';
+import RandomCard from '../random-card/random-card';
+import { useAppSelector } from '../../hooks';
+import { getProducts, getProductsLoadingStatus } from '../../store/products-process/products-process.selector';
+import Loading from '../loading/loading';
 
 function RandomMain() {
+  const cakes = useAppSelector(getProducts);
+  const isLoading = useAppSelector(getProductsLoadingStatus);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  const randomCakes = getRandomCakes(cakes);
+
   return (
     <section className="random-main">
       <div className="container">
         <h2 className="random-main__title">кексы</h2>
         <ul className="random-main__list">
-          <li className="random-main__item">
-            <div className="card-item">
-              <a className="card-item__img-link" href="#">
-                <div className="card-item__img-wrapper">
-                  <picture>
-                    <source type="image/webp" srcSet="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x" />
-                    <img src="img/content/blueberry-cake.jpg" srcSet="img/content/blueberry-cake@2x.jpg 2x" width="241" height="245" alt="Торт голубика." />
-                  </picture>
-                </div><span className="card-item__label">Новинка</span>
-              </a>
-              <button className="card-item__favorites card-item__favorites--active"><span className="visually-hidden">Добавить в избранное</span>
-                <svg width="51" height="41" aria-hidden="true">
-                  <use xlinkHref="#icon-like"></use>
-                </svg>
-              </button>
-              <a className="card-item__link" href="#">
-                <h3 className="card-item__title"><span>Торт Голубика</span></h3>
-              </a>
-            </div>
-          </li>
+          {randomCakes.map((cake) => <RandomCard key={cake.id} cake={cake} />)}
           <li className="random-main__item">
             <Link className="random-main__link" to={AppRoute.Catalog}>
               <div className="random-main__icon-wrapper">
                 <div className="random-main__icon">
-                  <svg width="120" height="130" aria-hidden="true">
+                  <svg width={120} height={130} aria-hidden="true">
                     <use xlinkHref="#icon-keks"></use>
                   </svg>
                 </div>
