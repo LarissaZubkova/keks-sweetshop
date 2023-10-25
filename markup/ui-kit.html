@@ -1,0 +1,2059 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>UI-kit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Кекс — Твоя пушистая кондитерская">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="visually-hidden"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-arrow-left" viewBox="0 0 30 16"><g fill="none">
+<path d="M0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM30 9H1V7H30V9Z" fill="currentColor"/>
+</g></symbol><symbol id="icon-cake-load" viewBox="0 0 158 185"><g fill="none">
+<path d="M36.6453 183.4L2.54562 105.171C2.25769 104.511 2.74176 103.771 3.46233 103.771H153.311C154.035 103.771 154.519 104.516 154.225 105.178L119.457 183.406C119.296 183.767 118.938 184 118.543 184H37.562C37.1642 184 36.8042 183.764 36.6453 183.4Z" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M115.535 63.0857C115.535 41.6255 98.5954 27.8857 77.1352 27.8857C55.675 27.8857 39.1924 41.6255 39.1924 63.0857" stroke="#FFA181" stroke-width="2"/>
+<path d="M2.39238 103.771C-1.26475 74.7429 31.1926 53.2571 54.9639 67.6571" stroke="#FFA181" stroke-width="2"/>
+<path d="M154.406 103.931C158.063 74.9022 129.478 53.0286 102.736 67.6571" stroke="#FFA181" stroke-width="2"/>
+<path d="M85.6347 19.212L85.8508 19.558L86.2472 19.6541C90.6373 20.7192 93.3622 22.0053 94.8051 23.8422C96.1951 25.6117 96.5676 28.1334 95.5858 32.1804C93.7116 39.906 85.5447 44.6599 77.2268 42.6909C72.9276 40.7259 69.8019 38.3276 67.8578 35.4264C65.9231 32.5392 65.1001 29.0672 65.558 24.8307C66.524 20.9446 69.8144 16.5553 73.7357 14.6598C75.6781 13.721 77.7173 13.4197 79.6946 14.0203C81.6732 14.6214 83.7354 16.17 85.6347 19.212Z" fill="#FFA181" stroke="#FFA181" stroke-width="2"/>
+<path d="M86.2072 18.8506L89.6074 13.5602C89.6074 13.5602 91.5113 10.6244 93.2364 9.2662C94.5762 8.21124 95.4637 7.76735 97.0467 7.13297C98.013 6.74573 98.319 6.73601 98.319 6.73601" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M23.4214 112L50.85 173.257" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M129.935 112L102.507 173.257" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M47.4214 112L67.9928 173.257" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M108.45 112L87.8783 173.257" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M78.2783 115.657V173.257" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+</g></symbol><symbol id="icon-cake" viewBox="0 0 180 166"><g fill="none">
+<path d="M10 47H170C174.971 47 179 51.0294 179 56V165H1V56C1 51.0294 5.02944 47 10 47Z" stroke="#FFA181" stroke-width="2"/>
+<path d="M8 152L126 152" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M155 152H167" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M8 134H25" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M79 106H179" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M57 134.331L168.5 134" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M118 74C118 84.4934 106.583 95.5 92.5 95.5C78.4167 95.5 67 87.4934 67 77" stroke="#FFA181" stroke-width="2"/>
+<path d="M38 76C38 86.4934 29.7173 93 19.5 93C7 93 1 84.4934 1 74" stroke="#FFA181" stroke-width="2"/>
+<path d="M152 79.5C148.5 87.5 144.389 91 135 91C125.611 91 118 82.3888 118 73" stroke="#FFA181" stroke-width="2"/>
+<path d="M179 79C179 86.1797 172.956 92 165.5 92C158.044 92 152 86.1797 152 79" stroke="#FFA181" stroke-width="2"/>
+<path d="M67 77C67 85.2843 60.5081 92 52.5 92C44.4919 92 38 85.2843 38 77" stroke="#FFA181" stroke-width="2"/>
+<path d="M114.727 41.2118L114.943 41.5578L115.34 41.654C119.73 42.719 122.455 44.0052 123.898 45.8421C125.288 47.6116 125.66 50.1332 124.678 54.1802C122.804 61.9058 114.637 66.6598 106.319 64.6908C102.02 62.7257 98.8944 60.3274 96.9504 57.4263C95.0156 54.5391 94.1926 51.0671 94.6506 46.8305C95.6165 42.9445 98.9069 38.5551 102.828 36.6597C104.771 35.7208 106.81 35.4195 108.787 36.0202C110.766 36.6212 112.828 38.1698 114.727 41.2118Z" fill="#FFA181" stroke="#FFA181" stroke-width="2"/>
+<path d="M115.3 40.8505L118.7 35.5602C118.7 35.5602 120.604 32.6243 122.329 31.2661C123.669 30.2111 124.557 29.7673 126.14 29.1329C127.106 28.7456 127.412 28.7359 127.412 28.7359" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+<path d="M68.0751 26.392L67.859 26.7381L67.4626 26.8342C61.3752 28.311 57.4879 30.1152 55.4041 32.7679C53.3733 35.3533 52.8815 38.9886 54.2522 44.6385C56.9041 55.5699 68.4531 62.2554 80.1656 59.463C86.1752 56.7214 90.5805 53.3572 93.3291 49.2554C96.0685 45.1675 97.2212 40.2597 96.5727 34.3064C95.2179 28.8175 90.5871 22.6292 85.0402 19.948C82.2851 18.6163 79.3618 18.1754 76.5124 19.041C73.6617 19.907 70.7393 22.125 68.0751 26.392Z" fill="#FFA181" stroke="#FFA181" stroke-width="2"/>
+<path d="M67.6083 26.0952L62.9013 18.7717C62.9013 18.7717 60.2657 14.7076 57.8777 12.8274C56.0228 11.367 54.7943 10.7526 52.603 9.87437C51.2653 9.33831 50.8417 9.32485 50.8417 9.32485" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+</g></symbol><symbol id="icon-chevron-top" viewBox="0 0 19 13"><g fill="none">
+<path d="M1 11.5L8.70871 1.52402C9.10904 1.00595 9.89096 1.00595 10.2913 1.52402L18 11.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</g></symbol><symbol id="icon-close" viewBox="0 0 20 20"><g fill="none"><path d="M.293 18.291a1 1 0 101.414 1.414L10 11.413l8.292 8.292a1 1 0 101.414-1.414l-8.292-8.292 8.292-8.292A1 1 0 1018.291.293L9.999 8.585 1.707.293A1 1 0 10.293 1.707L8.585 10 .293 18.291z" fill="#ffffff"/></g></symbol><symbol id="icon-empty-favorites-cloud" viewBox="0 0 947 710" preserveAspectRatio="none"><g fill="none">
+<path d="M590.813 549.504L673.313 709.004V531.004V439.004C673.313 439.004 752.676 409.808 807.312 386.004C851.155 366.902 862.437 355.967 902.231 313.45C932.53 281.078 960.843 206.938 935.812 171.004C870.005 76.5307 833.411 66.5686 726.246 37.395L724.812 37.0047C603.516 3.98243 412.5 1.50024 412.5 1.50024C412.5 1.50024 267.582 2.34653 181.812 37.0047C109.106 66.3841 65.7717 79.6239 28.0003 132C-9.77117 184.376 -10.9999 254 46.9736 325.774C90.0802 379.142 107.876 378.937 159.812 400.504C211.748 422.07 263.362 436.87 332.313 448.504C407.894 461.257 528.313 458.871 528.313 458.871L590.813 549.504Z" fill="white" stroke="#FFA181" stroke-width="2" stroke-linecap="square"/>
+</g></symbol><symbol id="icon-favourite" viewBox="0 0 33 29"><g fill="none">
+<path d="M12.6364 1.03773C14.9012 2.26221 16.7092 6.15903 16.7092 6.15903C16.7092 6.15903 18.37 2.27123 20.573 1.03773C22.1366 0.162256 23.2646 -0.0614666 25.0634 0.0134733C26.5858 0.0768968 27.6003 0.145643 28.8229 1.03773C30.0576 1.93872 30.9071 2.75912 31.7469 4.21293C32.9178 6.24015 33 7.38814 33 10.0512C33 12.5157 32.5371 13.6754 31.4336 15.8895C30.4376 17.8877 29.1368 19.3007 27.5697 20.9084C25.9495 22.5705 25.22 23.0526 23.3926 24.4933C21.0785 26.3176 16.7092 29 16.7092 29C16.7092 29 12.0918 26.5598 9.50358 24.4933C7.80334 23.1357 5.43087 20.7035 5.43087 20.7035C5.43087 20.7035 2.89236 18.2086 1.98473 16.1968C0.98094 13.9718 -0.0280792 12.4841 0.000597123 10.0512C0.0274151 7.77594 -0.0490189 6.21556 1.14931 4.21293C2.05429 2.70056 3.06306 1.93193 4.38659 1.03773C5.73878 0.124164 6.81738 0.0231747 8.4593 0.0134733C10.1407 0.00353835 11.1639 0.241554 12.6364 1.03773Z" fill="#D94236"/>
+</g></symbol><symbol id="icon-file-load" viewBox="0 0 36 36"><g fill="none">
+<rect x="1" y="1" width="34" height="34" rx="13" stroke="#FFA181" stroke-width="2"/>
+<path d="M26.2 7.6C26.2 9.03594 25.0359 10.2 23.6 10.2C22.1641 10.2 21 9.03594 21 7.6C21 6.16406 22.1641 5 23.6 5C25.0359 5 26.2 6.16406 26.2 7.6Z" stroke="#FFA181" stroke-width="2"/>
+<path d="M2 27C2.55652 25.6667 6.86957 21 9.30435 18.3333L15.913 26.3333L25.3043 15L34 26.3333" stroke="#FFA181" stroke-width="2" stroke-linecap="round"/>
+</g></symbol><symbol id="icon-keks-footprint" viewBox="0 0 26 24"><g fill="none">
+<path d="M4.33369 16.7154C3.92958 17.069 3.92097 17.9536 4.12733 18.6759C4.33368 19.3982 4.94256 20.3166 5.46869 20.8427C6.08777 21.4618 7.73868 21.9777 7.73868 21.9777C9.27038 22.3075 10.7309 21.565 12.485 21.6682C14.2391 21.7713 15.2326 23.2195 18.0568 21.6682C19.2927 20.9893 20.0615 20.2439 20.5734 18.9392C21.0107 17.8244 21.4251 17.3201 20.8563 16.268C20.2713 15.1861 18.3919 15.6762 17.4108 14.9273C16.9602 14.5833 16.6613 14.4089 16.2391 13.9604C15.8168 13.5119 15.2271 12.46 14.6435 11.7211C14.0599 10.9822 12.4631 10.9018 11.5708 11.0323C10.6785 11.1629 9.40721 12.7706 8.7375 13.6055C8.0939 14.4079 8.37827 14.4748 7.53232 15.0645C6.88511 15.5157 6.12905 15.4773 5.46869 15.89C4.64323 16.4059 5.15914 15.9932 4.33369 16.7154Z" fill="#FFD363"/>
+<ellipse cx="2.62815" cy="3.84595" rx="2.62815" ry="3.84595" transform="matrix(-0.968982 -0.24713 -0.24713 0.968982 25.5669 8.10901)" fill="#FFD363"/>
+<ellipse cx="3.37349" cy="11.7737" rx="2.5006" ry="3.84595" transform="rotate(-14.3077 3.37349 11.7737)" fill="#FFD363"/>
+<ellipse cx="3.16513" cy="4.74635" rx="3.16513" ry="4.74635" transform="matrix(-0.998434 -0.0559489 -0.0559489 0.998434 19.4397 0.354126)" fill="#FFD363"/>
+<ellipse cx="8.37848" cy="5.3288" rx="3.16513" ry="4.74635" transform="rotate(-3.20731 8.37848 5.3288)" fill="#FFD363"/>
+</g></symbol><symbol id="icon-keks" viewBox="0 0 121 132"><g fill="none">
+<path d="M14.1619 67.7495L15.5721 95.3072L16.9823 130.739H61.4049H105.825L107.235 96.8937L108.175 67.7495" stroke="#DD7870"/>
+<path d="M79.9714 64.9292C79.9714 75.3137 71.5531 83.7319 61.1687 83.7319C50.7842 83.7319 42.366 75.3137 42.366 64.9292" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M35.785 38.6055C35.785 31.433 38.6536 24.9305 43.3061 20.1826C44.4633 19.0018 45.7308 17.9294 47.0919 16.9823C48.0933 16.2856 49.1454 15.6566 50.2415 15.1021C53.8074 13.2981 57.8394 12.2817 62.1088 12.2817C67.2969 12.2817 70.2541 12.5109 74.3306 15.1021C74.64 15.2987 76.8252 16.7733 77.1257 16.9823C78.4869 17.9294 79.7544 19.0018 80.9115 20.1826C85.564 24.9305 88.4326 31.433 88.4326 38.6055" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M39.0756 24.9735L37.1953 11.8116V1L55.0579 12.7517" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M84.672 24.9735L86.5522 11.8116V1L68.6897 12.7517" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M42.9686 63.9892C37.7764 72.9824 26.2768 76.0637 17.2836 70.8715C8.29044 65.6793 5.20914 54.1797 10.4014 45.1865" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M92.1933 40.0156C92.1933 41.6931 92.8201 43.3061 92.1933 45.1864C91.7233 46.5966 91.7233 48.2714 91.7233 49.417C92.1671 51.0924 93.4966 52.2699 94.5437 53.1775C95.0137 54.6714 97.0107 55.5279 98.5465 55.5279C100.056 55.5279 102.065 55.5279 103.475 53.6476C104.606 53.1447 105.608 53.3964 106.295 52.2374C107.341 50.4728 106.765 47.0749 106.765 43.7762" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M31.7126 39.5457C31.7126 41.2231 31.0858 42.8361 31.7126 44.7164C32.1826 46.1266 32.1826 47.8014 32.1826 48.947C31.7388 50.6225 30.4093 51.7999 29.3622 52.7076C28.8922 54.2014 26.8952 55.0579 25.3594 55.0579C23.8495 55.0579 21.8411 55.0579 20.4309 53.1776C19.2996 52.6747 18.2975 52.9265 17.6105 51.7674C16.5647 50.0028 17.4524 47.075 17.4524 43.7763" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M95.0137 53.6477L96.8939 48.947" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M28.8921 53.1775L27.0118 48.4768" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M102.065 49.417L103.475 53.6476" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M21.8411 48.947L20.4309 53.1776" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M79.0314 63.9892C84.2236 72.9824 95.7232 76.0637 104.716 70.8715C113.71 65.6793 116.791 54.1797 111.599 45.1865" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M10.4014 45.1864C21.0486 42.9835 25.9401 39.9836 36.7252 38.6054C47.3006 37.254 53.7978 37.6353 64.4592 37.6653C74.5707 37.6938 80.8179 37.8311 90.783 39.5455C99.034 40.965 103.637 42.2203 111.466 45.1864" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M61.1687 90.313V120.397" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M46.1265 89.3728L48.9469 120.867" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M28.2639 88.4326L33.9047 120.397" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M76.2109 89.3728L73.3905 120.867" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M94.0735 88.4326L88.4327 120.397" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M56.938 37.1953C56.938 37.1953 55.9523 36.1347 55.9979 35.315C56.0713 33.9933 57.5262 33.7227 58.8183 33.4347C60.0852 33.1523 62.1088 33.9048 62.1088 33.9048C62.1088 33.9048 64.418 33.1445 65.8693 33.4347C67.3206 33.725 69.1163 33.8356 69.1598 35.315C69.1839 36.1356 68.2196 37.1953 68.2196 37.1953" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M46.5967 34.3748L12.2817 32.0244" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M42.8361 36.2551L1 39.5456" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M76.6809 34.3749L108.646 31.0845" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M78.5613 36.2551L117.107 39.5456" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M71.9804 26.8527C70.6986 27.5927 70.1001 30.1432 70.1001 30.1432C70.1001 30.1432 71.6176 31.7893 72.9205 32.0235C74.0195 32.2211 74.7108 31.9844 75.7409 31.5534C77.0636 31.0001 78.5613 29.2031 78.5613 29.2031C78.5613 29.2031 77.0869 27.3467 75.7409 26.8527C74.3622 26.3468 73.2522 26.1185 71.9804 26.8527Z" stroke="#DD7870" stroke-linecap="round"/>
+<path d="M53.6476 26.8527C54.9293 27.5927 55.5278 30.1432 55.5278 30.1432C55.5278 30.1432 54.0103 31.7893 52.7074 32.0235C51.6084 32.2211 50.9171 31.9844 49.887 31.5534C48.5644 31.0001 47.0666 29.2031 47.0666 29.2031C47.0666 29.2031 48.541 27.3467 49.887 26.8527C51.2657 26.3468 52.3757 26.1185 53.6476 26.8527Z" stroke="#DD7870" stroke-linecap="round"/>
+</g></symbol><symbol id="icon-like" viewBox="0 0 53 44">
+<path d="M20.529 2.46714C24.0291 4.1983 26.8232 9.70759 26.8232 9.70759C26.8232 9.70759 29.39 4.21105 32.7946 2.46714C35.2111 1.2294 36.9544 0.913099 39.7344 1.01905C42.0871 1.10872 43.6551 1.20591 45.5444 2.46714C47.4526 3.74095 48.7655 4.90083 50.0633 6.95622C51.873 9.82229 52 11.4453 52 15.2103C52 18.6946 51.2846 20.3343 49.5791 23.4644C48.0399 26.2895 46.0297 28.2872 43.6077 30.5601C41.1038 32.91 39.9763 33.5916 37.1522 35.6284C33.5758 38.2077 26.8232 42 26.8232 42C26.8232 42 19.6873 38.5501 15.6874 35.6284C13.0597 33.7091 9.39317 30.2705 9.39317 30.2705C9.39317 30.2705 5.47001 26.7432 4.06732 23.8989C2.516 20.7532 0.956605 18.65 1.00092 15.2103C1.04237 11.9936 0.924244 9.78751 2.77621 6.95622C4.17481 4.81803 5.73382 3.73135 7.77927 2.46714C9.86902 1.17554 11.536 1.03276 14.0735 1.01905C16.6721 1.005 18.2533 1.34151 20.529 2.46714Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</symbol><symbol id="icon-more" viewBox="0 0 27 17"><g fill="none">
+<path d="M25.2801 9.38846C26.0015 9.01581 26.0015 7.98419 25.2801 7.61154L14.209 1.89245C13.5434 1.54862 12.75 2.03176 12.75 2.78091V14.2191C12.75 14.9682 13.5434 15.4514 14.209 15.1076L25.2801 9.38846Z" fill="currentColor"/>
+<circle cx="9" cy="14" r="1" fill="currentColor"/>
+<circle cx="5" cy="14" r="1" fill="currentColor"/>
+<circle cx="1" cy="14" r="1" fill="currentColor"/>
+</g></symbol><symbol id="icon-pin" viewBox="0 0 26 24"><g fill="none">
+<path d="M4.33369 16.7154C3.92958 17.069 3.92097 17.9536 4.12733 18.6759C4.33368 19.3982 4.94256 20.3166 5.46869 20.8427C6.08777 21.4618 7.73868 21.9777 7.73868 21.9777C9.27038 22.3075 10.7309 21.565 12.485 21.6682C14.2391 21.7713 15.2326 23.2195 18.0568 21.6682C19.2927 20.9893 20.0615 20.2439 20.5734 18.9392C21.0107 17.8244 21.4251 17.3201 20.8563 16.268C20.2713 15.1861 18.3919 15.6762 17.4108 14.9273C16.9602 14.5833 16.6613 14.4089 16.2391 13.9604C15.8168 13.5119 15.2271 12.46 14.6435 11.7211C14.0599 10.9822 12.4631 10.9018 11.5708 11.0323C10.6785 11.1629 9.40721 12.7706 8.7375 13.6055C8.0939 14.4079 8.37827 14.4748 7.53232 15.0645C6.88511 15.5157 6.12905 15.4773 5.46869 15.89C4.64323 16.4059 5.15914 15.9932 4.33369 16.7154Z" fill="#F66C41"/>
+<ellipse cx="2.62815" cy="3.84595" rx="2.62815" ry="3.84595" transform="matrix(-0.968982 -0.24713 -0.24713 0.968982 25.5669 8.10889)" fill="#F66C41"/>
+<ellipse cx="3.37349" cy="11.7737" rx="2.5006" ry="3.84595" transform="rotate(-14.3077 3.37349 11.7737)" fill="#F66C41"/>
+<ellipse cx="3.16513" cy="4.74635" rx="3.16513" ry="4.74635" transform="matrix(-0.998434 -0.0559489 -0.0559489 0.998434 19.4397 0.354248)" fill="#F66C41"/>
+<ellipse cx="8.37848" cy="5.32868" rx="3.16513" ry="4.74635" transform="rotate(-3.20731 8.37848 5.32868)" fill="#F66C41"/>
+</g></symbol><symbol id="icon-polygon" viewBox="0 0 14 15"><g fill="none">
+<path d="M13.2801 8.38846C14.0015 8.01581 14.0015 6.98419 13.2801 6.61154L2.20896 0.892447C1.54337 0.54862 0.75 1.03176 0.75 1.78091V13.2191C0.75 13.9682 1.54337 14.4514 2.20896 14.1076L13.2801 8.38846Z" fill="#AA3128"/>
+</g></symbol><symbol id="icon-quotes" viewBox="0 0 68 48"><g fill="none">
+<path d="M28.3333 48L15.4545 26.5744H28.3333V0H0V26.5744L28.3333 48Z" fill="#D94236"/>
+<path d="M68.0003 48L55.1215 26.5744H68.0003V0H39.667V26.5744L68.0003 48Z" fill="#D94236"/>
+</g></symbol><symbol id="icon-star" viewBox="0 0 40 37">
+<path d="M20 3.23607L23.5392 14.1287L23.7637 14.8197H24.4903H35.9434L26.6776 21.5517L26.0899 21.9787L26.3144 22.6697L29.8536 33.5623L20.5878 26.8303L20 26.4033L19.4122 26.8303L10.1464 33.5623L13.6856 22.6697L13.9101 21.9787L13.3224 21.5517L4.05655 14.8197H15.5097H16.2363L16.4608 14.1287L20 3.23607Z"/>
+</symbol><symbol id="icon-telegram" viewBox="0 0 50 50"><g fill="none">
+<path d="M25 0C38.8076 0 50 11.1924 50 25C50 38.8076 38.8076 50 25 50C11.1924 50 0 38.8076 0 25C0 11.1924 11.1924 0 25 0ZM33.6239 35.1902C34.0837 33.7793 36.238 19.7185 36.5043 16.9478C36.5848 16.1087 36.3196 15.5511 35.8 15.3022C35.1717 15 34.2413 15.1511 33.162 15.5402C31.6815 16.0739 12.7554 24.1098 11.662 24.575C10.625 25.0152 9.64457 25.4957 9.64457 26.1913C9.64457 26.6804 9.93478 26.9554 10.7348 27.2413C11.5674 27.538 13.6641 28.1739 14.9022 28.5152C16.0946 28.8446 17.4522 28.5587 18.213 28.0859C19.0196 27.5848 28.3272 21.3565 28.9957 20.8109C29.663 20.2652 30.1957 20.9641 29.65 21.5109C29.1043 22.0565 22.7152 28.2576 21.8728 29.1163C20.85 30.1587 21.5761 31.2391 22.262 31.6717C23.0457 32.1652 28.6815 35.9456 29.5304 36.5522C30.3793 37.1587 31.2402 37.4337 32.0283 37.4337C32.8163 37.4337 33.2315 36.3956 33.6239 35.1902Z" fill="currentColor"/>
+</g></symbol><symbol id="icon-vk" viewBox="0 0 50 50"><g fill="none">
+<path d="M25 0C11.2152 0 0 11.2152 0 25C0 38.7848 11.2152 50 25 50C38.7859 50 50 38.7848 50 25C50 11.2152 38.7859 0 25 0ZM35.8402 29.9293C38.2717 32.088 38.7772 32.8587 38.8598 32.9902C39.8674 34.588 37.7424 34.7826 37.7424 34.7826H33.2641C33.2641 34.7826 32.1739 34.7946 31.2424 34.1772C29.7239 33.1826 28.1337 31.2543 27.0163 31.5891C26.0783 31.8696 26.087 33.137 26.087 34.2207C26.087 34.6087 25.7533 34.7826 25 34.7826C24.2467 34.7826 23.9337 34.7826 23.6 34.7826C21.1467 34.7826 18.4848 33.9565 15.8293 31.1815C12.0728 27.2587 8.77826 19.3565 8.77826 19.3565C8.77826 19.3565 8.5837 18.9587 8.79565 18.7163C9.03587 18.4446 9.68913 18.4793 9.68913 18.4793L14.0315 18.4783C14.0315 18.4783 14.4402 18.5554 14.7337 18.762C14.9761 18.9315 15.1109 19.2554 15.1109 19.2554C15.1109 19.2554 15.8402 21.6641 16.7696 23.2C18.5848 26.1978 19.4293 26.2739 20.0457 25.9511C20.9457 25.4837 20.6522 22.2967 20.6522 22.2967C20.6522 22.2967 20.6924 20.9283 20.2228 20.3185C19.8609 19.8467 19.1685 19.5957 18.8663 19.5565C18.6217 19.525 19.0304 19.0967 19.5511 18.8522C20.2467 18.5424 21.1935 18.463 22.8261 18.4783C24.0967 18.4902 24.463 18.5663 24.9587 18.6804C26.4576 19.0261 26.087 19.938 26.087 23.1402C26.087 24.1663 25.9457 25.6087 26.7196 26.087C27.0533 26.2935 28.1967 26.5457 30.2315 23.2413C31.1978 21.6739 31.9663 19.0739 31.9663 19.0739C31.9663 19.0739 32.125 18.788 32.3717 18.6467C32.6239 18.5022 32.6163 18.5054 32.962 18.5054C33.3076 18.5054 36.7739 18.4783 37.5348 18.4783C38.2946 18.4783 39.0076 18.4696 39.1304 18.9152C39.3065 19.5554 38.5696 21.7489 36.7022 24.1293C33.6337 28.0359 33.2935 27.6707 35.8402 29.9293Z" fill="currentColor"/>
+</g></symbol><symbol id="not-found-cloud" viewBox="0 0 687 425" preserveAspectRatio="none"><g fill="none">
+<path d="M457.018 369.5L513.518 424L488.518 352.5L476.48 297.713C476.48 297.713 556.518 294.815 597.018 275.5C629.518 260 640.018 257 665.018 219C691.946 178.069 691.539 106.661 665.018 84.5C592.018 23.5 576.018 31 497.518 18C404.954 2.67098 290.018 1 290.018 1C290.018 1 195.427 7.36561 142.518 24.5001C90.1625 41.4552 49.9803 55.0002 21.9805 97.5001C-6.01934 140 -5.96765 180.066 21.9805 232C34.0374 254.404 78.5176 275.287 121.518 288.5C164.518 301.713 231.018 306.713 231.018 306.713H392.018L457.018 369.5Z" fill="#FFF3F3" stroke="#FFF3F3" stroke-width="2" stroke-linecap="square"/>
+</g></symbol></svg>
+    </div>
+    <div class="wrapper">
+      <main>
+        <div class="uikit">
+          <div class="uikit__sections">
+            <label for="section-burger"><span>Разделы&nbsp;компонентов</span></label>
+            <input class="visually-hidden" type="checkbox" checked id="section-burger">
+            <div>
+              <ul>
+                <li><a href="#buttons">Кнопки</a></li>
+                <li><a href="#back-link">Ссылка назад</a></li>
+                <li><a href="#forms">Элементы форм</a></li>
+                <li><a href="#filter">Фильтр</a></li>
+                <li><a href="#sort">Сортровка</a></li>
+                <li><a href="#header">Header</a></li>
+                <li><a href="#map">Карта</a></li>
+                <li><a href="#star-rating">Звездный рейтинг</a></li>
+                <li><a href="#review-form">Форма отзыва</a></li>
+                <li><a href="#review">Ревью</a></li>
+                <li><a href="#last-review">Последнее ревью</a></li>
+                <li><a href="#random-main">Случайные товары</a></li>
+                <li><a href="#item-details">Карточка товара</a></li>
+                <li><a href="#loader">Лоадер</a></li>
+                <li><a href="#error-loading">Ошибка загрузки страницы</a></li>
+                <li><a href="#footer">footer</a></li>
+                <li><a href="#hero">hero</a></li>
+                <li><a href="#filter-not-found">1+1 не найдено</a></li>
+                <li><a href="#empty-favorites">Избранное без контента</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="container"><a class="uikit__header-link" href="sitemap.html"><img src="img/svg/logo.svg" width="170" height="69" alt="Кондитерская кекс"></a>
+            <h1>Компоненты, используемые на проекте</h1>
+            <section>
+              <h2>Название компонента или группы компонентов</h2>
+              <p class="uikit__text">Информация о компоненте (подсказки \ предупреждение \ важная информация)</p>
+              <div class="uikit__component">
+                <p class="uikit__text"> Класс компонента \ модификаторы</p>
+                <pre><code class="language-pug">p Пример кода
+</code></pre>
+              </div>
+            </section>
+            <section>
+              <h2>Карточки товара</h2>
+              <p class="uikit__text">Карточка товара маленькая с плашкой Новинка и выбранным избранным</p>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.card-item \ .card-item__favorites .card-item__favorites--active</p>
+                <div class="card-item"><a class="card-item__img-link" href="#">
+                    <div class="card-item__img-wrapper">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x"><img src="img/content/blueberry-cake.jpg" srcset="img/content/blueberry-cake@2x.jpg 2x" width="241" height="245" alt="Торт голубика.">
+                      </picture>
+                    </div><span class="card-item__label">Новинка</span></a>
+                  <button class="card-item__favorites card-item__favorites--active"><span class="visually-hidden">Добавить в избранное</span>
+                    <svg width="51" height="41" aria-hidden="true">
+                      <use xlink:href="#icon-like"></use>
+                    </svg>
+                  </button><a class="card-item__link" href="#">
+                    <h3 class="card-item__title"><span>Торт Голубика</span></h3></a>
+                </div>
+                <pre><code class="language-pug">+cardItem({
+  img: {
+    path: "content",
+    name: "blueberry-cake",
+    format: "jpg",
+    width: "241",
+    height: "245",
+    altText: "Торт голубика."
+  },
+  isNew: true,
+  isFavorite: true,
+  title: "Торт Голубика"
+})</code></pre>
+              </div>
+              <p class="uikit__text">Карточка товара маленькая без плашки Новинка и не выбранной кнопкой Избранное</p>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.card-item</p>
+                <div class="card-item"><a class="card-item__img-link" href="#">
+                    <div class="card-item__img-wrapper">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x"><img src="img/content/blueberry-cake.jpg" srcset="img/content/blueberry-cake@2x.jpg 2x" width="241" height="245" alt="Торт голубика.">
+                      </picture>
+                    </div></a>
+                  <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                    <svg width="51" height="41" aria-hidden="true">
+                      <use xlink:href="#icon-like"></use>
+                    </svg>
+                  </button><a class="card-item__link" href="#">
+                    <h3 class="card-item__title"><span>Торт Голубика</span></h3></a>
+                </div>
+                <pre><code class="language-pug">+cardItem({
+  img: {
+    path: "content",
+    name: "blueberry-cake",
+    format: "jpg",
+    width: "241",
+    height: "245",
+    altText: "Торт голубика."
+  },
+  title: "Торт Голубика"
+})</code></pre>
+              </div>
+              <p class="uikit__text">Карточка товара большая</p>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.card-item \ .card-item--big</p>
+                <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                    <div class="card-item__img-wrapper">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x"><img src="img/content/blueberry-cake.jpg" srcset="img/content/blueberry-cake@2x.jpg 2x" width="326" height="332" alt="Торт голубика.">
+                      </picture>
+                    </div></a>
+                  <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                    <svg width="51" height="41" aria-hidden="true">
+                      <use xlink:href="#icon-like"></use>
+                    </svg>
+                  </button><span class="card-item__price">9 300 p</span><a class="card-item__link" href="#">
+                    <h3 class="card-item__title"><span>Торт Голубика</span></h3></a>
+                </div>
+                <pre><code class="language-pug">+cardItem({
+  img: {
+    path: "content",
+    name: "blueberry-cake",
+    format: "jpg",
+    width: "326",
+    height: "332",
+    altText: "Торт голубика."
+  },
+  isBig: true,
+  price: "9 300",
+  title: "Торт Голубика"
+})
+</code></pre>
+              </div>
+            </section>
+            <section id="star-rating">
+              <h2>Рейтинг</h2>
+              <div class="uikit__component">
+                <p class="uikit__text">.star-rating</p>
+                <div class="star-rating">
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                </div>
+                <pre><code class="language-pug">+star-rating({
+  activeStars: "3",
+})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text">.star-rating \ isBig</p>
+                <div class="star-rating star-rating--big">
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                </div>
+                <pre><code class="language-pug">+star-rating({
+  activeStars: "3",
+  isBig: true
+})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text">.star-rating \ count</p>
+                <div class="star-rating">
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg>
+                  <svg class="star-rating__star" width="30" height="30" aria-hidden="true">
+                    <use xlink:href="#icon-star"></use>
+                  </svg><span class="star-rating__count">26</span>
+                </div>
+                <pre><code class="language-pug">+star-rating({
+  activeStars: "3",
+  count: "26"
+})
+</code></pre>
+              </div>
+            </section>
+            <section id="review-form">
+              <h2>Форма отзыва</h2>
+              <div class="uikit__component">
+                <p class="uikit__text">.review-form</p>
+                <section class="review-form">
+                  <div class="container">
+                    <div class="review-form__wrapper">
+                      <h2 class="review-form__title">оставить отзыв</h2>
+                      <div class="review-form__form">
+                        <form action="#" method="post" autocomplete="off">
+                          <div class="review-form__inputs-wrapper">
+                            <div class="custom-input">
+                              <label><span class="custom-input__label">Достоинства</span>
+                                <input type="text" name="advantages" placeholder="Достоинства" required>
+                              </label>
+                            </div>
+                            <div class="custom-input">
+                              <label><span class="custom-input__label">Недостатки</span>
+                                <input type="text" name="disadvantages" placeholder="Недостатки" required>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="review-form__submit-wrapper">
+                            <div class="review-form__rating-wrapper">
+                              <div class="input-star-rating">
+                                <input type="radio" name="input-star-rating" id="input-star-rating-5" value="5" aria-label="5 звезд">
+                                <label for="input-star-rating-5">
+                                  <svg width="40" height="40" aria-hidden="true">
+                                    <use xlink:href="#icon-star"></use>
+                                  </svg>
+                                </label>
+                                <input type="radio" name="input-star-rating" id="input-star-rating-4" value="4" aria-label="4 звезды">
+                                <label for="input-star-rating-4">
+                                  <svg width="40" height="40" aria-hidden="true">
+                                    <use xlink:href="#icon-star"></use>
+                                  </svg>
+                                </label>
+                                <input type="radio" name="input-star-rating" id="input-star-rating-3" value="3" aria-label="3 звезды">
+                                <label for="input-star-rating-3">
+                                  <svg width="40" height="40" aria-hidden="true">
+                                    <use xlink:href="#icon-star"></use>
+                                  </svg>
+                                </label>
+                                <input type="radio" name="input-star-rating" id="input-star-rating-2" value="2" aria-label="2 звезды">
+                                <label for="input-star-rating-2">
+                                  <svg width="40" height="40" aria-hidden="true">
+                                    <use xlink:href="#icon-star"></use>
+                                  </svg>
+                                </label>
+                                <input type="radio" name="input-star-rating" id="input-star-rating-1" value="1" aria-label="1 звезда">
+                                <label for="input-star-rating-1">
+                                  <svg width="40" height="40" aria-hidden="true">
+                                    <use xlink:href="#icon-star"></use>
+                                  </svg>
+                                </label>
+                              </div>
+                            </div>
+                            <div class="review-form__button-wrapper">
+                              <button class="btn review-form__button" type="submit">Отправить отзыв</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+review-form({
+  inputs: [
+    {
+      inputLabel: "Достоинства",
+      inputName: "advantages",
+      inputPlaceholder: "Достоинства",
+      isRequired: true,
+    },
+      {
+      inputLabel: "Недостатки",
+      inputName: "disadvantages",
+      inputPlaceholder: "Недостатки"
+      isRequired: true,
+    }
+  ]
+})
+</code></pre>
+              </div>
+            </section>
+            <section id="review">
+              <h2>Ревью</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.review</p>
+                <div class="review">
+                  <div class="review__inner-wrapper">
+                    <time class="review__date" datetime="2023-05-15">15.05</time><span class="review__author">Уважаемый(-ая) Кот</span>
+                    <div class="star-rating">
+                      <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                      </svg>
+                      <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                      </svg>
+                      <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                      </svg>
+                      <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                      </svg>
+                      <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                        <use xlink:href="#icon-star"></use>
+                      </svg>
+                    </div>
+                    <div class="review__text-wrapper">
+                      <p class="review__text">Отличный сервис! Очень вкусный, сочный и яркий торт. Удобная коробка для транспортировки. Свежие фрукты и съедобный дизайн.</p>
+                      <p class="review__text">Недостатков нет, обязательно будем заказывать и приходить в Кексик</p>
+                    </div>
+                    <div class="review__image-wrapper">
+                      <picture>
+                        <source type="image/webp" srcset="img/content/review-1.webp, img/content/review-1@2x.webp 2x"><img src="img/content/review-1.jpg" srcset="img/content/review-1@2x.jpg 2x" width="162" height="162" alt="Кот">
+                      </picture>
+                    </div>
+                  </div>
+                </div>
+                <pre><code class="language-pug">+review({
+  starsData: {
+    activeStars: "5"
+  },
+  datetime: "2023-05-15",
+  author: "Кот",
+  texts: [
+    "Отличный сервис! Очень вкусный, сочный и яркий торт. Удобная коробка для транспортировки. Свежие фрукты и съедобный дизайн.",
+    "Недостатков нет, обязательно будем заказывать и приходить в Кексик"
+  ],
+  img: {
+    path: "content",
+    image: "review-1",
+    format: "jpg",
+    width: "162",
+    height: "162",
+    altText: "Кот"
+  }
+})
+</code></pre>
+              </div>
+            </section>
+            <section id="last-review">
+              <h2>Последнее ревью</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.last-review</p>
+                <section class="last-review">
+                  <div class="container">
+                    <h2 class="last-review__title">последний отзыв</h2>
+                    <div class="review">
+                      <div class="review__inner-wrapper review__inner-wrapper--border">
+                        <time class="review__date" datetime="2023-05-15">15.05</time><span class="review__author">Уважаемый(-ая) Кот</span>
+                        <div class="star-rating">
+                          <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                            <use xlink:href="#icon-star"></use>
+                          </svg>
+                          <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                            <use xlink:href="#icon-star"></use>
+                          </svg>
+                          <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                            <use xlink:href="#icon-star"></use>
+                          </svg>
+                          <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                            <use xlink:href="#icon-star"></use>
+                          </svg>
+                          <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                            <use xlink:href="#icon-star"></use>
+                          </svg>
+                        </div>
+                        <div class="review__text-wrapper">
+                          <p class="review__text">Отличный сервис! Очень вкусный, сочный и яркий торт. Удобная коробка для транспортировки. Свежие фрукты и съедобный дизайн.</p>
+                          <p class="review__text">Недостатков нет, обязательно будем заказывать и приходить в Кексик</p>
+                        </div>
+                        <div class="review__image-wrapper">
+                          <picture>
+                            <source type="image/webp" srcset="img/content/review-1.webp, img/content/review-1@2x.webp 2x"><img src="img/content/review-1.jpg" srcset="img/content/review-1@2x.jpg 2x" width="162" height="162" alt="Кот">
+                          </picture>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+last-review({
+  review: {
+    starsData: {
+      activeStars: "5"
+    },
+    datetime: "2023-05-15",
+    author: "Кот",
+    hasBorder: true,
+    texts: [
+      "Отличный сервис! Очень вкусный, сочный и яркий торт. Удобная коробка для транспортировки. Свежие фрукты и съедобный дизайн.",
+      "Недостатков нет, обязательно будем заказывать и приходить в Кексик"
+    ],
+    img: {
+      path: "content",
+      image: "review-1",
+      format: "jpg",
+      width: "162",
+      height: "162",
+      altText: "Кот"
+    }
+  }
+})
+
+</code></pre>
+              </div>
+            </section>
+            <section id="random-main">
+              <h2>Случайные товары</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.random-main</p>
+                <section class="random-main">
+                  <div class="container">
+                    <h2 class="random-main__title">кексы</h2>
+                    <ul class="random-main__list">
+                      <li class="random-main__item">
+                        <div class="card-item"><a class="card-item__img-link" href="#">
+                            <div class="card-item__img-wrapper">
+                              <picture>
+                                <source type="image/webp" srcset="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x"><img src="img/content/blueberry-cake.jpg" srcset="img/content/blueberry-cake@2x.jpg 2x" width="241" height="245" alt="Торт голубика.">
+                              </picture>
+                            </div><span class="card-item__label">Новинка</span></a>
+                          <button class="card-item__favorites card-item__favorites--active"><span class="visually-hidden">Добавить в избранное</span>
+                            <svg width="51" height="41" aria-hidden="true">
+                              <use xlink:href="#icon-like"></use>
+                            </svg>
+                          </button><a class="card-item__link" href="#">
+                            <h3 class="card-item__title"><span>Торт Голубика</span></h3></a>
+                        </div>
+                      </li>
+                      <li class="random-main__item">
+                        <div class="card-item"><a class="card-item__img-link" href="#">
+                            <div class="card-item__img-wrapper">
+                              <picture>
+                                <source type="image/webp" srcset="img/content/chocolate-pie.webp, img/content/chocolate-pie@2x.webp 2x"><img src="img/content/chocolate-pie.jpg" srcset="img/content/chocolate-pie@2x.jpg 2x" width="241" height="245" alt="Шоколадный кекс.">
+                              </picture>
+                            </div></a>
+                          <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                            <svg width="51" height="41" aria-hidden="true">
+                              <use xlink:href="#icon-like"></use>
+                            </svg>
+                          </button><a class="card-item__link" href="#">
+                            <h3 class="card-item__title"><span>Шоколадный Кекс</span></h3></a>
+                        </div>
+                      </li>
+                      <li class="random-main__item">
+                        <div class="card-item"><a class="card-item__img-link" href="#">
+                            <div class="card-item__img-wrapper">
+                              <picture>
+                                <source type="image/webp" srcset="img/content/lemon-pie.webp, img/content/lemon-pie@2x.webp 2x"><img src="img/content/lemon-pie.jpg" srcset="img/content/lemon-pie@2x.jpg 2x" width="241" height="245" alt="Лимонный чизкейк.">
+                              </picture>
+                            </div><span class="card-item__label">Новинка</span></a>
+                          <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                            <svg width="51" height="41" aria-hidden="true">
+                              <use xlink:href="#icon-like"></use>
+                            </svg>
+                          </button><a class="card-item__link" href="#">
+                            <h3 class="card-item__title"><span>Лимонный Чизкейк</span></h3></a>
+                        </div>
+                      </li>
+                      <li class="random-main__item"><a class="random-main__link" href="#">
+                          <div class="random-main__icon-wrapper">
+                            <div class="random-main__icon">
+                              <svg width="120" height="130" aria-hidden="true">
+                                <use xlink:href="#icon-keks"></use>
+                              </svg>
+                            </div>
+                          </div>
+                          <h3 class="random-main__subtitle">Все кексы</h3></a></li>
+                    </ul>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+random-main({
+  items: [
+    {
+      img: {
+        path: "content",
+        name: "blueberry-cake",
+        format: "jpg",
+        width: "241",
+        height: "245",
+        altText: "Торт голубика."
+      },
+      isNew: true,
+      isFavorite: true,
+      title: "Торт Голубика"
+    },
+    {
+      img: {
+        path: "content",
+        name: "chocolate-pie",
+        format: "jpg",
+        width: "241",
+        height: "245",
+        altText: "Шоколадный кекс."
+      },
+      title: "Шоколадный Кекс"
+    },
+    {
+      img: {
+        path: "content",
+        name: "lemon-pie",
+        format: "jpg",
+        width: "241",
+        height: "245",
+        altText: "Лимонный чизкейк."
+      },
+      isNew: true,
+      title: "Лимонный Чизкейк"
+    }
+  ]
+})
+
+</code></pre>
+              </div>
+            </section>
+            <section id="item-details">
+              <h2>Карточка товара</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.item-details</p>
+                <section class="item-details">
+                  <div class="container">
+                    <div class="item-details__wrapper">
+                      <div class="item-details__top-wrapper">
+                        <h2 class="item-details__name">Чизкейк Лимонный</h2><span class="item-details__price">4 100 р</span>
+                      </div>
+                      <div class="item-details__weight-wrapper"><span class="item-details__weight">1 300 грамм</span></div>
+                      <div class="item-details__bottom-wrapper">
+                        <div class="item-details__image-wrapper">
+                          <picture>
+                            <source type="image/webp" srcset="img/content/lemon-pie.webp, img/content/lemon-pie@2x.webp 2x"><img src="img/content/lemon-pie.jpg" srcset="img/content/lemon-pie@2x.jpg 2x" width="393" height="407" alt="Чизкейк лимонный">
+                          </picture><span class="item-details__label">Новинка</span>
+                        </div>
+                        <div class="item-details__review-wrapper">
+                          <div class="star-rating star-rating--big">
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg><span class="star-rating__count">26</span>
+                          </div>
+                          <div class="item-details__text-wrapper"><span class="item-details__text">Цитрусовый десерт с тонким сливочным вкусом, лёгкой свежестью и низким содержанием калорий сд</span>
+                            <button class="item-details__more"><span class="visually-hidden">Читать полностью</span>
+                              <svg width="27" height="17" aria-hidden="true">
+                                <use xlink:href="#icon-more"></use>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="item-details__button-wrapper">
+                            <button class="item-details__like-button">
+                              <svg width="45" height="37" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg><span class="visually-hidden">Понравилось</span>
+                            </button>
+                            <button class="btn btn--second" type="button">Оставить отзыв</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <pre><code class="language-pug">+item-details({
+  name: "Чизкейк Лимонный",
+  price: "4 100 р",
+  weight: "1 300 грамм",
+  text: "Цитрусовый десерт с тонким сливочным вкусом, лёгкой свежестью и низким содержанием калорий сд",
+  label: "Новинка",
+  starsData: {
+    isBig: true,
+    activeStars: "5",
+    count: "26"
+  },
+  img: {
+    path: "content",
+    image: "lemon-pie",
+    format: "jpg",
+    width: "393",
+    height: "407",
+    altText: "Чизкейк лимонный"
+  }
+})
+</code></pre>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.item-details \ .item-details--form-open</p>
+                <section class="item-details item-details--form-open">
+                  <div class="container">
+                    <div class="item-details__wrapper">
+                      <div class="item-details__top-wrapper">
+                        <h2 class="item-details__name">Чизкейк Лимонный</h2><span class="item-details__price">4 100 р</span>
+                      </div>
+                      <div class="item-details__weight-wrapper"><span class="item-details__weight">1 300 грамм</span></div>
+                      <div class="item-details__bottom-wrapper">
+                        <div class="item-details__image-wrapper">
+                          <picture>
+                            <source type="image/webp" srcset="img/content/lemon-pie.webp, img/content/lemon-pie@2x.webp 2x"><img src="img/content/lemon-pie.jpg" srcset="img/content/lemon-pie@2x.jpg 2x" width="393" height="407" alt="Чизкейк лимонный">
+                          </picture><span class="item-details__label">Новинка</span>
+                        </div>
+                        <div class="item-details__review-wrapper">
+                          <div class="star-rating star-rating--big">
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg>
+                            <svg class="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
+                              <use xlink:href="#icon-star"></use>
+                            </svg><span class="star-rating__count">26</span>
+                          </div>
+                          <div class="item-details__text-wrapper"><span class="item-details__text">Цитрусовый десерт с тонким сливочным вкусом, лёгкой свежестью и низким содержанием калорий сд</span>
+                            <button class="item-details__more"><span class="visually-hidden">Читать полностью</span>
+                              <svg width="27" height="17" aria-hidden="true">
+                                <use xlink:href="#icon-more"></use>
+                              </svg>
+                            </button>
+                          </div>
+                          <div class="item-details__button-wrapper">
+                            <button class="item-details__like-button">
+                              <svg width="45" height="37" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg><span class="visually-hidden">Понравилось</span>
+                            </button>
+                            <button class="btn btn--second" type="button">Отменить отзыв</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+item-details({
+  name: "Чизкейк Лимонный",
+  price: "4 100 р",
+  weight: "1 300 грамм",
+  text: "Цитрусовый десерт с тонким сливочным вкусом, лёгкой свежестью и низким содержанием калорий сд",
+  label: "Новинка",
+  starsData: {
+    isBig: true,
+    activeStars: "5",
+    count: "26"
+  },
+  img: {
+    path: "content",
+    image: "lemon-pie",
+    format: "jpg",
+    width: "393",
+    height: "407",
+    altText: "Чизкейк лимонный"
+  }
+})
+</code></pre>
+              </div>
+            </section>
+            <section id="loader">
+              <h2>Лоадер</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.loader</p>
+                <div class="loader"></div>
+                <pre><code class="language-pug">+loader()
+</code></pre>
+              </div>
+            </section>
+            <section id="buttons">
+              <h2>Кнопки</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn \ default \ button</p>
+                <button class="btn" type="button">Кнопка</button>
+                <pre><code class="language-pug">+btn({text: "Текст", href: "#"})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn \ .btn \ link</p>
+                <a class="btn" href="#" target="_blank" rel="nofollow noopener noreferrer" aria-label="Просто ссылка">Текст</a>
+                <pre><code class="language-pug">+btn({text: "Текст disabled", href: "#", isExternal: true})(aria-label="Просто ссылка")</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn \ .is-disabled \ link \ disabled</p>
+                <a class="btn is-disabled" href="#" target="_blank" rel="nofollow noopener noreferrer" aria-label="Просто disabled ссылка">Текст</a>
+                <pre><code class="language-pug">+btn({text: "Текст", href: "#", isExternal: true})(aria-label="Просто disabled ссылка").is-disabled</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn \ disabled \ button</p>
+                <button class="btn" type="button" disabled>Текст</button>
+                <pre><code class="language-pug">+btn({text: "Текст"})(disabled)</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn .btn--large \ default \ button</p>
+                <button class="btn btn--large" type="button">Кнопка большая</button>
+                <pre><code class="language-pug">+btn({text: "Кнопка"}).btn--large
+</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn .btn--second \ default \ button</p>
+                <button class="btn btn--second" type="button">Кнопка второй вариант</button>
+                <pre><code class="language-pug">+btn({text: "Кнопка третий вариант"}).btn--second
+</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.btn .btn--third \ default \ button</p>
+                <button class="btn btn--third" type="button">Кнопка</button>
+                <pre><code class="language-pug">+btn({text: "Кнопка"}).btn--third</code></pre>
+              </div>
+            </section>
+            <section id="back-link">
+              <h2>Элемент - ссылка назад</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.back-link
+                  <div class="back-link">
+                    <div class="container"><a class="back-link__link" href="#">Назад
+                        <svg class="back-link__icon" width="30" height="16" aria-hidden="true">
+                          <use xlink:href="#icon-arrow-left"></use>
+                        </svg></a></div>
+                  </div>
+                  <pre><code class="language-pug">+back-link()</code></pre>
+                </p>
+              </div>
+            </section>
+            <section id="forms">
+              <h2>Элементы форм</h2>
+              <div class="uikit__component">
+                <p class="uikit__text">Валидация на форме не предусмотрена, только состояния</p>
+                <p class="uikit__text uikit__text--class">.custom-input \ type="text"</p>
+                <div class="custom-input">
+                  <label><span class="custom-input__label">Введите ваше имя</span>
+                    <input type="text" name="user-name-1">
+                  </label>
+                </div>
+                <pre><code class="language-pug">+custom-input({
+  inputLabel: "Введите ваше имя",
+  inputName: "user-name-1",
+})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input \ type="text" \ disabled</p>
+                <div class="custom-input">
+                  <label><span class="custom-input__label">Введите ваше имя</span>
+                    <input type="text" name="user-name-1" disabled>
+                  </label>
+                </div>
+                <pre><code class="language-pug">+custom-input({
+  inputLabel: "Введите ваше имя",
+  inputName: "user-name-1",
+  stateDisabled: true,
+})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input \ type="email" \ required</p>
+                <div class="custom-input">
+                  <label><span class="custom-input__label">Введите вашу почту</span>
+                    <input type="email" name="user-mail" required>
+                  </label>
+                </div>
+                <pre><code class="language-pug">+custom-input({
+  inputType: "email",
+  inputLabel: "Введите вашу почту",
+  inputName: "user-mail",
+  isRequired: true,
+})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input \ type="password"</p>
+                <div class="custom-input">
+                  <label><span class="custom-input__label">Введите ваш пароль</span>
+                    <input type="password" name="user-password" placeholder="Пароль">
+                  </label>
+                </div>
+                <pre><code class="language-pug">+custom-input({
+  inputType: "password",
+  inputLabel: "Введите ваш пароль",
+  inputName: "user-password",
+  inputPlaceholder: "Пароль",
+})</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input \ type="text" \ сообщение
+                  <div class="custom-input">
+                    <label><span class="custom-input__label">Введите ваше имя</span>
+                      <input type="text" name="user-name-1" value="Отличный десерт. Очень свежи">
+                    </label><span class="custom-input__message">осталось 470 символов</span>
+                  </div>
+                  <pre><code class="language-pug">+custom-input({
+  inputLabel: "Введите ваше имя",
+  inputName: "user-name-1",
+  inputValue: "Отличный десерт. Очень свежи",
+  inputMessage: "осталось 470 символов",
+})</code></pre>
+                </p>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input.is-invalid \ type="text" \ сообщение - ошибка
+                  <div class="custom-input is-invalid">
+                    <label><span class="custom-input__label">Введите ваше имя</span>
+                      <input type="text" name="user-name-1">
+                    </label><span class="custom-input__message">заполните поле</span>
+                  </div>
+                  <pre><code class="language-pug">+custom-input({
+  inputLabel: "Введите ваше имя",
+  inputName: "user-name-1",
+  inputValue: "Отличный десерт. Очень свежи"
+}).is-invalid</code></pre>
+                </p>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input \ type="email" \ успешно провалидировано</p>
+                <div class="custom-input is-valid">
+                  <label><span class="custom-input__label">Введите вашу почту</span>
+                    <input type="email" name="user-mail" value="keks@academy.ru">
+                  </label>
+                </div>
+                <pre><code class="language-pug">+custom-input({
+  inputType: "email",
+  inputLabel: "Введите вашу почту",
+  inputName: "user-mail",
+  inputValue: "keks@academy.ru",
+}).is-valid
+</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input \ type="file" accept="image/jpeg" \ default
+                  <div class="custom-input">
+                    <label><span class="custom-input__label">Введите ваше имя</span>
+                      <input type="file" name="user-name-1" data-text="Аватар" accept="image/jpeg">
+                    </label>
+                  </div>
+                  <pre><code class="language-pug">+custom-input({
+  inputLabel: "Введите ваше имя",
+  inputName: "user-name-1",
+  inputType: "file",
+  inputPlaceholder: "Аватар",
+  inputAccept: "image/jpeg"
+})</code></pre>
+                </p>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.custom-input.file-selected \ type="file" accept="image/jpeg" \ файл выбран
+                  <div class="custom-input file-selected">
+                    <label><span class="custom-input__label">Введите ваше имя</span>
+                      <input type="file" name="user-name-1" data-text="Аватар" accept="image/jpeg">
+                    </label>
+                  </div>
+                  <pre><code class="language-pug">+custom-input({
+  inputLabel: "Введите ваше имя",
+  inputName: "user-name-1",
+  inputType: "file",
+  inputPlaceholder: "Аватар",
+  inputAccept: "image/jpeg"
+}).file-selected
+</code></pre>
+                </p>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text">Элемент фильтра первого порядка — основы</p>
+                <p class="uikit__text uikit__text--class" style="width: 300px">.btn \ .btn--filter-first-level \ default
+                  <button class="btn btn--filter-first-level" type="button">Чизкейк</button>
+                </p>
+                <pre><code class="language-pug">+btn({text:"Чизкейк"}).btn--filter-first-level</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text">Элемент фильтра первого порядка — основы (active)</p>
+                <p class="uikit__text uikit__text--class" style="width: 300px">.btn \ .btn--filter-first-level.is-active \ active
+                  <button class="btn btn--filter-first-level is-active" type="button">Чизкейк</button>
+                </p>
+                <pre><code class="language-pug">+btn({text:"Чизкейк"}).btn--filter-first-level.is-active</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text">Элемент фильтра второго порядка — начинки и украшения</p>
+                <p class="uikit__text uikit__text--class">+custom-toggle \ .custom-toggle--checkbox</p>
+                <div class="custom-toggle custom-toggle--checkbox">
+                  <input type="checkbox" value="user-agreement-2" id="user-agreement-id-2" name="user-agreement">
+                  <label class="custom-toggle__label" for="user-agreement-id-2">Шоколадный</label>
+                </div>
+                <pre><code class="language-pug">+custom-toggle({
+  inputLabel: "Шоколадный",
+  inputName: "user-agreement",
+  inputValue: "user-agreement-2",
+  inputId: "user-agreement-id-2",
+  inputChecked: false
+}).custom-toggle--checkbox</code></pre>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">+input-star-rating</p>
+                <div class="input-star-rating">
+                  <input type="radio" name="input-star-rating" id="input-star-rating-5" value="5" aria-label="5 звезд">
+                  <label for="input-star-rating-5">
+                    <svg width="40" height="40" aria-hidden="true">
+                      <use xlink:href="#icon-star"></use>
+                    </svg>
+                  </label>
+                  <input type="radio" name="input-star-rating" id="input-star-rating-4" value="4" aria-label="4 звезды">
+                  <label for="input-star-rating-4">
+                    <svg width="40" height="40" aria-hidden="true">
+                      <use xlink:href="#icon-star"></use>
+                    </svg>
+                  </label>
+                  <input type="radio" name="input-star-rating" id="input-star-rating-3" value="3" aria-label="3 звезды">
+                  <label for="input-star-rating-3">
+                    <svg width="40" height="40" aria-hidden="true">
+                      <use xlink:href="#icon-star"></use>
+                    </svg>
+                  </label>
+                  <input type="radio" name="input-star-rating" id="input-star-rating-2" value="2" aria-label="2 звезды">
+                  <label for="input-star-rating-2">
+                    <svg width="40" height="40" aria-hidden="true">
+                      <use xlink:href="#icon-star"></use>
+                    </svg>
+                  </label>
+                  <input type="radio" name="input-star-rating" id="input-star-rating-1" value="1" aria-label="1 звезда">
+                  <label for="input-star-rating-1">
+                    <svg width="40" height="40" aria-hidden="true">
+                      <use xlink:href="#icon-star"></use>
+                    </svg>
+                  </label>
+                </div>
+                <pre><code class="language-pug">+input-star-rating()
+</code></pre>
+              </div>
+            </section>
+            <section id="header">
+              <h2>Header</h2>
+              <div class="uikit__component" style="align-items: normal; padding: 20px 0;">
+                <p class="uikit__text">header, пользователь неавторизован - headerMods = "", favouriteCount = ""
+                  <p class="uikit__text uikit__text--class">.header</p>
+                  <header class="header">
+                    <div class="container">
+                      <div class="header__inner"><a class="header__logo" href="index.html" aria-label="Переход на главную"><img src="img/svg/logo.svg" width="170" height="69" alt="Кондитерская кекс"></a>
+                        <div class="header__buttons">
+                          <div class="header__btn">
+                            <a class="btn btn--third header__link header__link--reg" href="register-page.html">Регистрация</a>
+                          </div>
+                          <div class="header__btn">
+                            <a class="btn" href="login-page.html">Войти</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </header>
+                </p>
+              </div>
+              <div class="uikit__component" style="align-items: normal; padding: 20px 0;">
+                <p class="uikit__text">header, пользователь авторизован ,без избранных товаров - headerMods = "header--authorized", favouriteCount = ""</p>
+                <p class="uikit__text uikit__text--class">.header / .header--authorized</p>
+                <header class="header header--authorized">
+                  <div class="container">
+                    <div class="header__inner"><a class="header__logo" href="index.html" aria-label="Переход на главную"><img src="img/svg/logo.svg" width="170" height="69" alt="Кондитерская кекс"></a>
+                      <div class="header__user-info-wrap">
+                        <div class="header__user-info">
+                          <div class="header__user-avatar">
+                            <picture>
+                              <source type="image/webp" srcset="img/content/user-avatar.webp, img/content/user-avatar@2x.webp 2x"><img src="img/content/user-avatar.jpg" srcset="img/content/user-avatar@2x.jpg 2x" width="62" height="62" alt="Аватар пользователя.">
+                            </picture>
+                          </div>
+                          <p class="header__user-mail">keks@academy.ru</p>
+                        </div>
+                      </div>
+                      <div class="header__buttons"><a class="header__favourite" href="#"><span class="header__favourite-icon">
+                            <svg width="33" height="29" aria-hidden="true">
+                              <use xlink:href="#icon-favourite"></use>
+                            </svg></span><span class="visually-hidden">Избранное</span></a>
+                        <div class="header__buttons-authorized">
+                          <div class="header__btn">
+                            <a class="btn btn--second" href="#">Выйти</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+              </div>
+              <div class="uikit__component" style="align-items: normal; padding: 20px 0;">
+                <p class="uikit__text">header, пользователь авторизован ,избранное -2 товара - headerMods = "header--authorized", favouriteCount = "2"</p>
+                <p class="uikit__text uikit__text--class">.header / .header--authorized</p>
+                <header class="header header--authorized">
+                  <div class="container">
+                    <div class="header__inner"><a class="header__logo" href="index.html" aria-label="Переход на главную"><img src="img/svg/logo.svg" width="170" height="69" alt="Кондитерская кекс"></a>
+                      <div class="header__user-info-wrap">
+                        <div class="header__user-info">
+                          <div class="header__user-avatar">
+                            <picture>
+                              <source type="image/webp" srcset="img/content/user-avatar.webp, img/content/user-avatar@2x.webp 2x"><img src="img/content/user-avatar.jpg" srcset="img/content/user-avatar@2x.jpg 2x" width="62" height="62" alt="Аватар пользователя.">
+                            </picture>
+                          </div>
+                          <p class="header__user-mail">keks@academy.ru</p>
+                        </div>
+                      </div>
+                      <div class="header__buttons"><a class="header__favourite" href="#"><span class="header__favourite-icon">
+                            <svg width="33" height="29" aria-hidden="true">
+                              <use xlink:href="#icon-favourite"></use>
+                            </svg></span><span class="header__favourite-number">2</span><span class="visually-hidden">Избранное</span></a>
+                        <div class="header__buttons-authorized">
+                          <div class="header__btn">
+                            <a class="btn btn--second" href="#">Выйти</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+              </div>
+            </section>
+            <section id="footer">
+              <h2>Footer</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.footer</p>
+                <footer class="footer">
+                  <div class="container">
+                    <div class="footer__wrapper">
+                      <p class="footer__feedback">Напишите нам:<a class="footer__feedback-email" href="mailto:pecarnya@academy.pro">pecarnya@academy.pro</a></p>
+                      <ul class="footer__list">
+                        <li class="footer__item"><a class="footer__social-link" href="#" target="_blank" rel="nofollow noopener"><span class="visually-hidden">Вконтакте</span>
+                            <svg width="50" height="50" aria-hidden="true">
+                              <use xlink:href="#icon-vk"></use>
+                            </svg></a></li>
+                        <li class="footer__item"><a class="footer__social-link" href="#" target="_blank" rel="nofollow noopener"><span class="visually-hidden">Телеграм</span>
+                            <svg width="50" height="50" aria-hidden="true">
+                              <use xlink:href="#icon-telegram"></use>
+                            </svg></a></li>
+                      </ul><a class="footer__devolopers" href="https://htmlacademy.ru/">Разработано .html Academy</a>
+                    </div>
+                  </div>
+                </footer>
+                <pre><code class="language-pug">+footer()
+</code></pre>
+              </div>
+            </section>
+            <section id="hero">
+              <h2>Hero</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.hero</p>
+                <div class="hero">
+                  <div class="container">
+                    <div class="hero__img-wrapper"><img class="hero__img" src="img/svg/hero-keks.svg" width="727" height="569" alt="Картика кота."></div>
+                    <div class="hero__wrapper">
+                      <p class="hero__subtitle">Твоя пушистая кондитерская</p>
+                      <p class="hero__title">кекс</p>
+                      <div class="hero__button-wrapper">
+                        <a class="btn" href="catalog-page.html">Скорее смотреть</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <pre><code class="language-pug">+hero({subtitle: "Твоя пушистая кондитерская", title: "кекс"})
+</code></pre>
+              </div>
+            </section>
+            <section id="catalog">
+              <h2>Catalog</h2>
+              <p class="uikit__text">Блок каталога с шестью карточками товаров и кнопкой "Показать еще"</p>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.catalog</p>
+                <section class="catalog">
+                  <div class="container">
+                    <h2 class="visually-hidden">Каталог</h2>
+                    <div class="catalog__wrapper">
+                      <ul class="catalog__list">
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x"><img src="img/content/blueberry-cake.jpg" srcset="img/content/blueberry-cake@2x.jpg 2x" width="326" height="332" alt="Торт голубика.">
+                                </picture>
+                              </div><span class="card-item__label">Новинка</span></a>
+                            <button class="card-item__favorites card-item__favorites--active"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">9 300 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Торт Голубика</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/blueberry-muffin.webp, img/content/blueberry-muffin@2x.webp 2x"><img src="img/content/blueberry-muffin.jpg" srcset="img/content/blueberry-muffin@2x.jpg 2x" width="326" height="332" alt="Тарт голубика.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">1 100 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Тарт Голубика</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/lemon-cheesecake.webp, img/content/lemon-cheesecake@2x.webp 2x"><img src="img/content/lemon-cheesecake.jpg" srcset="img/content/lemon-cheesecake@2x.jpg 2x" width="326" height="332" alt="Чизкейк лимонный.">
+                                </picture>
+                              </div><span class="card-item__label">Новинка</span></a>
+                            <button class="card-item__favorites card-item__favorites--active"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">4 100 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Чизкейк Лимонный</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/cupcake-chocolate.webp, img/content/cupcake-chocolate@2x.webp 2x"><img src="img/content/cupcake-chocolate.jpg" srcset="img/content/cupcake-chocolate@2x.jpg 2x" width="326" height="332" alt="Кекс шоколад.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">700 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Кекс Шоколад</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/cheesecake-vegetarian.webp, img/content/cheesecake-vegetarian@2x.webp 2x"><img src="img/content/cheesecake-vegetarian.jpg" srcset="img/content/cheesecake-vegetarian@2x.jpg 2x" width="326" height="332" alt="Чизкейк вегетарианский.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">4 700 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Чизкейк Вегетарианский</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/blueberry-muffin.webp, img/content/blueberry-muffin@2x.webp 2x"><img src="img/content/blueberry-muffin.jpg" srcset="img/content/blueberry-muffin@2x.jpg 2x" width="326" height="332" alt="Торт шоколадный.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">3 700 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Торт Шоколадный</span></h3></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="catalog__button-wrapper">
+                        <button class="btn btn--second" type="button">Показать еще</button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+catalog({
+   itemsData: [
+     {
+       img: {
+         path: "content",
+         name: "blueberry-cake",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Торт голубика."
+       },
+       isBig: true,
+       isNew: true,
+       price: "9 300",
+       isFavorite: true,
+       title: "Торт Голубика"
+     },
+     {
+       img: {
+         path: "content",
+         name: "blueberry-muffin",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Тарт голубика."
+       },
+       isBig: true,
+       price: "1 100",
+       title: "Тарт Голубика"
+     },
+     {
+       img: {
+         path: "content",
+         name: "lemon-cheesecake",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Чизкейк лимонный."
+       },
+       isBig: true,
+       isFavorite: true,
+       isNew: true,
+       price: "4 100",
+       title: "Чизкейк Лимонный"
+     },
+     {
+       img: {
+         path: "content",
+         name: "cupcake-chocolate",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Кекс шоколад."
+       },
+       isBig: true,
+       price: "700",
+       title: "Кекс Шоколад"
+     },
+     {
+       img: {
+         path: "content",
+         name: "cheesecake-vegetarian",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Чизкейк вегетарианский."
+       },
+       isBig: true,
+       price: "4 700",
+       title: "Чизкейк Вегетарианский"
+     },
+     {
+       img: {
+         path: "content",
+         name: "blueberry-muffin",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Торт шоколадный."
+       },
+       isBig: true,
+       price: "3 700",
+       title: "Торт Шоколадный"
+     }
+   ]
+ })</code></pre>
+              </div>
+              <p class="uikit__text">Блок каталога с достаточным количеством карточке товара для одной страницы и кнопкой "В начало"</p>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.catalog</p>
+                <section class="catalog">
+                  <div class="container">
+                    <h2 class="visually-hidden">Каталог</h2>
+                    <div class="catalog__wrapper">
+                      <ul class="catalog__list">
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/blueberry-cake.webp, img/content/blueberry-cake@2x.webp 2x"><img src="img/content/blueberry-cake.jpg" srcset="img/content/blueberry-cake@2x.jpg 2x" width="326" height="332" alt="Торт голубика.">
+                                </picture>
+                              </div><span class="card-item__label">Новинка</span></a>
+                            <button class="card-item__favorites card-item__favorites--active"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">9 300 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Торт Голубика</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/blueberry-muffin.webp, img/content/blueberry-muffin@2x.webp 2x"><img src="img/content/blueberry-muffin.jpg" srcset="img/content/blueberry-muffin@2x.jpg 2x" width="326" height="332" alt="Тарт голубика.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">1 100 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Тарт Голубика</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/lemon-cheesecake.webp, img/content/lemon-cheesecake@2x.webp 2x"><img src="img/content/lemon-cheesecake.jpg" srcset="img/content/lemon-cheesecake@2x.jpg 2x" width="326" height="332" alt="Чизкейк лимонный.">
+                                </picture>
+                              </div><span class="card-item__label">Новинка</span></a>
+                            <button class="card-item__favorites card-item__favorites--active"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">4 100 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Чизкейк Лимонный</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/cupcake-chocolate.webp, img/content/cupcake-chocolate@2x.webp 2x"><img src="img/content/cupcake-chocolate.jpg" srcset="img/content/cupcake-chocolate@2x.jpg 2x" width="326" height="332" alt="Кекс шоколад.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">700 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Кекс Шоколад</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/cheesecake-vegetarian.webp, img/content/cheesecake-vegetarian@2x.webp 2x"><img src="img/content/cheesecake-vegetarian.jpg" srcset="img/content/cheesecake-vegetarian@2x.jpg 2x" width="326" height="332" alt="Чизкейк вегетарианский.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">4 700 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Чизкейк Вегетарианский</span></h3></a>
+                          </div>
+                        </li>
+                        <li class="catalog__item">
+                          <div class="card-item card-item--big"><a class="card-item__img-link" href="#">
+                              <div class="card-item__img-wrapper">
+                                <picture>
+                                  <source type="image/webp" srcset="img/content/blueberry-muffin.webp, img/content/blueberry-muffin@2x.webp 2x"><img src="img/content/blueberry-muffin.jpg" srcset="img/content/blueberry-muffin@2x.jpg 2x" width="326" height="332" alt="Торт шоколадный.">
+                                </picture>
+                              </div></a>
+                            <button class="card-item__favorites"><span class="visually-hidden">Добавить в избранное</span>
+                              <svg width="51" height="41" aria-hidden="true">
+                                <use xlink:href="#icon-like"></use>
+                              </svg>
+                            </button><span class="card-item__price">3 700 p</span><a class="card-item__link" href="#">
+                              <h3 class="card-item__title"><span>Торт Шоколадный</span></h3></a>
+                          </div>
+                        </li>
+                      </ul>
+                      <div class="catalog__button-wrapper">
+                        <button class="btn btn--second" type="button">В начало</button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+catalog({
+   itemsData: [
+     {
+       img: {
+         path: "content",
+         name: "blueberry-cake",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Торт голубика."
+       },
+       isBig: true,
+       isNew: true,
+       price: "9 300",
+       isFavorite: true,
+       title: "Торт Голубика"
+     },
+     {
+       img: {
+         path: "content",
+         name: "blueberry-muffin",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Тарт голубика."
+       },
+       isBig: true,
+       price: "1 100",
+       title: "Тарт Голубика"
+     },
+     {
+       img: {
+         path: "content",
+         name: "lemon-cheesecake",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Чизкейк лимонный."
+       },
+       isBig: true,
+       isFavorite: true,
+       isNew: true,
+       price: "4 100",
+       title: "Чизкейк Лимонный"
+     },
+     {
+       img: {
+         path: "content",
+         name: "cupcake-chocolate",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Кекс шоколад."
+       },
+       isBig: true,
+       price: "700",
+       title: "Кекс Шоколад"
+     },
+     {
+       img: {
+         path: "content",
+         name: "cheesecake-vegetarian",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Чизкейк вегетарианский."
+       },
+       isBig: true,
+       price: "4 700",
+       title: "Чизкейк Вегетарианский"
+     },
+     {
+       img: {
+         path: "content",
+         name: "blueberry-muffin",
+         format: "jpg",
+         width: "326",
+         height: "332",
+         altText: "Торт шоколадный."
+       },
+       isBig: true,
+       price: "3 700",
+       title: "Торт Шоколадный"
+     }
+   ],
+   textButton: "В начало"
+ })
+</code></pre>
+              </div>
+            </section>
+            <section id="filter">
+              <h2>Фильтр</h2>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.catalog-filter / отрисовывается фильтр первого порядка — основы (выбор сделан) и фильтр второго порядка — начинки и украшения (выбор не сделан)
+                  <div class="catalog-filter">
+                    <div class="container">
+                      <div class="catalog-filter__first-level">
+                        <h3 class="catalog-filter__title catalog-filter__title--first-level">основы</h3>
+                        <ul class="catalog-filter__list catalog-filter__list--first-level">
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Бисквит</button>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Десерт</button>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn is-active btn--filter-first-level" type="button">Чизкейк</button>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Песочное</button>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="catalog-filter__second-level">
+                        <h3 class="catalog-filter__title catalog-filter__title--second-level">начинки</h3>
+                        <ul class="catalog-filter__list catalog-filter__list--second-level">
+                          <li class="catalog-filter__item catalog-filter__item--second-level">
+                            <div class="custom-toggle custom-toggle--checkbox">
+                              <input type="checkbox" value="chocolate" id="catalog-second-level-id-1" name="catalog-second-level">
+                              <label class="custom-toggle__label" for="catalog-second-level-id-1">Шоколадный</label>
+                            </div>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--second-level">
+                            <div class="custom-toggle custom-toggle--checkbox">
+                              <input type="checkbox" value="vegetarian" id="catalog-second-level-id-2" name="catalog-second-level">
+                              <label class="custom-toggle__label" for="catalog-second-level-id-2">Вегетарианский</label>
+                            </div>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--second-level">
+                            <div class="custom-toggle custom-toggle--checkbox">
+                              <input type="checkbox" value="new-york" id="catalog-second-level-id-3" name="catalog-second-level">
+                              <label class="custom-toggle__label" for="catalog-second-level-id-3">Нью-Йорк</label>
+                            </div>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--second-level">
+                            <div class="custom-toggle custom-toggle--checkbox">
+                              <input type="checkbox" value="citric" id="catalog-second-level-id-4" name="catalog-second-level">
+                              <label class="custom-toggle__label" for="catalog-second-level-id-4">Лимонный</label>
+                            </div>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--second-level">
+                            <div class="custom-toggle custom-toggle--checkbox">
+                              <input type="checkbox" value="vanilla" id="catalog-second-level-id-5" name="catalog-second-level">
+                              <label class="custom-toggle__label" for="catalog-second-level-id-5">Ваниль</label>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <pre><code class="language-pug">+catalog-filter({
+  firstLevelTitle: "основы",
+  secondLevelTitle: "начинки",
+  firstLevelInputs: [
+   {
+     text: "Бисквит",
+     isActive: false
+   },
+   {
+     text: "Десерт",
+     isActive: false
+   },
+   {
+     text: "Чизкейк",
+     isActive: true
+   },
+   {
+     text: "Песочное",
+     isActive: false
+   }
+  ],
+  secondLevelInputs: [
+    {
+      inputType: "checkbox",
+      inputLabel: "Шоколадный",
+      inputName: "catalog-second-level",
+      inputValue: "chocolate",
+      inputId: "catalog-second-level-id-1",
+      inputChecked: false
+    },
+    {
+      inputType: "checkbox",
+      inputLabel: "Вегетарианский",
+      inputName: "catalog-second-level",
+      inputValue: "vegetarian",
+      inputId: "catalog-second-level-id-2",
+      inputChecked: false
+    },
+    {
+      inputType: "checkbox",
+      inputLabel: "Нью-Йорк",
+      inputName: "catalog-second-level",
+      inputValue: "new-york",
+      inputId: "catalog-second-level-id-3",
+      inputChecked: false
+    },
+    {
+      inputType: "checkbox",
+      inputLabel: "Лимонный",
+      inputName: "catalog-second-level",
+      inputValue: "citric",
+      inputId: "catalog-second-level-id-4",
+      inputChecked: false
+    },
+    {
+      inputType: "checkbox",
+      inputLabel: "Ваниль",
+      inputName: "catalog-second-level",
+      inputValue: "vanilla",
+      inputId: "catalog-second-level-id-5",
+      inputChecked: false
+    }
+  ],
+})</code></pre>
+                </p>
+              </div>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.catalog-filter / отрисовыается фильтр первого порядка — основы / выбор не сделан
+                  <div class="catalog-filter">
+                    <div class="container">
+                      <div class="catalog-filter__first-level">
+                        <h3 class="catalog-filter__title catalog-filter__title--first-level">основы</h3>
+                        <ul class="catalog-filter__list catalog-filter__list--first-level">
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Бисквит</button>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Десерт</button>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Чизкейк</button>
+                          </li>
+                          <li class="catalog-filter__item catalog-filter__item--first-level">
+                            <button class="btn btn--filter-first-level" type="button">Песочное</button>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <pre><code class="language-pug">+catalog-filter({
+  firstLevelTitle: "основы",
+  secondLevelTitle: "",
+  firstLevelInputs: [
+   {
+     text: "Бисквит",
+     isActive: false
+   },
+   {
+     text: "Десерт",
+     isActive: false
+   },
+   {
+     text: "Чизкейк",
+     isActive: false
+   },
+   {
+     text: "Песочное",
+     isActive: false
+   }
+  ],
+  secondLevelInputs: [],
+})</code></pre>
+                </p>
+              </div>
+            </section>
+            <section id="sort">
+              <h2>Сортировка</h2>
+              <div class="uikit__component" style="width:1280px; padding: 0;">
+                <p class="uikit__text uikit__text--class">.filter-sort . Любой</p>
+                <div class="filter-sort">
+                  <div class="container">
+                    <div class="filter-sort__inner">
+                      <div class="filter-sort__filter-wrap">
+                        <h3 class="filter-sort__filter-title">Показать с рейтингом</h3>
+                        <div class="filter-sort__filter">
+                          <button class="filter-sort__filter-btn" type="button">Любой
+                            <svg class="filter-sort__filter-icon" width="14" height="15" aria-hidden="true">
+                              <use xlink:href="#icon-polygon"></use>
+                            </svg>
+                          </button>
+                          <ul class="filter-sort__filter-list">
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-1" name="review-sort" checked>
+                                <label class="custom-toggle__label" for="review-sort-1">Любой</label>
+                              </div>
+                            </li>
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-2" name="review-sort">
+                                <label class="custom-toggle__label" for="review-sort-2">Высокий</label>
+                              </div>
+                            </li>
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-3" name="review-sort">
+                                <label class="custom-toggle__label" for="review-sort-3">Низкий</label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="filter-sort__sort-wrap">
+                        <h3 class="filter-sort__sort-title">Сортировать по дате</h3>
+                        <div class="filter-sort__sort-btns-wrap">
+                          <button class="filter-sort__sort-btn filter-sort__sort-btn--inc filter-sort__sort-btn--active" type="button" aria-label="сортировка по возрастанию">
+                            <svg class="filter-sort__sort-icon" width="19" height="13" aria-hidden="true">
+                              <use xlink:href="#icon-chevron-top"></use>
+                            </svg>
+                          </button>
+                          <button class="filter-sort__sort-btn filter-sort__sort-btn--desc" type="button" aria-label="сортировка по убыванию">
+                            <svg class="filter-sort__sort-icon" width="19" height="13" aria-hidden="true">
+                              <use xlink:href="#icon-chevron-top"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="uikit__component" style="width:1280px; padding: 0;">
+                <p class="uikit__text uikit__text--class">.filter-sort / высокий</p>
+                <div class="filter-sort">
+                  <div class="container">
+                    <div class="filter-sort__inner">
+                      <div class="filter-sort__filter-wrap">
+                        <h3 class="filter-sort__filter-title">Показать с рейтингом</h3>
+                        <div class="filter-sort__filter">
+                          <button class="filter-sort__filter-btn" type="button">Высокий
+                            <svg class="filter-sort__filter-icon" width="14" height="15" aria-hidden="true">
+                              <use xlink:href="#icon-polygon"></use>
+                            </svg>
+                          </button>
+                          <ul class="filter-sort__filter-list">
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-1" name="review-sort">
+                                <label class="custom-toggle__label" for="review-sort-1">Любой</label>
+                              </div>
+                            </li>
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-2" name="review-sort" checked>
+                                <label class="custom-toggle__label" for="review-sort-2">Высокий</label>
+                              </div>
+                            </li>
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-3" name="review-sort">
+                                <label class="custom-toggle__label" for="review-sort-3">Низкий</label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="filter-sort__sort-wrap">
+                        <h3 class="filter-sort__sort-title">Сортировать по дате</h3>
+                        <div class="filter-sort__sort-btns-wrap">
+                          <button class="filter-sort__sort-btn filter-sort__sort-btn--inc filter-sort__sort-btn--active" type="button" aria-label="сортировка по возрастанию">
+                            <svg class="filter-sort__sort-icon" width="19" height="13" aria-hidden="true">
+                              <use xlink:href="#icon-chevron-top"></use>
+                            </svg>
+                          </button>
+                          <button class="filter-sort__sort-btn filter-sort__sort-btn--desc" type="button" aria-label="сортировка по убыванию">
+                            <svg class="filter-sort__sort-icon" width="19" height="13" aria-hidden="true">
+                              <use xlink:href="#icon-chevron-top"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="uikit__component" style="width:1280px; padding: 0;">
+                <p class="uikit__text uikit__text--class">.filter-sort / Низкий</p>
+                <div class="filter-sort">
+                  <div class="container">
+                    <div class="filter-sort__inner">
+                      <div class="filter-sort__filter-wrap">
+                        <h3 class="filter-sort__filter-title">Показать с рейтингом</h3>
+                        <div class="filter-sort__filter">
+                          <button class="filter-sort__filter-btn" type="button">Низкий
+                            <svg class="filter-sort__filter-icon" width="14" height="15" aria-hidden="true">
+                              <use xlink:href="#icon-polygon"></use>
+                            </svg>
+                          </button>
+                          <ul class="filter-sort__filter-list">
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-1" name="review-sort">
+                                <label class="custom-toggle__label" for="review-sort-1">Любой</label>
+                              </div>
+                            </li>
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-2" name="review-sort">
+                                <label class="custom-toggle__label" for="review-sort-2">Высокий</label>
+                              </div>
+                            </li>
+                            <li class="filter-sort__filter-item">
+                              <div class="custom-toggle custom-toggle--sorting">
+                                <input type="radio" id="review-sort-3" name="review-sort" checked>
+                                <label class="custom-toggle__label" for="review-sort-3">Низкий</label>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="filter-sort__sort-wrap">
+                        <h3 class="filter-sort__sort-title">Сортировать по дате</h3>
+                        <div class="filter-sort__sort-btns-wrap">
+                          <button class="filter-sort__sort-btn filter-sort__sort-btn--inc filter-sort__sort-btn--active" type="button" aria-label="сортировка по возрастанию">
+                            <svg class="filter-sort__sort-icon" width="19" height="13" aria-hidden="true">
+                              <use xlink:href="#icon-chevron-top"></use>
+                            </svg>
+                          </button>
+                          <button class="filter-sort__sort-btn filter-sort__sort-btn--desc" type="button" aria-label="сортировка по убыванию">
+                            <svg class="filter-sort__sort-icon" width="19" height="13" aria-hidden="true">
+                              <use xlink:href="#icon-chevron-top"></use>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section id="filter-not-found"></section>
+            <h2>1+1 не найдено</h2>
+            <p class="uikit__text">Не найдено</p>
+            <div class="uikit__component">
+              <p class="uikit__text uikit__text--class">.not-found</p>
+              <section class="not-found">
+                <h2 class="visually-hidden">Каталог выбранные товары</h2>
+                <div class="container">
+                  <div class="not-found__content-wrapper">
+                    <div class="not-found__wrapper">
+                      <svg width="684" height="423" aria-hidden="true">
+                        <use xlink:href="#not-found-cloud"></use>
+                      </svg>
+                      <div class="not-found__content">
+                        <p class="not-found__text">Все выбранные кексы съели.</p>
+                        <p class="not-found__text">Мы уже печём новые.</p>
+                      </div>
+                    </div>
+                    <div class="not-found__img-wrapper"><img src="img/svg/not-found-keks.svg" width="719" height="607" alt="Картика кота."></div>
+                  </div>
+                </div>
+              </section>
+              <pre><code class="language-pug">+not-found({
+  warnings: [
+    {
+      text: "Все выбранные кексы съели.",
+    },
+    {
+      text: "Мы уже печём новые."
+    }
+  ]
+})
+</code></pre>
+            </div>
+            <section id="map">
+              <h2>Карта</h2>
+              <p class="uikit__text">Карта</p>
+              <div class="uikit__component" style="align-items: normal; padding: 20px 0;">
+                <p class="uikit__text uikit__text--class">.map</p>
+                <section class="map">
+                  <div class="container">
+                    <h2 class="map__title">адреса</h2>
+                    <div class="map__wrapper"></div>
+                    <ul class="map__addresses">
+                      <li class="map__address">
+                        <div class="custom-toggle custom-toggle--radio custom-toggle--address">
+                          <input type="radio" value="user-agreement-10" id="user-agreement-id-10" name="user-agreement">
+                          <label class="custom-toggle__label" for="user-agreement-id-10">Кондитерская 1</label>
+                          <address class="custom-toggle__address">Морской пр. 2А
+                            <svg class="custom-toggle__icon" width="26" height="24" aria-hidden="true">
+                              <use xlink:href="#icon-keks-footprint"></use>
+                            </svg>
+                          </address>
+                        </div>
+                      </li>
+                      <li class="map__address">
+                        <div class="custom-toggle custom-toggle--radio custom-toggle--address">
+                          <input type="radio" value="user-agreement-12" id="user-agreement-id-12" name="user-agreement" checked>
+                          <label class="custom-toggle__label" for="user-agreement-id-12">Кондитерская 2</label>
+                          <address class="custom-toggle__address">Морской пр. 2А
+                            <svg class="custom-toggle__icon" width="26" height="24" aria-hidden="true">
+                              <use xlink:href="#icon-keks-footprint"></use>
+                            </svg>
+                          </address>
+                        </div>
+                      </li>
+                      <li class="map__address">
+                        <div class="custom-toggle custom-toggle--radio custom-toggle--address">
+                          <input type="radio" value="user-agreement-13" id="user-agreement-id-13" name="user-agreement">
+                          <label class="custom-toggle__label" for="user-agreement-id-13">Производство</label>
+                          <address class="custom-toggle__address">Морской пр. 2А
+                            <svg class="custom-toggle__icon" width="26" height="24" aria-hidden="true">
+                              <use xlink:href="#icon-keks-footprint"></use>
+                            </svg>
+                          </address>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+map()
+</code></pre>
+              </div>
+            </section>
+            <section id="error-loading">
+              <h2>Ошибка загрузки страницы</h2>
+              <p class="uikit__text">Ошибка загрузки страницы</p>
+              <div class="uikit__component" style="align-items: normal; padding: 20px 0;">
+                <p class="uikit__text uikit__text--class">.error-loading</p>
+                <section class="error-loading">
+                  <div class="container">
+                    <h2 class="error-loading__title">Что-то пошло не&nbsp;так...</h2>
+                    <p class="error-loading__help">Попробуйте перезагрузить страницу или обратитесь к&nbsp;администратору сайта.</p>
+                    <div class="error-loading__image"><img src="img/svg/cake-load.svg" width="157" height="184" alt="Кекс."></div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+error-loading()
+</code></pre>
+              </div>
+            </section>
+            <section id="empty-favorites">
+              <h2>Избранное без контента</h2>
+              <p class="uikit__text">Избранное без контента</p>
+              <div class="uikit__component">
+                <p class="uikit__text uikit__text--class">.empty-favorites</p>
+                <section class="empty-favorites">
+                  <h2 class="visually-hidden">Избранные товары</h2>
+                  <div class="container">
+                    <div class="empty-favorites__bg-wrapper">
+                      <div class="empty-favorites__wrapper">
+                        <svg width="944" height="707" aria-hidden="true">
+                          <use xlink:href="#icon-empty-favorites-cloud"></use>
+                        </svg>
+                        <div class="empty-favorites__content">
+                          <p class="empty-favorites__text">Кажется, пока вы не добавили ни одного кекса</p>
+                          <div class="empty-favorites__button-wrapper">
+                            <a class="btn" href="#">К кексам</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="empty-favorites__img-wrapper"><img src="img/svg/bg-keks-empty-favorites.svg" width="680" height="687" alt="Картика кота."></div>
+                    </div>
+                  </div>
+                </section>
+                <pre><code class="language-pug">+empty-favorites({
+  warning: "Кажется, пока вы не добавили ни одного кекса",
+  buttonText: "К кексам"
+})
+
+</code></pre>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      <script>/* PrismJS 1.29.0
+https://prismjs.com/download.html#themes=prism&languages=markup+css+clike+javascript+pug */
+var _self="undefined"!=typeof window?window:"undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?self:{},Prism=function(e){var n=/(?:^|\s)lang(?:uage)?-([\w-]+)(?=\s|$)/i,t=0,r={},a={manual:e.Prism&&e.Prism.manual,disableWorkerMessageHandler:e.Prism&&e.Prism.disableWorkerMessageHandler,util:{encode:function e(n){return n instanceof i?new i(n.type,e(n.content),n.alias):Array.isArray(n)?n.map(e):n.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/\u00a0/g," ")},type:function(e){return Object.prototype.toString.call(e).slice(8,-1)},objId:function(e){return e.__id||Object.defineProperty(e,"__id",{value:++t}),e.__id},clone:function e(n,t){var r,i;switch(t=t||{},a.util.type(n)){case"Object":if(i=a.util.objId(n),t[i])return t[i];for(var l in r={},t[i]=r,n)n.hasOwnProperty(l)&&(r[l]=e(n[l],t));return r;case"Array":return i=a.util.objId(n),t[i]?t[i]:(r=[],t[i]=r,n.forEach((function(n,a){r[a]=e(n,t)})),r);default:return n}},getLanguage:function(e){for(;e;){var t=n.exec(e.className);if(t)return t[1].toLowerCase();e=e.parentElement}return"none"},setLanguage:function(e,t){e.className=e.className.replace(RegExp(n,"gi"),""),e.classList.add("language-"+t)},currentScript:function(){if("undefined"==typeof document)return null;if("currentScript"in document)return document.currentScript;try{throw new Error}catch(r){var e=(/at [^(\r\n]*\((.*):[^:]+:[^:]+\)$/i.exec(r.stack)||[])[1];if(e){var n=document.getElementsByTagName("script");for(var t in n)if(n[t].src==e)return n[t]}return null}},isActive:function(e,n,t){for(var r="no-"+n;e;){var a=e.classList;if(a.contains(n))return!0;if(a.contains(r))return!1;e=e.parentElement}return!!t}},languages:{plain:r,plaintext:r,text:r,txt:r,extend:function(e,n){var t=a.util.clone(a.languages[e]);for(var r in n)t[r]=n[r];return t},insertBefore:function(e,n,t,r){var i=(r=r||a.languages)[e],l={};for(var o in i)if(i.hasOwnProperty(o)){if(o==n)for(var s in t)t.hasOwnProperty(s)&&(l[s]=t[s]);t.hasOwnProperty(o)||(l[o]=i[o])}var u=r[e];return r[e]=l,a.languages.DFS(a.languages,(function(n,t){t===u&&n!=e&&(this[n]=l)})),l},DFS:function e(n,t,r,i){i=i||{};var l=a.util.objId;for(var o in n)if(n.hasOwnProperty(o)){t.call(n,o,n[o],r||o);var s=n[o],u=a.util.type(s);"Object"!==u||i[l(s)]?"Array"!==u||i[l(s)]||(i[l(s)]=!0,e(s,t,o,i)):(i[l(s)]=!0,e(s,t,null,i))}}},plugins:{},highlightAll:function(e,n){a.highlightAllUnder(document,e,n)},highlightAllUnder:function(e,n,t){var r={callback:t,container:e,selector:'code[class*="language-"], [class*="language-"] code, code[class*="lang-"], [class*="lang-"] code'};a.hooks.run("before-highlightall",r),r.elements=Array.prototype.slice.apply(r.container.querySelectorAll(r.selector)),a.hooks.run("before-all-elements-highlight",r);for(var i,l=0;i=r.elements[l++];)a.highlightElement(i,!0===n,r.callback)},highlightElement:function(n,t,r){var i=a.util.getLanguage(n),l=a.languages[i];a.util.setLanguage(n,i);var o=n.parentElement;o&&"pre"===o.nodeName.toLowerCase()&&a.util.setLanguage(o,i);var s={element:n,language:i,grammar:l,code:n.textContent};function u(e){s.highlightedCode=e,a.hooks.run("before-insert",s),s.element.innerHTML=s.highlightedCode,a.hooks.run("after-highlight",s),a.hooks.run("complete",s),r&&r.call(s.element)}if(a.hooks.run("before-sanity-check",s),(o=s.element.parentElement)&&"pre"===o.nodeName.toLowerCase()&&!o.hasAttribute("tabindex")&&o.setAttribute("tabindex","0"),!s.code)return a.hooks.run("complete",s),void(r&&r.call(s.element));if(a.hooks.run("before-highlight",s),s.grammar)if(t&&e.Worker){var c=new Worker(a.filename);c.onmessage=function(e){u(e.data)},c.postMessage(JSON.stringify({language:s.language,code:s.code,immediateClose:!0}))}else u(a.highlight(s.code,s.grammar,s.language));else u(a.util.encode(s.code))},highlight:function(e,n,t){var r={code:e,grammar:n,language:t};if(a.hooks.run("before-tokenize",r),!r.grammar)throw new Error('The language "'+r.language+'" has no grammar.');return r.tokens=a.tokenize(r.code,r.grammar),a.hooks.run("after-tokenize",r),i.stringify(a.util.encode(r.tokens),r.language)},tokenize:function(e,n){var t=n.rest;if(t){for(var r in t)n[r]=t[r];delete n.rest}var a=new s;return u(a,a.head,e),o(e,a,n,a.head,0),function(e){for(var n=[],t=e.head.next;t!==e.tail;)n.push(t.value),t=t.next;return n}(a)},hooks:{all:{},add:function(e,n){var t=a.hooks.all;t[e]=t[e]||[],t[e].push(n)},run:function(e,n){var t=a.hooks.all[e];if(t&&t.length)for(var r,i=0;r=t[i++];)r(n)}},Token:i};function i(e,n,t,r){this.type=e,this.content=n,this.alias=t,this.length=0|(r||"").length}function l(e,n,t,r){e.lastIndex=n;var a=e.exec(t);if(a&&r&&a[1]){var i=a[1].length;a.index+=i,a[0]=a[0].slice(i)}return a}function o(e,n,t,r,s,g){for(var f in t)if(t.hasOwnProperty(f)&&t[f]){var h=t[f];h=Array.isArray(h)?h:[h];for(var d=0;d<h.length;++d){if(g&&g.cause==f+","+d)return;var v=h[d],p=v.inside,m=!!v.lookbehind,y=!!v.greedy,k=v.alias;if(y&&!v.pattern.global){var x=v.pattern.toString().match(/[imsuy]*$/)[0];v.pattern=RegExp(v.pattern.source,x+"g")}for(var b=v.pattern||v,w=r.next,A=s;w!==n.tail&&!(g&&A>=g.reach);A+=w.value.length,w=w.next){var E=w.value;if(n.length>e.length)return;if(!(E instanceof i)){var P,L=1;if(y){if(!(P=l(b,A,e,m))||P.index>=e.length)break;var S=P.index,O=P.index+P[0].length,j=A;for(j+=w.value.length;S>=j;)j+=(w=w.next).value.length;if(A=j-=w.value.length,w.value instanceof i)continue;for(var C=w;C!==n.tail&&(j<O||"string"==typeof C.value);C=C.next)L++,j+=C.value.length;L--,E=e.slice(A,j),P.index-=A}else if(!(P=l(b,0,E,m)))continue;S=P.index;var N=P[0],_=E.slice(0,S),M=E.slice(S+N.length),W=A+E.length;g&&W>g.reach&&(g.reach=W);var z=w.prev;if(_&&(z=u(n,z,_),A+=_.length),c(n,z,L),w=u(n,z,new i(f,p?a.tokenize(N,p):N,k,N)),M&&u(n,w,M),L>1){var I={cause:f+","+d,reach:W};o(e,n,t,w.prev,A,I),g&&I.reach>g.reach&&(g.reach=I.reach)}}}}}}function s(){var e={value:null,prev:null,next:null},n={value:null,prev:e,next:null};e.next=n,this.head=e,this.tail=n,this.length=0}function u(e,n,t){var r=n.next,a={value:t,prev:n,next:r};return n.next=a,r.prev=a,e.length++,a}function c(e,n,t){for(var r=n.next,a=0;a<t&&r!==e.tail;a++)r=r.next;n.next=r,r.prev=n,e.length-=a}if(e.Prism=a,i.stringify=function e(n,t){if("string"==typeof n)return n;if(Array.isArray(n)){var r="";return n.forEach((function(n){r+=e(n,t)})),r}var i={type:n.type,content:e(n.content,t),tag:"span",classes:["token",n.type],attributes:{},language:t},l=n.alias;l&&(Array.isArray(l)?Array.prototype.push.apply(i.classes,l):i.classes.push(l)),a.hooks.run("wrap",i);var o="";for(var s in i.attributes)o+=" "+s+'="'+(i.attributes[s]||"").replace(/"/g,"&quot;")+'"';return"<"+i.tag+' class="'+i.classes.join(" ")+'"'+o+">"+i.content+"</"+i.tag+">"},!e.document)return e.addEventListener?(a.disableWorkerMessageHandler||e.addEventListener("message",(function(n){var t=JSON.parse(n.data),r=t.language,i=t.code,l=t.immediateClose;e.postMessage(a.highlight(i,a.languages[r],r)),l&&e.close()}),!1),a):a;var g=a.util.currentScript();function f(){a.manual||a.highlightAll()}if(g&&(a.filename=g.src,g.hasAttribute("data-manual")&&(a.manual=!0)),!a.manual){var h=document.readyState;"loading"===h||"interactive"===h&&g&&g.defer?document.addEventListener("DOMContentLoaded",f):window.requestAnimationFrame?window.requestAnimationFrame(f):window.setTimeout(f,16)}return a}(_self);"undefined"!=typeof module&&module.exports&&(module.exports=Prism),"undefined"!=typeof global&&(global.Prism=Prism);
+Prism.languages.markup={comment:{pattern:/<!--(?:(?!<!--)[\s\S])*?-->/,greedy:!0},prolog:{pattern:/<\?[\s\S]+?\?>/,greedy:!0},doctype:{pattern:/<!DOCTYPE(?:[^>"'[\]]|"[^"]*"|'[^']*')+(?:\[(?:[^<"'\]]|"[^"]*"|'[^']*'|<(?!!--)|<!--(?:[^-]|-(?!->))*-->)*\]\s*)?>/i,greedy:!0,inside:{"internal-subset":{pattern:/(^[^\[]*\[)[\s\S]+(?=\]>$)/,lookbehind:!0,greedy:!0,inside:null},string:{pattern:/"[^"]*"|'[^']*'/,greedy:!0},punctuation:/^<!|>$|[[\]]/,"doctype-tag":/^DOCTYPE/i,name:/[^\s<>'"]+/}},cdata:{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,greedy:!0},tag:{pattern:/<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/,greedy:!0,inside:{tag:{pattern:/^<\/?[^\s>\/]+/,inside:{punctuation:/^<\/?/,namespace:/^[^\s>\/:]+:/}},"special-attr":[],"attr-value":{pattern:/=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+)/,inside:{punctuation:[{pattern:/^=/,alias:"attr-equals"},{pattern:/^(\s*)["']|["']$/,lookbehind:!0}]}},punctuation:/\/?>/,"attr-name":{pattern:/[^\s>\/]+/,inside:{namespace:/^[^\s>\/:]+:/}}}},entity:[{pattern:/&[\da-z]{1,8};/i,alias:"named-entity"},/&#x?[\da-f]{1,8};/i]},Prism.languages.markup.tag.inside["attr-value"].inside.entity=Prism.languages.markup.entity,Prism.languages.markup.doctype.inside["internal-subset"].inside=Prism.languages.markup,Prism.hooks.add("wrap",(function(a){"entity"===a.type&&(a.attributes.title=a.content.replace(/&amp;/,"&"))})),Object.defineProperty(Prism.languages.markup.tag,"addInlined",{value:function(a,e){var s={};s["language-"+e]={pattern:/(^<!\[CDATA\[)[\s\S]+?(?=\]\]>$)/i,lookbehind:!0,inside:Prism.languages[e]},s.cdata=/^<!\[CDATA\[|\]\]>$/i;var t={"included-cdata":{pattern:/<!\[CDATA\[[\s\S]*?\]\]>/i,inside:s}};t["language-"+e]={pattern:/[\s\S]+/,inside:Prism.languages[e]};var n={};n[a]={pattern:RegExp("(<__[^>]*>)(?:<!\\[CDATA\\[(?:[^\\]]|\\](?!\\]>))*\\]\\]>|(?!<!\\[CDATA\\[)[^])*?(?=</__>)".replace(/__/g,(function(){return a})),"i"),lookbehind:!0,greedy:!0,inside:t},Prism.languages.insertBefore("markup","cdata",n)}}),Object.defineProperty(Prism.languages.markup.tag,"addAttribute",{value:function(a,e){Prism.languages.markup.tag.inside["special-attr"].push({pattern:RegExp("(^|[\"'\\s])(?:"+a+")\\s*=\\s*(?:\"[^\"]*\"|'[^']*'|[^\\s'\">=]+(?=[\\s>]))","i"),lookbehind:!0,inside:{"attr-name":/^[^\s=]+/,"attr-value":{pattern:/=[\s\S]+/,inside:{value:{pattern:/(^=\s*(["']|(?!["'])))\S[\s\S]*(?=\2$)/,lookbehind:!0,alias:[e,"language-"+e],inside:Prism.languages[e]},punctuation:[{pattern:/^=/,alias:"attr-equals"},/"|'/]}}}})}}),Prism.languages.html=Prism.languages.markup,Prism.languages.mathml=Prism.languages.markup,Prism.languages.svg=Prism.languages.markup,Prism.languages.xml=Prism.languages.extend("markup",{}),Prism.languages.ssml=Prism.languages.xml,Prism.languages.atom=Prism.languages.xml,Prism.languages.rss=Prism.languages.xml;
+!function(s){var e=/(?:"(?:\\(?:\r\n|[\s\S])|[^"\\\r\n])*"|'(?:\\(?:\r\n|[\s\S])|[^'\\\r\n])*')/;s.languages.css={comment:/\/\*[\s\S]*?\*\//,atrule:{pattern:RegExp("@[\\w-](?:[^;{\\s\"']|\\s+(?!\\s)|"+e.source+")*?(?:;|(?=\\s*\\{))"),inside:{rule:/^@[\w-]+/,"selector-function-argument":{pattern:/(\bselector\s*\(\s*(?![\s)]))(?:[^()\s]|\s+(?![\s)])|\((?:[^()]|\([^()]*\))*\))+(?=\s*\))/,lookbehind:!0,alias:"selector"},keyword:{pattern:/(^|[^\w-])(?:and|not|only|or)(?![\w-])/,lookbehind:!0}}},url:{pattern:RegExp("\\burl\\((?:"+e.source+"|(?:[^\\\\\r\n()\"']|\\\\[^])*)\\)","i"),greedy:!0,inside:{function:/^url/i,punctuation:/^\(|\)$/,string:{pattern:RegExp("^"+e.source+"$"),alias:"url"}}},selector:{pattern:RegExp("(^|[{}\\s])[^{}\\s](?:[^{};\"'\\s]|\\s+(?![\\s{])|"+e.source+")*(?=\\s*\\{)"),lookbehind:!0},string:{pattern:e,greedy:!0},property:{pattern:/(^|[^-\w\xA0-\uFFFF])(?!\s)[-_a-z\xA0-\uFFFF](?:(?!\s)[-\w\xA0-\uFFFF])*(?=\s*:)/i,lookbehind:!0},important:/!important\b/i,function:{pattern:/(^|[^-a-z0-9])[-a-z0-9]+(?=\()/i,lookbehind:!0},punctuation:/[(){};:,]/},s.languages.css.atrule.inside.rest=s.languages.css;var t=s.languages.markup;t&&(t.tag.addInlined("style","css"),t.tag.addAttribute("style","css"))}(Prism);
+Prism.languages.clike={comment:[{pattern:/(^|[^\\])\/\*[\s\S]*?(?:\*\/|$)/,lookbehind:!0,greedy:!0},{pattern:/(^|[^\\:])\/\/.*/,lookbehind:!0,greedy:!0}],string:{pattern:/(["'])(?:\\(?:\r\n|[\s\S])|(?!\1)[^\\\r\n])*\1/,greedy:!0},"class-name":{pattern:/(\b(?:class|extends|implements|instanceof|interface|new|trait)\s+|\bcatch\s+\()[\w.\\]+/i,lookbehind:!0,inside:{punctuation:/[.\\]/}},keyword:/\b(?:break|catch|continue|do|else|finally|for|function|if|in|instanceof|new|null|return|throw|try|while)\b/,boolean:/\b(?:false|true)\b/,function:/\b\w+(?=\()/,number:/\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,operator:/[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,punctuation:/[{}[\];(),.:]/};
+Prism.languages.javascript=Prism.languages.extend("clike",{"class-name":[Prism.languages.clike["class-name"],{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$A-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\.(?:constructor|prototype))/,lookbehind:!0}],keyword:[{pattern:/((?:^|\})\s*)catch\b/,lookbehind:!0},{pattern:/(^|[^.]|\.\.\.\s*)\b(?:as|assert(?=\s*\{)|async(?=\s*(?:function\b|\(|[$\w\xA0-\uFFFF]|$))|await|break|case|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally(?=\s*(?:\{|$))|for|from(?=\s*(?:['"]|$))|function|(?:get|set)(?=\s*(?:[#\[$\w\xA0-\uFFFF]|$))|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)\b/,lookbehind:!0}],function:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*(?:\.\s*(?:apply|bind|call)\s*)?\()/,number:{pattern:RegExp("(^|[^\\w$])(?:NaN|Infinity|0[bB][01]+(?:_[01]+)*n?|0[oO][0-7]+(?:_[0-7]+)*n?|0[xX][\\dA-Fa-f]+(?:_[\\dA-Fa-f]+)*n?|\\d+(?:_\\d+)*n|(?:\\d+(?:_\\d+)*(?:\\.(?:\\d+(?:_\\d+)*)?)?|\\.\\d+(?:_\\d+)*)(?:[Ee][+-]?\\d+(?:_\\d+)*)?)(?![\\w$])"),lookbehind:!0},operator:/--|\+\+|\*\*=?|=>|&&=?|\|\|=?|[!=]==|<<=?|>>>?=?|[-+*/%&|^!=<>]=?|\.{3}|\?\?=?|\?\.?|[~:]/}),Prism.languages.javascript["class-name"][0].pattern=/(\b(?:class|extends|implements|instanceof|interface|new)\s+)[\w.\\]+/,Prism.languages.insertBefore("javascript","keyword",{regex:{pattern:RegExp("((?:^|[^$\\w\\xA0-\\uFFFF.\"'\\])\\s]|\\b(?:return|yield))\\s*)/(?:(?:\\[(?:[^\\]\\\\\r\n]|\\\\.)*\\]|\\\\.|[^/\\\\\\[\r\n])+/[dgimyus]{0,7}|(?:\\[(?:[^[\\]\\\\\r\n]|\\\\.|\\[(?:[^[\\]\\\\\r\n]|\\\\.|\\[(?:[^[\\]\\\\\r\n]|\\\\.)*\\])*\\])*\\]|\\\\.|[^/\\\\\\[\r\n])+/[dgimyus]{0,7}v[dgimyus]{0,7})(?=(?:\\s|/\\*(?:[^*]|\\*(?!/))*\\*/)*(?:$|[\r\n,.;:})\\]]|//))"),lookbehind:!0,greedy:!0,inside:{"regex-source":{pattern:/^(\/)[\s\S]+(?=\/[a-z]*$)/,lookbehind:!0,alias:"language-regex",inside:Prism.languages.regex},"regex-delimiter":/^\/|\/$/,"regex-flags":/^[a-z]+$/}},"function-variable":{pattern:/#?(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*[=:]\s*(?:async\s*)?(?:\bfunction\b|(?:\((?:[^()]|\([^()]*\))*\)|(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)\s*=>))/,alias:"function"},parameter:[{pattern:/(function(?:\s+(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*)?\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\))/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(^|[^$\w\xA0-\uFFFF])(?!\s)[_$a-z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*=>)/i,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/(\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*=>)/,lookbehind:!0,inside:Prism.languages.javascript},{pattern:/((?:\b|\s|^)(?!(?:as|async|await|break|case|catch|class|const|continue|debugger|default|delete|do|else|enum|export|extends|finally|for|from|function|get|if|implements|import|in|instanceof|interface|let|new|null|of|package|private|protected|public|return|set|static|super|switch|this|throw|try|typeof|undefined|var|void|while|with|yield)(?![$\w\xA0-\uFFFF]))(?:(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*\s*)\(\s*|\]\s*\(\s*)(?!\s)(?:[^()\s]|\s+(?![\s)])|\([^()]*\))+(?=\s*\)\s*\{)/,lookbehind:!0,inside:Prism.languages.javascript}],constant:/\b[A-Z](?:[A-Z_]|\dx?)*\b/}),Prism.languages.insertBefore("javascript","string",{hashbang:{pattern:/^#!.*/,greedy:!0,alias:"comment"},"template-string":{pattern:/`(?:\\[\s\S]|\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}|(?!\$\{)[^\\`])*`/,greedy:!0,inside:{"template-punctuation":{pattern:/^`|`$/,alias:"string"},interpolation:{pattern:/((?:^|[^\\])(?:\\{2})*)\$\{(?:[^{}]|\{(?:[^{}]|\{[^}]*\})*\})+\}/,lookbehind:!0,inside:{"interpolation-punctuation":{pattern:/^\$\{|\}$/,alias:"punctuation"},rest:Prism.languages.javascript}},string:/[\s\S]+/}},"string-property":{pattern:/((?:^|[,{])[ \t]*)(["'])(?:\\(?:\r\n|[\s\S])|(?!\2)[^\\\r\n])*\2(?=\s*:)/m,lookbehind:!0,greedy:!0,alias:"property"}}),Prism.languages.insertBefore("javascript","operator",{"literal-property":{pattern:/((?:^|[,{])[ \t]*)(?!\s)[_$a-zA-Z\xA0-\uFFFF](?:(?!\s)[$\w\xA0-\uFFFF])*(?=\s*:)/m,lookbehind:!0,alias:"property"}}),Prism.languages.markup&&(Prism.languages.markup.tag.addInlined("script","javascript"),Prism.languages.markup.tag.addAttribute("on(?:abort|blur|change|click|composition(?:end|start|update)|dblclick|error|focus(?:in|out)?|key(?:down|up)|load|mouse(?:down|enter|leave|move|out|over|up)|reset|resize|scroll|select|slotchange|submit|unload|wheel)","javascript")),Prism.languages.js=Prism.languages.javascript;
+!function(e){e.languages.pug={comment:{pattern:/(^([\t ]*))\/\/.*(?:(?:\r?\n|\r)\2[\t ].+)*/m,lookbehind:!0},"multiline-script":{pattern:/(^([\t ]*)script\b.*\.[\t ]*)(?:(?:\r?\n|\r(?!\n))(?:\2[\t ].+|\s*?(?=\r?\n|\r)))+/m,lookbehind:!0,inside:e.languages.javascript},filter:{pattern:/(^([\t ]*)):.+(?:(?:\r?\n|\r(?!\n))(?:\2[\t ].+|\s*?(?=\r?\n|\r)))+/m,lookbehind:!0,inside:{"filter-name":{pattern:/^:[\w-]+/,alias:"variable"},text:/\S[\s\S]*/}},"multiline-plain-text":{pattern:/(^([\t ]*)[\w\-#.]+\.[\t ]*)(?:(?:\r?\n|\r(?!\n))(?:\2[\t ].+|\s*?(?=\r?\n|\r)))+/m,lookbehind:!0},markup:{pattern:/(^[\t ]*)<.+/m,lookbehind:!0,inside:e.languages.markup},doctype:{pattern:/((?:^|\n)[\t ]*)doctype(?: .+)?/,lookbehind:!0},"flow-control":{pattern:/(^[\t ]*)(?:case|default|each|else|if|unless|when|while)\b(?: .+)?/m,lookbehind:!0,inside:{each:{pattern:/^each .+? in\b/,inside:{keyword:/\b(?:each|in)\b/,punctuation:/,/}},branch:{pattern:/^(?:case|default|else|if|unless|when|while)\b/,alias:"keyword"},rest:e.languages.javascript}},keyword:{pattern:/(^[\t ]*)(?:append|block|extends|include|prepend)\b.+/m,lookbehind:!0},mixin:[{pattern:/(^[\t ]*)mixin .+/m,lookbehind:!0,inside:{keyword:/^mixin/,function:/\w+(?=\s*\(|\s*$)/,punctuation:/[(),.]/}},{pattern:/(^[\t ]*)\+.+/m,lookbehind:!0,inside:{name:{pattern:/^\+\w+/,alias:"function"},rest:e.languages.javascript}}],script:{pattern:/(^[\t ]*script(?:(?:&[^(]+)?\([^)]+\))*[\t ]).+/m,lookbehind:!0,inside:e.languages.javascript},"plain-text":{pattern:/(^[\t ]*(?!-)[\w\-#.]*[\w\-](?:(?:&[^(]+)?\([^)]+\))*\/?[\t ]).+/m,lookbehind:!0},tag:{pattern:/(^[\t ]*)(?!-)[\w\-#.]*[\w\-](?:(?:&[^(]+)?\([^)]+\))*\/?:?/m,lookbehind:!0,inside:{attributes:[{pattern:/&[^(]+\([^)]+\)/,inside:e.languages.javascript},{pattern:/\([^)]+\)/,inside:{"attr-value":{pattern:/(=\s*(?!\s))(?:\{[^}]*\}|[^,)\r\n]+)/,lookbehind:!0,inside:e.languages.javascript},"attr-name":/[\w-]+(?=\s*!?=|\s*[,)])/,punctuation:/[!=(),]+/}}],punctuation:/:/,"attr-id":/#[\w\-]+/,"attr-class":/\.[\w\-]+/}},code:[{pattern:/(^[\t ]*(?:-|!?=)).+/m,lookbehind:!0,inside:e.languages.javascript}],punctuation:/[.\-!=|]+/};for(var t=[{filter:"atpl",language:"twig"},{filter:"coffee",language:"coffeescript"},"ejs","handlebars","less","livescript","markdown",{filter:"sass",language:"scss"},"stylus"],n={},a=0,i=t.length;a<i;a++){var r=t[a];r="string"==typeof r?{filter:r,language:r}:r,e.languages[r.language]&&(n["filter-"+r.filter]={pattern:RegExp("(^([\t ]*)):<filter_name>(?:(?:\r?\n|\r(?!\n))(?:\\2[\t ].+|\\s*?(?=\r?\n|\r)))+".replace("<filter_name>",(function(){return r.filter})),"m"),lookbehind:!0,inside:{"filter-name":{pattern:/^:[\w-]+/,alias:"variable"},text:{pattern:/\S[\s\S]*/,alias:[r.language,"language-"+r.language],inside:e.languages[r.language]}}})}e.languages.insertBefore("pug","filter",n)}(Prism);
+
+      </script>
+    </div>
+  </body>
+</html>
