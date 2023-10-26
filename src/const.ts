@@ -36,3 +36,9 @@ export enum AuthorizationStatus {
     NoAuth = 'NO_AUTH',
     Unknown = 'UNKNOWN',
 }
+
+export enum FilterSortType {
+    All = 'Любой',
+    High = 'Высокий',
+    Low = 'Низкий',
+}
