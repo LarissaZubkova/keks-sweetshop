@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { CakeCard, CakeFullCard } from '../types/Cake';
+import { CakeCard, CakeFullCard } from '../types/cake';
 import { State, AppDispatch } from '../types/state';
 import { UserData } from '../types/user-data';
-import { AuthData } from '../types/auth-data';
+import { AuthData, RegistrationData } from '../types/auth-data';
 import { dropToken, saveToken } from '../services/token';
 import { dropAvatarUrl, saveAvatarUrl, dropUserEmail, saveUserEmail } from '../services/user';
 import { APIRout, AppRoute } from '../const';
@@ -60,6 +60,22 @@ export const loginAction = createAsyncThunk<UserData, AuthData, {
       return data;
     },
   );
+
+export const registrationAction = createAsyncThunk<UserData, RegistrationData, {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+    }>(
+      'user/registration',
+      async (registration, {dispatch, extra: api}) => {
+        const {data} = await api.post<UserData>(APIRout.Registration, registration);
+        saveToken(data.token);
+        saveAvatarUrl(String(data.avatarUrl));
+        saveUserEmail(data.email);
+        dispatch(redirectToRoute(AppRoute.Main));
+        return data;
+      },
+    );
 
 export const logoutAction = createAsyncThunk<void, undefined, {
     dispatch: AppDispatch;

@@ -1,5 +1,5 @@
 import { store } from '../store/index';
-import { CakeCard, CakeFullCard } from './Cake';
+import { CakeCard, CakeFullCard } from './cake';
 import { AuthorizationStatus } from '../const';
 
 export type AppDispatch = typeof store.dispatch;

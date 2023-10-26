@@ -1,13 +1,15 @@
 import { Icon, Marker, layerGroup } from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 import { useEffect } from 'react';
 import './map.css';
-import { URL_MARKER_SHOP, URL_MARKER_PRODUCTION, DEFAULT_LOCATION } from '../../const';
+import { URL_MARKER_SHOP, URL_MARKER_PRODUCTION, Shops } from '../../const';
 import useMap from '../../hooks/use-map';
+import { Shop } from '../../types/data';
 
 const shopCustomIcon = new Icon({
   iconUrl: URL_MARKER_SHOP,
   iconSize: [26, 24],
-  iconAnchor: [13, 24],
+  iconAnchor: [26, 24],
 });
 
 const productionCustomIcon = new Icon({
@@ -16,27 +18,38 @@ const productionCustomIcon = new Icon({
   iconAnchor: [13, 24],
 });
 
-function Map(): JSX.Element {
-  const shopLocation = DEFAULT_LOCATION;
+type MapProps = {
+  selectedAddress: Shop;
+}
 
-  const {map, mapRef} = useMap({shopLocation});
+function Map({selectedAddress}: MapProps): JSX.Element {
+  const {address, name} = selectedAddress;
+  const {map, mapRef} = useMap({address});
 
   useEffect(() => {
     if (map) {
-      if (shopLocation) {
-        map.setView(
-          {
-            lat: 59.97069,
-            lng: 30.316252,
-          },
-          200,
-        );
-      }
+      const markerLayer = layerGroup().addTo(map);
+
+      const marker = new Marker({
+        lat: address[0],
+        lng: address[1],
+      });
+
+      marker
+        .setIcon(name === Shops.PRODUCTION.name ?
+          productionCustomIcon :
+          shopCustomIcon)
+        .addTo(markerLayer);
+
+
+      return () => {
+        map.removeLayer(markerLayer);
+      };
     }
-  }, [map, shopLocation]);
+  }, [map, address, name]);
 
   return (
-    <div className="map__wrapper" ref={mapRef} ></div>
+    <div className="map__wrapper" ref={mapRef}></div>
   );
 
 }

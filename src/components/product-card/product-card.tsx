@@ -1,4 +1,4 @@
-import { CakeCard } from '../../types/Cake';
+import { CakeCard } from '../../types/cake';
 import { getPrice } from '../../utils/utils';
 
 type CakeCardProps = {

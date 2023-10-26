@@ -1,3 +1,5 @@
+import { ShopsInfo } from './types/data';
+
 export const BACKEND_URL = 'https://grading.design.pages.academy/v0/keks';
 export const REQUEST_TIMEOUT = 5000;
 export const AUTH_TOKEN_KEY_NAME = 'keks-token';
@@ -6,7 +8,7 @@ export const USER_AVATAR_KEY_NAME = 'avatar-url';
 export const RANDOM_MAX_COUNT = 3;
 export const URL_MARKER_SHOP = 'img/content/map-marker2.svg';
 export const URL_MARKER_PRODUCTION = 'img/content/map-marker1.svg';
-export const DEFAULT_LOCATION = [59.970969, 30.316252];
+export const DEFAULT_ZOOM = 14;
 
 export enum AppRoute {
     Main = '/',
@@ -27,7 +29,8 @@ export enum FirstLevelFilter {
 export enum APIRout {
     Products = '/products',
     Product = '/products/:id',
-    Login = '/login',
+    Login = 'users/login',
+    Registration = 'users/registration',
     Logout = '/logout',
 }
 
@@ -49,7 +52,7 @@ export enum FilterSortType {
     Low = 'Низкий',
 }
 
-export const Shops = {
+export const Shops: ShopsInfo = {
   FIRST_SHOP: {
     name: 'Кондитерская 1',
     address: [59.970969, 30.316252]

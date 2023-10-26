@@ -1,9 +1,51 @@
-import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const';
+import { Link, Navigate } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus } from '../../const';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
+import { Helmet } from 'react-helmet-async';
+import { useState, FormEvent } from 'react';
+import { RegistrationData } from '../../types/auth-data';
+import { validateEmail, validatePassword, validateName } from '../../utils/utils';
+import { registrationAction } from '../../store/api-actions';
 
 function SignupScreen() {
+  const dispatch = useAppDispatch();
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
+  const [isValid, setIsValid] = useState({
+    name: true,
+    email: true,
+    password: true,
+  });
+
+  if (authorizationStatus === AuthorizationStatus.Auth) {
+    return <Navigate to={AppRoute.Main} />;
+  }
+
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+
+    const form = evt.currentTarget;
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData) as RegistrationData;
+
+    setIsValid(
+      {
+        name: validateName(data.name),
+        email: validateEmail(data.email),
+        password: validatePassword(data.password),
+      }
+    );
+
+    if (data !== null && isValid && isValid) {
+      dispatch(registrationAction(data));
+    }
+  };
+
   return (
     <div className="wrapper">
+      <Helmet>
+        <title>Кондитерская Кекс - Регистрация</title>
+      </Helmet>
       <main>
         <section className="register-page">
           <div className="register-page__header">
@@ -15,26 +57,36 @@ function SignupScreen() {
             <div className="register-page__inner">
               <h1 className="register-page__title">Регистрация</h1>
               <div className="register-page__form">
-                <form action="#" method="post" autoComplete="off">
+                <form
+                  action="#"
+                  method="post"
+                  autoComplete="off"
+                  onSubmit={handleSubmit}
+                >
                   <div className="register-page__fields">
                     <div className="custom-input register-page__field">
                       <label><span className="custom-input__label">Введите ваше имя</span>
-                        <input type="text" name="user-name-1" placeholder="Имя" required />
+                        <input type="text" name="name" placeholder="Имя" required />
                       </label>
                     </div>
                     <div className="custom-input register-page__field">
                       <label><span className="custom-input__label">Введите вашу почту</span>
-                        <input type="email" name="user-mail-1" placeholder="Почта" required />
+                        <input type="email" name="email" placeholder="Почта" required />
                       </label>
                     </div>
                     <div className="custom-input register-page__field">
                       <label><span className="custom-input__label">Введите ваш пароль</span>
-                        <input type="password" name="user-password-1" placeholder="Пароль" required />
+                        <input type="password" name="password" placeholder="Пароль" required />
                       </label>
                     </div>
                     <div className="custom-input register-page__field">
                       <label><span className="custom-input__label">Введите ваше имя</span>
-                        <input type="file" name="user-name-1" data-text="Аватар" accept="image/jpeg" />
+                        <input
+                          type="file"
+                          name="avatar"
+                          data-text="Аватар"
+                          accept="image/jpeg, image/png"
+                        />
                       </label>
                     </div>
                   </div>

@@ -1,11 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
 import { Map, TileLayer } from 'leaflet';
+import { DEFAULT_ZOOM } from '../const';
 
 type MapProps = {
-    shopLocation: number[];
+    address: number[];
 }
 
-function useMap({shopLocation}: MapProps) {
+function useMap({address}: MapProps) {
   const [map, setMap] = useState<Map | null>(null);
   const isRenderedRef = useRef<boolean>(false);
   const mapRef = useRef(null);
@@ -14,9 +15,10 @@ function useMap({shopLocation}: MapProps) {
     if (mapRef.current !== null && !isRenderedRef.current) {
       const instance = new Map(mapRef.current, {
         center: {
-          lat: shopLocation[0],
-          lng: shopLocation[1],
+          lat: address[0],
+          lng: address[1],
         },
+        zoom: DEFAULT_ZOOM,
       });
 
       const layer = new TileLayer(
@@ -30,7 +32,7 @@ function useMap({shopLocation}: MapProps) {
       setMap(instance);
       isRenderedRef.current = true;
     }
-  }, [mapRef, shopLocation]);
+  }, [mapRef, address]);
 
   return {
     map, mapRef
