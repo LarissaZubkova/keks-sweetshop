@@ -1,13 +1,22 @@
+import { useNavigate } from 'react-router-dom';
 import { CakeCard } from '../../types/Cake';
+import { AppRoute } from '../../const';
 
 type RandomCardProps = {
   cake: CakeCard;
 }
 
 function RandomCard({cake}: RandomCardProps): JSX.Element {
-  const {previewImage, previewImageWebp, title, isNew} = cake;
+  const navigate = useNavigate();
+
+  const {previewImage, previewImageWebp, title, isNew, id} = cake;
   return (
-    <li className="random-main__item">
+    <li
+      className="random-main__item"
+      onClick={() => {
+        navigate(AppRoute.Product.replace(':id', id));
+      }}
+    >
       <div className="card-item">
         <a className="card-item__img-link" href="#">
           <div className="card-item__img-wrapper">

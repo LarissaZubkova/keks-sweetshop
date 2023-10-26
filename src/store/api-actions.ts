@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { CakeCard } from '../types/Cake';
+import { CakeCard, CakeFullCard } from '../types/Cake';
 import { State, AppDispatch } from '../types/state';
 import { UserData } from '../types/user-data';
 import { AuthData } from '../types/auth-data';
@@ -17,6 +17,18 @@ export const fetchCakesAction = createAsyncThunk<CakeCard[], undefined, {
   'product/fetchCakes',
   async(_arg, {extra: api}) => {
     const {data} = await api.get<CakeCard[]>(APIRout.Products);
+    return data;
+  }
+);
+
+export const fetchProductCardAction = createAsyncThunk<CakeFullCard, string, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'product/fetchProductCard',
+  async(id, {extra: api}) => {
+    const {data} = await api.get<CakeFullCard>(APIRout.Product.replace(':id', id));
     return data;
   }
 );

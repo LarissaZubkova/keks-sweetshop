@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { getRandomCakes } from '../../utils/utils';
-import RandomCard from '../random-card/random-card';
 import { useAppSelector } from '../../hooks';
 import { getProducts, getProductsLoadingStatus } from '../../store/products-process/products-process.selector';
 import Loading from '../loading/loading';
+import RandomCard from '../random-card/random-card';
 
 function RandomMain() {
   const cakes = useAppSelector(getProducts);

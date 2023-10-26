@@ -1,5 +1,5 @@
 import { store } from '../store/index';
-import { CakeCard } from './Cake';
+import { CakeCard, CakeFullCard } from './Cake';
 import { AuthorizationStatus } from '../const';
 
 export type AppDispatch = typeof store.dispatch;
@@ -9,6 +9,12 @@ export type ProductsProcess = {
     products: CakeCard[];
     isProductsLoading: boolean;
     hasProductsError: boolean;
+}
+
+export type ProductCardProcess = {
+    productCard: CakeFullCard | null;
+    isProductCardLoading: boolean;
+    hasProductCardError: boolean;
 }
 
 export type UserProcess = {

@@ -4,15 +4,16 @@ import ProductCard from '../product-card/product-card';
 import { useEffect } from 'react';
 import { fetchCakesAction } from '../../store/api-actions';
 import ShowMoreButton from '../show-more-button/show-more-button';
+
 function Catalog() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchCakesAction);
+    dispatch(fetchCakesAction());
   }, [dispatch]);
 
-
   const cakes = useAppSelector(getProducts);
+
   return (
     <section className="catalog">
       <div className="container">

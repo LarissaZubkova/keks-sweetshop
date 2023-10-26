@@ -2,9 +2,8 @@ import Header from '../../components/header/header';
 import Hero from '../../components/hero/hero';
 import RandomMain from '../../components/random-main/random-main';
 import LastReview from '../../components/last-review/last-review';
-import Map from '../../components/map/map';
+import MapDisplay from '../../components/map-display/map-display';
 import Footer from '../../components/footer/footer';
-import ErrorScreen from '../error-screen/error-screeen';
 import { useAppSelector } from '../../hooks';
 import { getProductsErrorStatus } from '../../store/products-process/products-process.selector';
 
@@ -14,14 +13,12 @@ function MainScreen() {
   return (
     <div className="wrapper">
       <Header />
-      {hasError ?
-        <ErrorScreen /> :
-        <main>
-          <Hero />
-          <RandomMain />
-          <LastReview />
-          <Map />
-        </main>}
+      <main>
+        <Hero />
+        {!hasError && <RandomMain />}
+        <LastReview />
+        <MapDisplay />
+      </main>
       <Footer />
     </div>
   );

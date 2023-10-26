@@ -1,47 +1,44 @@
-function Map() {
+import { Icon, Marker, layerGroup } from 'leaflet';
+import { useEffect } from 'react';
+import './map.css';
+import { URL_MARKER_SHOP, URL_MARKER_PRODUCTION, DEFAULT_LOCATION } from '../../const';
+import useMap from '../../hooks/use-map';
+
+const shopCustomIcon = new Icon({
+  iconUrl: URL_MARKER_SHOP,
+  iconSize: [26, 24],
+  iconAnchor: [13, 24],
+});
+
+const productionCustomIcon = new Icon({
+  iconUrl: URL_MARKER_PRODUCTION,
+  iconSize: [26, 24],
+  iconAnchor: [13, 24],
+});
+
+function Map(): JSX.Element {
+  const shopLocation = DEFAULT_LOCATION;
+
+  const {map, mapRef} = useMap({shopLocation});
+
+  useEffect(() => {
+    if (map) {
+      if (shopLocation) {
+        map.setView(
+          {
+            lat: 59.97069,
+            lng: 30.316252,
+          },
+          200,
+        );
+      }
+    }
+  }, [map, shopLocation]);
+
   return (
-    <section className="map">
-      <div className="container">
-        <h2 className="map__title">адреса</h2>
-        <div className="map__wrapper"></div>
-        <ul className="map__addresses">
-          <li className="map__address">
-            <div className="custom-toggle custom-toggle--radio custom-toggle--address">
-              <input type="radio" value="user-agreement-10" id="user-agreement-id-10" name="user-agreement" />
-              <label className="custom-toggle__label" htmlFor="user-agreement-id-10">Кондитерская 1</label>
-              <address className="custom-toggle__address">Морской пр. 2А
-                <svg className="custom-toggle__icon" width="26" height="24" aria-hidden="true">
-                  <use xlinkHref="#icon-keks-footprint"></use>
-                </svg>
-              </address>
-            </div>
-          </li>
-          <li className="map__address">
-            <div className="custom-toggle custom-toggle--radio custom-toggle--address">
-              <input type="radio" value="user-agreement-12" id="user-agreement-id-12" name="user-agreement" checked />
-              <label className="custom-toggle__label" htmlFor="user-agreement-id-12">Кондитерская 2</label>
-              <address className="custom-toggle__address">Морской пр. 2А
-                <svg className="custom-toggle__icon" width="26" height="24" aria-hidden="true">
-                  <use xlinkHref="#icon-keks-footprint"></use>
-                </svg>
-              </address>
-            </div>
-          </li>
-          <li className="map__address">
-            <div className="custom-toggle custom-toggle--radio custom-toggle--address" >
-              <input type="radio" value="user-agreement-13" id="user-agreement-id-13" name="user-agreement" />
-              <label className="custom-toggle__label" htmlFor="user-agreement-id-13">Производство</label>
-              <address className="custom-toggle__address">Морской пр. 2А
-                <svg className="custom-toggle__icon" width="26" height="24" aria-hidden="true">
-                  <use xlinkHref="#icon-keks-footprint"></use>
-                </svg>
-              </address>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
+    <div className="map__wrapper" ref={mapRef} ></div>
   );
+
 }
 
 export default Map;

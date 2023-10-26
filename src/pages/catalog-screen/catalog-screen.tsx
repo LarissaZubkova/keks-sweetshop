@@ -4,20 +4,27 @@ import Footer from '../../components/footer/footer';
 import Catalog from '../../components/catalog/catalog';
 import BackArrow from '../../components/back-arrow/back-arrow';
 import { Helmet } from 'react-helmet-async';
+import { useAppSelector } from '../../hooks';
+import { getProductsErrorStatus } from '../../store/products-process/products-process.selector';
+import ErrorScreen from '../error-screen/error-screeen';
 
 function CatalogScreen() {
+  const hasError = useAppSelector(getProductsErrorStatus);
+
   return (
     <div className="wrapper">
       <Helmet>
         <title>Кондитерская Кекс - Каталог</title>
       </Helmet>
       <Header />
-      <main>
-        <h1 className="visually-hidden">Каталог товаров</h1>
-        <BackArrow />
-        <CatalogFilter />
-        <Catalog />
-      </main>
+      {hasError ?
+        <ErrorScreen /> :
+        <main>
+          <h1 className="visually-hidden">Каталог товаров</h1>
+          <BackArrow />
+          <CatalogFilter />
+          <Catalog />
+        </main>}
       <Footer />
     </div>
   );
