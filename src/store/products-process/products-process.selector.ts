@@ -1,5 +1,5 @@
 import { NameSpace } from '../../const';
-import { CakeCard } from '../../types/cake';
+import { CakeCard } from '../../types/product';
 import { State } from '../../types/state';
 
 export const getProducts = (state: Pick<State, NameSpace.Cakes>): CakeCard[] => state[NameSpace.Cakes].products;

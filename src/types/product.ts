@@ -1,5 +1,3 @@
-import { FirstLevelFilter, SecondLevelFilter } from '../const';
-
 export type CakeCard = {
   id: string;
   title: string;
@@ -28,9 +26,4 @@ export type CakeFullCard = {
     isFavorite: boolean;
     isNew: boolean;
     reviewCount: number;
-}
-
-export type SelectedFilters = {
-  firstLevel: FirstLevelFilter | null;
-  secondLevel: SecondLevelFilter | null;
 }

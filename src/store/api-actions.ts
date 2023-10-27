@@ -4,7 +4,7 @@ import { APIRout, AppRoute } from '../const';
 import { dropToken, saveToken } from '../services/token';
 import { dropAvatarUrl, dropUserEmail, saveAvatarUrl, saveUserEmail } from '../services/user';
 import { AuthData, RegistrationData } from '../types/auth-data';
-import { CakeCard, CakeFullCard } from '../types/cake';
+import { CakeCard, CakeFullCard } from '../types/product';
 import { AppDispatch, State } from '../types/state';
 import { UserData } from '../types/user-data';
 import { redirectToRoute } from './action';

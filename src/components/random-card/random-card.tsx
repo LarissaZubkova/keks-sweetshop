@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { CakeCard } from '../../types/cake';
+import { CakeCard } from '../../types/product';
 import { AppRoute } from '../../const';
 
 type RandomCardProps = {

@@ -22,10 +22,17 @@ export enum AppRoute {
 }
 
 export enum FirstLevelFilter {
-    Biscuit = 'Бисквит',
+    Bisque = 'Бисквит',
     Dessert = 'Десерт',
     Cheesecake = 'Чизкейк',
     Shortbread = 'Песочное',
+}
+
+export enum CategoryFilter {
+  Bisque = 'bisque',
+  Dessert = 'dessert',
+  Cheesecake = 'cheesecake',
+  Shortbread = 'shortbread',
 }
 
 export enum SecondLevelFilter {
@@ -33,6 +40,14 @@ export enum SecondLevelFilter {
   Vegetarian = 'Вегетарианский',
   NewYork = 'Нью-Йорк',
   Lemon = 'Лимонный',
+  Vanilla = 'Ваниль',
+}
+
+export enum TypeFilter {
+  Chocolate = 'chocolate',
+  Vegetarian = 'vegetarian',
+  NewYork = 'new-york',
+  Lemon = 'lemon',
   Vanilla = 'Ваниль',
 }
 
@@ -50,6 +65,7 @@ export enum NameSpace {
     CakeCard = 'CAKE_CARD',
     User = 'USER',
     Review = 'REVIEW',
+    Filters = 'FILTERS',
 }
 
 export enum AuthorizationStatus {

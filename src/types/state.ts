@@ -1,6 +1,6 @@
 import { store } from '../store/index';
-import { CakeCard, CakeFullCard } from './cake';
-import { AuthorizationStatus } from '../const';
+import { CakeCard, CakeFullCard } from './product';
+import { AuthorizationStatus, FirstLevelFilter, SecondLevelFilter } from '../const';
 import { LastReview } from './review';
 
 export type AppDispatch = typeof store.dispatch;
@@ -29,4 +29,9 @@ export type UserProcess = {
 export type ReviewProcess = {
     lastReview: LastReview | null;
     hasError: boolean;
+}
+
+export type FiltersProcess = {
+  firstLevel: FirstLevelFilter | null;
+  secondLevel: SecondLevelFilter[] | [];
 }
