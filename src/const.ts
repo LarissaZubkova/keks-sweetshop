@@ -9,6 +9,7 @@ export const RANDOM_MAX_COUNT = 3;
 export const URL_MARKER_SHOP = 'img/content/map-marker2.svg';
 export const URL_MARKER_PRODUCTION = 'img/content/map-marker1.svg';
 export const DEFAULT_ZOOM = 14;
+export const DEFAULT_CARDS_COUNT = 6;
 export const FILE_TYPES = ['jpg', 'png'];
 
 export enum AppRoute {
@@ -25,6 +26,14 @@ export enum FirstLevelFilter {
     Dessert = 'Десерт',
     Cheesecake = 'Чизкейк',
     Shortbread = 'Песочное',
+}
+
+export enum SecondLevelFilter {
+  Chocolate = 'Шоколадный',
+  Vegetarian = 'Вегетарианский',
+  NewYork = 'Нью-Йорк',
+  Lemon = 'Лимонный',
+  Vanilla = 'Ваниль',
 }
 
 export enum APIRout {

@@ -1,16 +1,12 @@
-import { useAppSelector, useAppDispatch } from '../../hooks';
+import { useAppSelector } from '../../hooks';
 import { getProducts } from '../../store/products-process/products-process.selector';
-import ProductCard from '../product-card/product-card';
-import { useEffect } from 'react';
-import { fetchCakesAction } from '../../store/api-actions';
+//import { useState } from 'react';
+//import { DEFAULT_CARDS_COUNT } from '../../const';
 import ShowMoreButton from '../show-more-button/show-more-button';
+import ProductCard from '../product-card/product-card';
 
 function Catalog() {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchCakesAction());
-  }, [dispatch]);
+  //const [filmsCount, setFilmsCount] = useState(DEFAULT_CARDS_COUNT);
 
   const cakes = useAppSelector(getProducts);
 
