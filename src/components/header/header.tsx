@@ -9,6 +9,7 @@ import UserInfo from '../user-info/user-info';
 
 function Header() {
   const dispatch = useAppDispatch();
+
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const isAuth = authorizationStatus === AuthorizationStatus.Auth;
 

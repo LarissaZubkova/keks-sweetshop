@@ -1,13 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { CakeCard, CakeFullCard } from '../types/cake';
-import { State, AppDispatch } from '../types/state';
-import { UserData } from '../types/user-data';
-import { AuthData, RegistrationData } from '../types/auth-data';
-import { dropToken, saveToken } from '../services/token';
-import { dropAvatarUrl, saveAvatarUrl, dropUserEmail, saveUserEmail } from '../services/user';
 import { APIRout, AppRoute } from '../const';
+import { dropToken, saveToken } from '../services/token';
+import { dropAvatarUrl, dropUserEmail, saveAvatarUrl, saveUserEmail } from '../services/user';
+import { AuthData, RegistrationData } from '../types/auth-data';
+import { CakeCard, CakeFullCard } from '../types/cake';
+import { AppDispatch, State } from '../types/state';
+import { UserData } from '../types/user-data';
 import { redirectToRoute } from './action';
+import { LastReview } from '../types/review';
 
 export const fetchCakesAction = createAsyncThunk<CakeCard[], undefined, {
     dispatch: AppDispatch;
@@ -29,6 +30,18 @@ export const fetchProductCardAction = createAsyncThunk<CakeFullCard, string, {
   'product/fetchProductCard',
   async(id, {extra: api}) => {
     const {data} = await api.get<CakeFullCard>(APIRout.Product.replace(':id', id));
+    return data;
+  }
+);
+
+export const fetchLastReviewAction = createAsyncThunk<LastReview, undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'review/fetchLastReview',
+  async(_arg, {extra: api}) => {
+    const {data} = await api.get<LastReview>(APIRout.LastReview);
     return data;
   }
 );

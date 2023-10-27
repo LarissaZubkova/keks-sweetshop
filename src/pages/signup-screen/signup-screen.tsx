@@ -1,21 +1,39 @@
 import { Link, Navigate } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
+import { getAuthorizationStatus, getHasErrorStatus, getIsAlreadyExistStatus } from '../../store/user-process/user-process.selector';
 import { Helmet } from 'react-helmet-async';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect, ChangeEvent } from 'react';
 import { RegistrationData } from '../../types/auth-data';
-import { validateEmail, validatePassword, validateName } from '../../utils/utils';
+import { validateEmail, validatePassword, validateName, validateAvatar } from '../../utils/utils';
 import { registrationAction } from '../../store/api-actions';
 
 function SignupScreen() {
   const dispatch = useAppDispatch();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
+  const hasAlreadyExist = useAppSelector(getIsAlreadyExistStatus);
+  const hasError = useAppSelector(getHasErrorStatus);
+
+  const [isError, setIsError] = useState({
+    exist: false,
+    error: false,
+  });
+
+  useEffect(() => {
+    setIsError({
+      exist: hasAlreadyExist,
+      error: hasError,
+    });
+  }, [hasError, hasAlreadyExist]);
+
   const [isValid, setIsValid] = useState({
     name: true,
     email: true,
     password: true,
+    avatar: true,
   });
+
+  const [avatarName, setAvatarName] = useState('');
 
   if (authorizationStatus === AuthorizationStatus.Auth) {
     return <Navigate to={AppRoute.Main} />;
@@ -26,18 +44,24 @@ function SignupScreen() {
 
     const form = evt.currentTarget;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData) as RegistrationData;
+    const data = Object.fromEntries(formData) as (RegistrationData & {avatar: File});
+    const {name, email, password, avatar} = data;
 
     setIsValid(
       {
-        name: validateName(data.name),
-        email: validateEmail(data.email),
-        password: validatePassword(data.password),
+        name: validateName(name),
+        email: validateEmail(email),
+        password: validatePassword(password),
+        avatar: validateAvatar(avatar),
       }
     );
 
-    if (data !== null && isValid && isValid) {
-      dispatch(registrationAction(data));
+    if (data !== null && isValid) {
+      dispatch(registrationAction({name, email, password}));
+      setIsError({
+        exist: hasAlreadyExist,
+        error: hasError,
+      });
     }
   };
 
@@ -56,6 +80,12 @@ function SignupScreen() {
           <div className="register-page__content">
             <div className="register-page__inner">
               <h1 className="register-page__title">Регистрация</h1>
+              {!isValid.name && <div className="sign-in__message"><p>Пожалуйста, введите имя</p></div>}
+              {!isValid.email && <div className="sign-in__message"><p>Пожалуйста, введите корректный адрес</p></div>}
+              {!isValid.password && <p>Пароль должен содержать букву и цифру</p>}
+              {!isValid.avatar && <p>Для загрузки доступно изображение не более 100 на 100 пикселей, размер менее 1 мб, в формате jpg или png. </p>}
+              {isError.exist && <p>Такой адрес уже существует</p>}
+              {isError.error && <p>Что-то пошло не так, попробуйте еще раз</p>}
               <div className="register-page__form">
                 <form
                   action="#"
@@ -84,8 +114,13 @@ function SignupScreen() {
                         <input
                           type="file"
                           name="avatar"
-                          data-text="Аватар"
+                          data-text={avatarName.length !== 0 ? avatarName : 'Аватар'}
                           accept="image/jpeg, image/png"
+                          onChange={(evt: ChangeEvent<HTMLInputElement>) => {
+                            if (evt.target.files) {
+                              setAvatarName(evt.target.files[0].name);
+                            }
+                          }}
                         />
                       </label>
                     </div>

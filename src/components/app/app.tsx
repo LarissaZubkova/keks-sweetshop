@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { AppRoute } from '../../const';
-import { fetchCakesAction, checkAuthAction } from '../../store/api-actions';
+import { fetchCakesAction, checkAuthAction, fetchLastReviewAction } from '../../store/api-actions';
 import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import CatalogScreen from '../../pages/catalog-screen/catalog-screen';
@@ -22,6 +22,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCakesAction());
     dispatch(checkAuthAction());
+    dispatch(fetchLastReviewAction());
   }, [dispatch]);
 
   return (

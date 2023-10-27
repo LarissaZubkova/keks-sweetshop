@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "1.9.5",
     "axios": "0.27.2",
     "classnames": "2.3.2",
+    "dayjs": "1.11.10",
     "history": "5.3.0",
     "http-status-codes": "2.2.0",
     "leaflet": "1.7.1",

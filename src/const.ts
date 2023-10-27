@@ -9,6 +9,7 @@ export const RANDOM_MAX_COUNT = 3;
 export const URL_MARKER_SHOP = 'img/content/map-marker2.svg';
 export const URL_MARKER_PRODUCTION = 'img/content/map-marker1.svg';
 export const DEFAULT_ZOOM = 14;
+export const FILE_TYPES = ['jpg', 'png'];
 
 export enum AppRoute {
     Main = '/',
@@ -31,13 +32,15 @@ export enum APIRout {
     Product = '/products/:id',
     Login = 'users/login',
     Registration = 'users/registration',
-    Logout = '/logout',
+    Logout = 'users/logout',
+    LastReview = 'reviews/getLast',
 }
 
 export enum NameSpace {
     Cakes = 'CAKES',
     CakeCard = 'CAKE_CARD',
     User = 'USER',
+    Review = 'REVIEW',
 }
 
 export enum AuthorizationStatus {
@@ -65,4 +68,9 @@ export const Shops: ShopsInfo = {
     name: 'Производство',
     address: [59.960380, 30.308725]
   },
+};
+
+export const DateFormat = {
+  DATE_TIME_FORMAT: 'YYYY-MM-DD',
+  DATE_FORMAT: 'DD.MM',
 };
