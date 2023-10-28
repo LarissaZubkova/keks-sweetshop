@@ -10,7 +10,6 @@ export type CakeCard = {
   isNew: boolean;
 }
 
-
 export type CakeFullCard = {
     id: string;
     title: string;

@@ -5,6 +5,7 @@ import { userProcess } from './user-process/user-process.slice';
 import { productCardProcess } from './product-card-process/product-card-process.slice';
 import { reviewProcess } from './review-process/review-process.slice';
 import { filtersProcess } from './filters-process/filters-process.slice';
+import { favoritesProcess } from './favorites-process/favorites-process.slice';
 
 export const rootReducer = combineReducers({
   [NameSpace.Cakes]: productsProcess.reducer,
@@ -12,4 +13,5 @@ export const rootReducer = combineReducers({
   [NameSpace.User]: userProcess.reducer,
   [NameSpace.Review]: reviewProcess.reducer,
   [NameSpace.Filters]: filtersProcess.reducer,
+  [NameSpace.Favorites]: favoritesProcess.reducer,
 });

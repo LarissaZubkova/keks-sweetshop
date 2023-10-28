@@ -55,6 +55,7 @@ export enum TypeFilter {
 export enum APIRout {
     Products = '/products',
     Product = '/products/:id',
+    Favorites = '/favorites',
     Login = 'users/login',
     Registration = 'users/registration',
     Logout = 'users/logout',
@@ -67,6 +68,7 @@ export enum NameSpace {
     User = 'USER',
     Review = 'REVIEW',
     Filters = 'FILTERS',
+    Favorites = 'FAVORITES',
 }
 
 export enum AuthorizationStatus {

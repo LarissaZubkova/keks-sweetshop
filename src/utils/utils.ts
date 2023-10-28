@@ -74,3 +74,17 @@ const filterSecondLevel = {
 export function filterByType(secondLevel: SecondLevelFilter[], cakes: CakeCard[]) {
   return secondLevel.map((filter) => filterSecondLevel[filter](cakes)).flat();
 }
+
+export function validatePositive(positive: string, rating: number) {
+  if (rating > 3) {
+    return Boolean(positive) && positive.length <= 500;
+  }
+  return true;
+}
+
+export function validateNegative(negative: string, rating: number) {
+  if (rating < 4 && rating > 0) {
+    return Boolean(negative) && negative.length <= 500;
+  }
+  return true;
+}

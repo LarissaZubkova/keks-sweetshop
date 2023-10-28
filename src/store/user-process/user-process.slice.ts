@@ -43,15 +43,11 @@ export const userProcess = createSlice({
         state.isAlreadyExist = false;
         state.hasError = false;
       })
-      .addCase(registrationAction.fulfilled, (state, action) => {
-        state.authorizationStatus = AuthorizationStatus.Auth;
+      .addCase(registrationAction.fulfilled, (state) => {
         state.isAlreadyExist = false;
         state.hasError = false;
-        state.avatarUrl = action.payload.avatarUrl;
-        state.email = action.payload.email;
       })
       .addCase(registrationAction.rejected, (state, action) => {
-        state.authorizationStatus = AuthorizationStatus.NoAuth;
         state.hasError = true;
         state.isAlreadyExist = false;
 

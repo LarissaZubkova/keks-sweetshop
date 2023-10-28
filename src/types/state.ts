@@ -35,3 +35,11 @@ export type FiltersProcess = {
   firstLevel: FirstLevelFilter | null;
   secondLevel: SecondLevelFilter[] | [];
 }
+
+export type FavoritesProcess = {
+  favorites: CakeFullCard[] | [];
+  isFavoritesLoading: boolean;
+  hasFavoritesError: boolean;
+  hasAddFAvoritesError: boolean;
+  hasDeleteFavoritesError: boolean;
+}

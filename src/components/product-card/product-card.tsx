@@ -1,16 +1,20 @@
+import { Link } from 'react-router-dom';
 import { CakeCard } from '../../types/product';
 import { getFormat } from '../../utils/utils';
+import { AppRoute } from '../../const';
+import FavoriteButton from '../favorite-button/favorite-button';
 
 type CakeCardProps = {
     cake: CakeCard;
 }
 
 function ProductCard({cake}: CakeCardProps) {
-  const {previewImage, previewImageWebp, title, price, isNew} = cake;
+  const {previewImage, previewImageWebp, title, price, isNew, id} = cake;
+
   return (
     <li className="catalog__item">
       <div className="card-item card-item--big">
-        <a className="card-item__img-link" href="#">
+        <Link className="card-item__img-link" to={AppRoute.Product.replace(':id', id)}>
           <div className="card-item__img-wrapper">
             <picture>
               <source type="image/webp" srcSet={previewImageWebp} />
@@ -18,16 +22,12 @@ function ProductCard({cake}: CakeCardProps) {
             </picture>
           </div>
           {isNew && <span className="card-item__label">Новинка</span>}
-        </a>
-        <button className="card-item__favorites card-item__favorites--active"><span className="visually-hidden">Добавить в избранное</span>
-          <svg width="51" height="41" aria-hidden="true">
-            <use xlinkHref="#icon-like"></use>
-          </svg>
-        </button>
+        </Link>
+        <FavoriteButton id={id} />
         <span className="card-item__price">{`${getFormat(price)} p`}</span>
-        <a className="card-item__link" href="#">
+        <Link className="card-item__link" to={AppRoute.Product.replace(':id', id)}>
           <h3 className="card-item__title"><span>{title}</span></h3>
-        </a>
+        </Link>
       </div>
     </li>
   );

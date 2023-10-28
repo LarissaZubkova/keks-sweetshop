@@ -8,8 +8,14 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import Loading from '../loading/loading';
 import Rating from '../rating/rating';
+import FavoriteButton from '../favorite-button/favorite-button';
 
-function ProductDetails(): JSX.Element {
+type ProductDetailsProps = {
+  setIsReviewForm: (data: boolean) => void;
+  isReviewForm: boolean;
+}
+
+function ProductDetails({setIsReviewForm, isReviewForm}: ProductDetailsProps): JSX.Element {
   const navigate = useNavigate();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const product = useAppSelector(getProductCard);
@@ -20,10 +26,10 @@ function ProductDetails(): JSX.Element {
     return <Loading />;
   }
 
-  const {title, price, weight, previewImage, previewImageWebp, isNew, reviewCount, rating, description} = product;
+  const {title, price, weight, previewImage, previewImageWebp, isNew, reviewCount, rating, description, id} = product;
 
   return (
-    <section className="item-details">
+    <section className={classNames('item-details', {'item-details--form-open' : isReviewForm})}>
       <div className="container">
         <div className="item-details__wrapper">
           <div className="item-details__top-wrapper">
@@ -51,26 +57,28 @@ function ProductDetails(): JSX.Element {
                   onClick={() => setIsFullDescription(true)}
                 >
                   <span className="visually-hidden">Читать полностью</span>
-                  <svg width="27" height="17" aria-hidden="true">
+                  <svg width={27}height={17} aria-hidden="true">
                     <use xlinkHref="#icon-more"></use>
                   </svg>
                 </button>
               </div>
               <div className="item-details__button-wrapper">
-                <button className="item-details__like-button">
-                  <svg width="45" height="37" aria-hidden="true">
-                    <use xlinkHref="#icon-like"></use>
-                  </svg><span className="visually-hidden">Понравилось</span>
-                </button>
+                <FavoriteButton id={id} isSmall/>
                 <button
                   className="btn btn--second"
                   type="button"
                   onClick={(() => {
                     if (authorizationStatus !== AuthorizationStatus.Auth) {
                       navigate(AppRoute.LogIn);
+                      return;
+                    }
+                    if (isReviewForm) {
+                      setIsReviewForm(false);
+                    } else {
+                      setIsReviewForm(true);
                     }
                   })}
-                >Оставить отзыв
+                >{isReviewForm ? 'Отменить отзыв' : 'Оставить отзыв'}
                 </button>
               </div>
             </div>

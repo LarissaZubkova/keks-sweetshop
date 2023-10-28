@@ -46,6 +46,42 @@ export const fetchLastReviewAction = createAsyncThunk<LastReview, undefined, {
   }
 );
 
+export const fetchFavoritesAction = createAsyncThunk<CakeFullCard[], undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'product/fetchFavorites',
+  async(_arg, {extra: api}) => {
+    const {data} = await api.get<CakeFullCard[]>(APIRout.Favorites);
+    return data;
+  }
+);
+
+export const fetchAddFavoriteAction = createAsyncThunk<CakeFullCard, string, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'product/fetchAddFavorite',
+  async(id, {extra: api}) => {
+    const {data} = await api.put<CakeFullCard>(`${APIRout.Favorites}/${id}`);
+    return data;
+  }
+);
+
+export const fetchDeleteFavoriteAction = createAsyncThunk<CakeFullCard, string, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'product/fetchDeleteFavorite',
+  async(id, {extra: api}) => {
+    const {data} = await api.delete<CakeFullCard>(`${APIRout.Favorites}/${id}`);
+    return data;
+  }
+);
+
 export const checkAuthAction = createAsyncThunk<UserData, undefined, {
     dispatch: AppDispatch;
     state: State;
@@ -80,12 +116,8 @@ export const registrationAction = createAsyncThunk<UserData, RegistrationData, {
     extra: AxiosInstance;
     }>(
       'user/registration',
-      async (registration, {dispatch, extra: api}) => {
+      async (registration, {extra: api}) => {
         const {data} = await api.post<UserData>(APIRout.Registration, registration);
-        saveToken(data.token);
-        saveAvatarUrl(String(data.avatarUrl));
-        saveUserEmail(data.email);
-        dispatch(redirectToRoute(AppRoute.Main));
         return data;
       },
     );
