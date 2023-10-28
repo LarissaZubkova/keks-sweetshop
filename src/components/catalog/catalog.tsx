@@ -7,6 +7,7 @@ import ProductCard from '../product-card/product-card';
 import { filterFirstLevel, filterByType } from '../../utils/utils';
 import { getFirstLevelFilter, getSecondLevelFilter } from '../../store/filters-process/filters-process.selector';
 import NoFilteredCakes from '../no-filtered-cakes/no-filtered-cakes';
+import ToStartButton from '../to-start-button/to-start-button';
 
 
 function Catalog() {
@@ -43,7 +44,7 @@ function Catalog() {
           <ul className="catalog__list">
             {currentProductsList.map((cake) => <ProductCard key={cake.id} cake={cake} />)}
           </ul>
-          {cardsCount < products.length && <ShowMoreButton cardsCount={cardsCount} setCardsCount={setCardsCount} />}
+          {cardsCount < products.length ? <ShowMoreButton cardsCount={cardsCount} setCardsCount={setCardsCount} /> : <ToStartButton />}
         </div>
       </div>
     </section>
