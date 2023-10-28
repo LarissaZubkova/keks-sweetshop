@@ -6,6 +6,8 @@ import ShowMoreButton from '../show-more-button/show-more-button';
 import ProductCard from '../product-card/product-card';
 import { filterFirstLevel, filterByType } from '../../utils/utils';
 import { getFirstLevelFilter, getSecondLevelFilter } from '../../store/filters-process/filters-process.selector';
+import NoFilteredCakes from '../no-filtered-cakes/no-filtered-cakes';
+
 
 function Catalog() {
   //const [filmsCount, setFilmsCount] = useState(DEFAULT_CARDS_COUNT);
@@ -17,13 +19,16 @@ function Catalog() {
 
   if (firstLevel) {
     products = filterFirstLevel[firstLevel](cakes);
-    if (secondLevel.length > 0) {
-      filterByType(secondLevel, products);
-    }
   } else {
     products = cakes;
   }
+  if (secondLevel.length > 0) {
+    products = filterByType(secondLevel, products);
+  }
 
+  if (!products.length) {
+    return <NoFilteredCakes />;
+  }
 
   return (
     <section className="catalog">

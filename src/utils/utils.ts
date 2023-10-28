@@ -64,11 +64,11 @@ export const filterFirstLevel = {
 };
 
 const filterSecondLevel = {
-  [SecondLevelFilter.Chocolate]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.category === TypeFilter.Chocolate),
-  [SecondLevelFilter.Lemon]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.category === TypeFilter.Lemon),
-  [SecondLevelFilter.NewYork]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.category === TypeFilter.NewYork),
-  [SecondLevelFilter.Vanilla]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.category === TypeFilter.Vanilla),
-  [SecondLevelFilter.Vegetarian]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.category === TypeFilter.Vegetarian),
+  [SecondLevelFilter.Chocolate]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Chocolate),
+  [SecondLevelFilter.Lemon]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Lemon),
+  [SecondLevelFilter.NewYork]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.NewYork),
+  [SecondLevelFilter.Vanilla]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Vanilla),
+  [SecondLevelFilter.Vegetarian]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Vegetarian),
 };
 
 export function filterByType(secondLevel: SecondLevelFilter[], cakes: CakeCard[]) {
