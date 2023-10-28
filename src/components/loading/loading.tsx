@@ -2,7 +2,7 @@ import './loading.css';
 
 function Loading() {
   return (
-    <p className="loader">Loading ...</p>
+    <p className="loader"></p>
   );
 }
 

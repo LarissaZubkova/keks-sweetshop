@@ -1,7 +1,10 @@
 import { LastReview } from '../../types/review';
-import {Fragment} from 'react';
 import { getDateFormat } from '../../utils/utils';
 import classNames from 'classnames';
+import { useAppSelector } from '../../hooks';
+import { getLastReviewErrorStatus } from '../../store/review-process/review-process.selector';
+import Loading from '../loading/loading';
+import Rating from '../rating/rating';
 
 type ReviewProps = {
   review: LastReview;
@@ -9,6 +12,12 @@ type ReviewProps = {
 }
 
 function Review({review, isMain}: ReviewProps) :JSX.Element {
+  const hasError = useAppSelector(getLastReviewErrorStatus);
+
+  if (!review || hasError) {
+    return <Loading />;
+  }
+
   const {user, negative, positive, rating, isoDate} = review;
 
   return (
@@ -18,13 +27,7 @@ function Review({review, isMain}: ReviewProps) :JSX.Element {
       >
         <time className="review__date" dateTime={getDateFormat(isoDate).dateTime}>{getDateFormat(isoDate).ratingDate}</time><span className="review__author">Уважаемый(-ая) {user.name}</span>
         <div className="star-rating">
-          {Array.from({length: 5}, (_,i) => (
-            <Fragment key={i}>
-              <svg className={classNames('star-rating__star', {'star-rating__star--active' : rating > i})} width={30} height={30} aria-hidden="true">
-                <use xlinkHref="#icon-star"></use>
-              </svg>
-            </Fragment>
-          ))}
+          {<Rating rating={Math.round(rating)} />}
         </div>
         <div className="review__text-wrapper">
           <p className="review__text">{positive}</p>

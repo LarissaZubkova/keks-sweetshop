@@ -1,5 +1,5 @@
 import { CakeCard } from '../../types/product';
-import { getPrice } from '../../utils/utils';
+import { getFormat } from '../../utils/utils';
 
 type CakeCardProps = {
     cake: CakeCard;
@@ -24,7 +24,7 @@ function ProductCard({cake}: CakeCardProps) {
             <use xlinkHref="#icon-like"></use>
           </svg>
         </button>
-        <span className="card-item__price">{`${getPrice(price)} p`}</span>
+        <span className="card-item__price">{`${getFormat(price)} p`}</span>
         <a className="card-item__link" href="#">
           <h3 className="card-item__title"><span>{title}</span></h3>
         </a>

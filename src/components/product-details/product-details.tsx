@@ -1,46 +1,56 @@
 import { useNavigate } from 'react-router-dom';
-import { AppRoute, AuthorizationStatus } from '../../const';
+import { AppRoute, AuthorizationStatus, DESCRIPTION_MAX_LENGTH } from '../../const';
+import { getFormat } from '../../utils/utils';
 import { useAppSelector } from '../../hooks';
 import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
+import { getProductCard, getProductCardLoadingStatus } from '../../store/product-card-process/product-card-process.selector';
+import { useState } from 'react';
+import classNames from 'classnames';
+import Loading from '../loading/loading';
+import Rating from '../rating/rating';
 
 function ProductDetails(): JSX.Element {
-  const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const navigate = useNavigate();
+  const authorizationStatus = useAppSelector(getAuthorizationStatus);
+  const product = useAppSelector(getProductCard);
+  const isLoading = useAppSelector(getProductCardLoadingStatus);
+  const [isFullDescription, setIsFullDescription] = useState(false);
+
+  if (isLoading || !product) {
+    return <Loading />;
+  }
+
+  const {title, price, weight, previewImage, previewImageWebp, isNew, reviewCount, rating, description} = product;
+
   return (
     <section className="item-details">
       <div className="container">
         <div className="item-details__wrapper">
           <div className="item-details__top-wrapper">
-            <h2 className="item-details__name">Чизкейк Лимонный</h2><span className="item-details__price">4 100 р</span>
+            <h2 className="item-details__name">{title}</h2><span className="item-details__price">{`${getFormat(price)} p`}</span>
           </div>
-          <div className="item-details__weight-wrapper"><span className="item-details__weight">1 300 грамм</span></div>
+          <div className="item-details__weight-wrapper"><span className="item-details__weight">{`${getFormat(weight)} грамм`}</span></div>
           <div className="item-details__bottom-wrapper">
             <div className="item-details__image-wrapper">
               <picture>
-                <source type="image/webp" srcSet="img/content/lemon-pie.webp, img/content/lemon-pie@2x.webp 2x" />
-                <img src="img/content/lemon-pie.jpg" srcSet="img/content/lemon-pie@2x.jpg 2x" width={241} height={245} alt="Чизкейк лимонный" />
-              </picture><span className="item-details__label">Новинка</span>
+                <source type="image/webp" srcSet={previewImageWebp} />
+                <img src={previewImage} srcSet={previewImage} width={241} height={245} alt={title} />
+              </picture>
+              {isNew && <span className="item-details__label">Новинка</span>}
             </div>
             <div className="item-details__review-wrapper">
               <div className="star-rating star-rating--big">
-                <svg className="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-                <svg className="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-                <svg className="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-                <svg className="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
-                  <use xlinkHref="#icon-star"></use>
-                </svg>
-                <svg className="star-rating__star star-rating__star--active" width="30" height="30" aria-hidden="true">
-                  <use xlinkHref="#icon-star"></use>
-                </svg><span className="star-rating__count">26</span>
+                {<Rating rating={Math.round(rating)} />}
+                <span className="star-rating__count">{reviewCount}</span>
               </div>
-              <div className="item-details__text-wrapper"><span className="item-details__text">Цитрусовый десерт c тонким сливочным вкусом, лёгкой свежестью и низким содержанием калорий сд</span>
-                <button className="item-details__more"><span className="visually-hidden">Читать полностью</span>
+              <div className="item-details__text-wrapper"><span className="item-details__text">{isFullDescription ? description : description.slice(0, DESCRIPTION_MAX_LENGTH)}</span>
+                <button
+                  className={classNames('item-details__more', {
+                    'visually-hidden' : isFullDescription || description.length <= DESCRIPTION_MAX_LENGTH
+                  })}
+                  onClick={() => setIsFullDescription(true)}
+                >
+                  <span className="visually-hidden">Читать полностью</span>
                   <svg width="27" height="17" aria-hidden="true">
                     <use xlinkHref="#icon-more"></use>
                   </svg>

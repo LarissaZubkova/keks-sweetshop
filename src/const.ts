@@ -6,6 +6,7 @@ export const AUTH_TOKEN_KEY_NAME = 'keks-token';
 export const USER_EMAIL_KEY_NAME = 'Email';
 export const USER_AVATAR_KEY_NAME = 'avatar-url';
 export const RANDOM_MAX_COUNT = 3;
+export const DESCRIPTION_MAX_LENGTH = 140;
 export const URL_MARKER_SHOP = 'img/content/map-marker2.svg';
 export const URL_MARKER_PRODUCTION = 'img/content/map-marker1.svg';
 export const DEFAULT_ZOOM = 14;

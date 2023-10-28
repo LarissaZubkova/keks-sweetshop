@@ -8,8 +8,8 @@ type RandomCardProps = {
 
 function RandomCard({cake}: RandomCardProps): JSX.Element {
   const navigate = useNavigate();
-
   const {previewImage, previewImageWebp, title, isNew, id} = cake;
+
   return (
     <li
       className="random-main__item"

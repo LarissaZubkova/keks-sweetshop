@@ -11,11 +11,13 @@ import Footer from '../../components/footer/footer';
 import Header from '../../components/header/header';
 import ProductDetails from '../../components/product-details/product-details';
 import ReviewForm from '../../components/review-form/review-form';
-
+import { getProductCardErrorStatus } from '../../store/product-card-process/product-card-process.selector';
+import ErrorScreen from '../error-screen/error-screen';
 
 function ProductScreen():JSX.Element {
   const dispatch = useAppDispatch();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
+  const hasProductError = useAppSelector(getProductCardErrorStatus);
   const {id} = useParams();
 
   useEffect(() => {
@@ -23,6 +25,10 @@ function ProductScreen():JSX.Element {
       dispatch(fetchProductCardAction(id));
     }
   }, [id, dispatch]);
+
+  if (hasProductError) {
+    <ErrorScreen />;
+  }
 
   return (
     <div className="wrapper">

@@ -41,8 +41,8 @@ export function validateAvatar(avatar: File) {
   return matches && avatar.size <= 10000000;
 }
 
-export function getPrice(price: number) {
-  return price.toLocaleString('ru-RU',);
+export function getFormat(data: number) {
+  return data.toLocaleString('ru-RU');
 }
 
 export function getRandomCakes(cakes: CakeCard[]) {
