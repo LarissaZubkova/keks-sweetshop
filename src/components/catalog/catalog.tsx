@@ -1,7 +1,7 @@
 import { useAppSelector } from '../../hooks';
 import { getProducts } from '../../store/products-process/products-process.selector';
-//import { useState } from 'react';
-//import { DEFAULT_CARDS_COUNT } from '../../const';
+import { useState, useEffect } from 'react';
+import { DEFAULT_CARDS_COUNT } from '../../const';
 import ShowMoreButton from '../show-more-button/show-more-button';
 import ProductCard from '../product-card/product-card';
 import { filterFirstLevel, filterByType } from '../../utils/utils';
@@ -10,12 +10,15 @@ import NoFilteredCakes from '../no-filtered-cakes/no-filtered-cakes';
 
 
 function Catalog() {
-  //const [filmsCount, setFilmsCount] = useState(DEFAULT_CARDS_COUNT);
+  const [cardsCount, setCardsCount] = useState(DEFAULT_CARDS_COUNT);
   const cakes = useAppSelector(getProducts);
   const firstLevel = useAppSelector(getFirstLevelFilter);
   const secondLevel = useAppSelector(getSecondLevelFilter);
-
   let products;
+
+  useEffect(() => {
+    setCardsCount(DEFAULT_CARDS_COUNT);
+  }, [firstLevel, secondLevel]);
 
   if (firstLevel) {
     products = filterFirstLevel[firstLevel](cakes);
@@ -30,15 +33,17 @@ function Catalog() {
     return <NoFilteredCakes />;
   }
 
+  const currentProductsList = products.slice(0, cardsCount);
+
   return (
     <section className="catalog">
       <div className="container">
         <h2 className="visually-hidden">Каталог</h2>
         <div className="catalog__wrapper">
           <ul className="catalog__list">
-            {products.map((cake) => <ProductCard key={cake.id} cake={cake} />)}
+            {currentProductsList.map((cake) => <ProductCard key={cake.id} cake={cake} />)}
           </ul>
-          <ShowMoreButton />
+          {cardsCount < products.length && <ShowMoreButton cardsCount={cardsCount} setCardsCount={setCardsCount} />}
         </div>
       </div>
     </section>
