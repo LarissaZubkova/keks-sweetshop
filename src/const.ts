@@ -6,11 +6,13 @@ export const AUTH_TOKEN_KEY_NAME = 'keks-token';
 export const USER_EMAIL_KEY_NAME = 'Email';
 export const USER_AVATAR_KEY_NAME = 'avatar-url';
 export const RANDOM_MAX_COUNT = 3;
+export const DEFAULT_LAST_DIGITS_COUNT = 499;
 export const DESCRIPTION_MAX_LENGTH = 140;
 export const URL_MARKER_SHOP = 'img/content/map-marker2.svg';
 export const URL_MARKER_PRODUCTION = 'img/content/map-marker1.svg';
 export const DEFAULT_ZOOM = 14;
 export const DEFAULT_CARDS_COUNT = 6;
+export const DEFAULT_REVIEWS_COUNT = 2;
 export const FILE_TYPES = ['jpg', 'png'];
 
 export enum AppRoute {
@@ -60,6 +62,7 @@ export enum APIRout {
     Registration = 'users/registration',
     Logout = 'users/logout',
     LastReview = 'reviews/getLast',
+    Review = '/reviews/'
 }
 
 export enum NameSpace {
@@ -81,6 +84,11 @@ export enum FilterSortType {
     All = 'Любой',
     High = 'Высокий',
     Low = 'Низкий',
+}
+
+export enum FilterSortDate {
+  Top = 'сортировка по возрастанию',
+  Down = 'сортировка по убыванию',
 }
 
 export const Shops: ShopsInfo = {

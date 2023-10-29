@@ -1,11 +1,20 @@
 import classNames from 'classnames';
-import { useAppDispatch } from '../../hooks';
-import { Fragment, useState, ChangeEvent, FormEvent } from 'react';
-import { validatePositive, validateNegative } from '../../utils/utils';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { Fragment, useState, ChangeEvent, FormEvent, useEffect} from 'react';
+import { validatePositive, validateNegative, displayAvailableDigits } from '../../utils/utils';
+import { fetchReviewsAction, fetchSendReviewAction } from '../../store/api-actions';
+import { getReviewSendingStatus, getSendingErrorStatus } from '../../store/review-process/review-process.selector';
 
-function ReviewForm(): JSX.Element {
+type ReviewFormProps = {
+  id: string | undefined;
+}
+
+function ReviewForm({id}: ReviewFormProps): JSX.Element {
   const dispatch = useAppDispatch();
+  const isSending = useAppSelector(getReviewSendingStatus);
+  const hasSendingError = useAppSelector(getSendingErrorStatus);
 
+  const [hasError, setHasError] = useState(false);
   const [formData, setFormData] = useState({
     rating: 0,
     positive: '',
@@ -17,9 +26,18 @@ function ReviewForm(): JSX.Element {
     negative: true,
   });
 
-  function displayAvailableDigits(digits: string): number {
-    return 500 - digits.length;
-  }
+  useEffect(() => {
+    setIsFormValid({
+      rating: Boolean(formData.rating),
+      positive: validatePositive(formData.positive, formData.rating),
+      negative: validateNegative(formData.negative, formData.rating),
+    });
+  }, [formData]);
+
+  // useEffect(() => {
+  //   setHasError(false);
+  // }, []);
+
 
   const [digits, setDigits] = useState({
     positive: displayAvailableDigits(formData.positive),
@@ -42,28 +60,32 @@ function ReviewForm(): JSX.Element {
       positive: displayAvailableDigits(formData.positive),
       negative: displayAvailableDigits(formData.negative),
     });
-
-    //setValidComment(isCommentValid);
   };
-
 
   const handleFormSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-    console.log(Boolean(formData.rating), validatePositive(formData.positive, formData.rating), validateNegative(formData.negative, formData.rating));
 
-    setIsFormValid({
-      rating: Boolean(formData.rating),
-      positive: validatePositive(formData.positive, formData.rating),
-      negative: validateNegative(formData.negative, formData.rating),
-    });
+    if (isFormValid.positive && isFormValid.negative && id) {
+      dispatch(fetchSendReviewAction({id, formData}));
+      dispatch(fetchReviewsAction(id));
+    }
 
-    // if (rating && isCommentValid) {
-    //   dispatch(fetchSendReviewAction({id, rating, comment}));
-    // }
+    if(!isSending && !hasError) {
+      setHasError(false);
+    }
 
-    // if(!isSending && isCommentSendingError) {
-    //   setHasError(true);
-    // }
+    if(!isSending && hasSendingError) {
+      setHasError(true);
+    }
+
+    if (!isSending && !hasError) {
+      setFormData({
+        rating: 0,
+        positive: '',
+        negative: '',
+      });
+    }
+
   };
 
   return (
@@ -71,6 +93,7 @@ function ReviewForm(): JSX.Element {
       <div className="container">
         <div className="review-form__wrapper">
           <h2 className="review-form__title">оставить отзыв</h2>
+          {hasError && <span style={{color: '#d94236', fontSize: '24px'}}> комментарий не отправлен</span>}
           <div className="review-form__form">
             <form
               action="#"
@@ -88,8 +111,10 @@ function ReviewForm(): JSX.Element {
                     <input
                       type="text"
                       name="positive"
+                      value={formData.positive}
                       placeholder="Достоинства"
                       onChange={handleFormDataChange}
+                      disabled={isSending}
                     />
                   </label>
                   {!isFormValid.positive && <span className="custom-input__message">заполните поле</span>}
@@ -104,11 +129,13 @@ function ReviewForm(): JSX.Element {
                     <input
                       type="text"
                       name="negative"
+                      value={formData.negative}
                       placeholder="Недостатки"
                       onChange={handleFormDataChange}
+                      disabled={isSending}
                     />
                   </label>
-                  {!isFormValid.negative && digits.negative === 500 && <span className="custom-input__message">заполните поле</span>}
+                  {!isFormValid.negative && <span className="custom-input__message">заполните поле</span>}
                   {formData.rating < 4 && formData.rating > 0 && formData.negative.length > 0 && <span className="custom-input__message">осталось {digits.negative} символов</span>}
                 </div>
               </div>
@@ -140,7 +167,7 @@ function ReviewForm(): JSX.Element {
                   <button
                     className="btn review-form__button"
                     type="submit"
-                    disabled={!formData.rating}
+                    disabled={!formData.rating || isSending}
                   >Отправить отзыв
                   </button>
                 </div>

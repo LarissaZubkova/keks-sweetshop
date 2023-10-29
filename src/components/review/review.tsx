@@ -1,4 +1,4 @@
-import { LastReview } from '../../types/review';
+import { Review } from '../../types/review';
 import { getDateFormat } from '../../utils/utils';
 import classNames from 'classnames';
 import { useAppSelector } from '../../hooks';
@@ -7,11 +7,11 @@ import Loading from '../loading/loading';
 import Rating from '../rating/rating';
 
 type ReviewProps = {
-  review: LastReview;
+  review: Review;
   isMain?: boolean;
 }
 
-function Review({review, isMain}: ReviewProps) :JSX.Element {
+function ReviewCard({review, isMain}: ReviewProps) :JSX.Element {
   const hasError = useAppSelector(getLastReviewErrorStatus);
 
   if (!review || hasError) {
@@ -44,4 +44,4 @@ function Review({review, isMain}: ReviewProps) :JSX.Element {
   );
 }
 
-export default Review;
+export default ReviewCard;

@@ -1,3 +1,5 @@
+import { FilterSortType, FilterSortDate } from '../const';
+
 export type ShopsInfo = {
   FIRST_SHOP: Shop;
   SECOND_SHOP: Shop;
@@ -6,5 +8,10 @@ export type ShopsInfo = {
 
 export type Shop = {
   name: string;
-    address: [number, number];
+address: [number, number];
+}
+
+export type SortType = {
+  rating: FilterSortType;
+  date: FilterSortDate;
 }

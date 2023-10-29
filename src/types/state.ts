@@ -1,7 +1,7 @@
 import { store } from '../store/index';
 import { CakeCard, CakeFullCard } from './product';
-import { AuthorizationStatus, FirstLevelFilter, SecondLevelFilter } from '../const';
-import { LastReview } from './review';
+import { AuthorizationStatus, FirstLevelFilter, SecondLevelFilter, FilterSortDate, FilterSortType } from '../const';
+import { Review } from './review';
 
 export type AppDispatch = typeof store.dispatch;
 export type State = ReturnType<typeof store.getState>;
@@ -27,13 +27,20 @@ export type UserProcess = {
 }
 
 export type ReviewProcess = {
-    lastReview: LastReview | null;
+    lastReview: Review | null;
+    reviews: Review[] | [];
+    isReviewsLoading: boolean;
+    hasReviewsError: boolean;
     hasError: boolean;
+    isReviewSending: boolean;
+    hasSendingError: boolean;
 }
 
 export type FiltersProcess = {
   firstLevel: FirstLevelFilter | null;
   secondLevel: SecondLevelFilter[] | [];
+  sortingByRating: FilterSortType;
+  sortingByDate: FilterSortDate;
 }
 
 export type FavoritesProcess = {

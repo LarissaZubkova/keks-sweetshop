@@ -4,11 +4,11 @@ import { getFormat } from '../../utils/utils';
 import { AppRoute } from '../../const';
 import FavoriteButton from '../favorite-button/favorite-button';
 
-type CakeCardProps = {
+type ProductCardProps = {
     cake: CakeCard;
 }
 
-function ProductCard({cake}: CakeCardProps) {
+function ProductCard({cake}: ProductCardProps) {
   const {previewImage, previewImageWebp, title, price, isNew, id} = cake;
 
   return (

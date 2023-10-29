@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchAddFavoriteAction, fetchDeleteFavoriteAction } from '../../store/api-actions';
-import { getFavorites } from '../../store/favorites-process/favorite-process.selector';
+import { getFavorites } from '../../store/favorite-process/favorite-process.selector';
 import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { useNavigate } from 'react-router-dom';

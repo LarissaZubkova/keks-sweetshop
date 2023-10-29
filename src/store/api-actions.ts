@@ -8,7 +8,8 @@ import { CakeCard, CakeFullCard } from '../types/product';
 import { AppDispatch, State } from '../types/state';
 import { UserData } from '../types/user-data';
 import { redirectToRoute } from './action';
-import { LastReview } from '../types/review';
+import { Review } from '../types/review';
+import { FormData } from '../types/review';
 
 export const fetchCakesAction = createAsyncThunk<CakeCard[], undefined, {
     dispatch: AppDispatch;
@@ -34,15 +35,40 @@ export const fetchProductCardAction = createAsyncThunk<CakeFullCard, string, {
   }
 );
 
-export const fetchLastReviewAction = createAsyncThunk<LastReview, undefined, {
+export const fetchLastReviewAction = createAsyncThunk<Review, undefined, {
   dispatch: AppDispatch;
   state: State;
   extra: AxiosInstance;
 }>(
   'review/fetchLastReview',
   async(_arg, {extra: api}) => {
-    const {data} = await api.get<LastReview>(APIRout.LastReview);
+    const {data} = await api.get<Review>(APIRout.LastReview);
     return data;
+  }
+);
+
+export const fetchReviewsAction = createAsyncThunk<Review[], string, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'review/fetchReviews',
+  async(id, {extra: api}) => {
+    const {data} = await api.get<Review[]>(`${APIRout.Review}/${id}`);
+    return data;
+  }
+);
+
+export const fetchSendReviewAction = createAsyncThunk<void, {id: string; formData: FormData}, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'review/fetchSendReview',
+  async({id, formData}, {extra: api}) => {
+
+    await api.post<void>(`${APIRout.Review}/${id}`, formData);
+
   }
 );
 
