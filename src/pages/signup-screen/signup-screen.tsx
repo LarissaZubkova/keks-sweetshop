@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet-async';
 import { useState, FormEvent, useEffect, ChangeEvent } from 'react';
 import { RegistrationData } from '../../types/auth-data';
 import { validateEmail, validatePassword, validateName, validateAvatar } from '../../utils/utils';
-import { registrationAction } from '../../store/api-actions';
+import { fetchAvatarAction, registrationAction } from '../../store/api-actions';
 
 function SignupScreen() {
   const dispatch = useAppDispatch();
@@ -57,7 +57,9 @@ function SignupScreen() {
     );
 
     if (data !== null && isValid) {
+      console.log(data);
       dispatch(registrationAction({name, email, password}));
+      dispatch(fetchAvatarAction(data));
       setIsError({
         exist: hasAlreadyExist,
         error: hasError,

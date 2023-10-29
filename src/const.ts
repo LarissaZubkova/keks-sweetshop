@@ -61,8 +61,9 @@ export enum APIRout {
     Login = 'users/login',
     Registration = 'users/registration',
     Logout = 'users/logout',
+    Avatar = '/users/upload',
     LastReview = 'reviews/getLast',
-    Review = '/reviews/'
+    Review = '/reviews/',
 }
 
 export enum NameSpace {

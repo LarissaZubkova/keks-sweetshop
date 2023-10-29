@@ -6,12 +6,13 @@ import { logoutAction } from '../../store/api-actions';
 import classNames from 'classnames';
 import Logo from '../logo/logo';
 import UserInfo from '../user-info/user-info';
+import { getFavorites } from '../../store/favorite-process/favorite-process.selector';
 
-function Header() {
+function Header(): JSX.Element {
   const dispatch = useAppDispatch();
-
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const isAuth = authorizationStatus === AuthorizationStatus.Auth;
+  const favorites = useAppSelector(getFavorites);
 
   return (
     <header className={classNames('header',
@@ -26,10 +27,12 @@ function Header() {
               <>
                 <Link className="header__favourite" to={AppRoute.Favorites}>
                   <span className="header__favourite-icon">
-                    <svg width="33" height="29" aria-hidden="true">
+                    <svg width={33} height={29} aria-hidden="true">
                       <use xlinkHref="#icon-favourite"></use>
                     </svg>
-                  </span><span className="header__favourite-number">2</span><span className="visually-hidden">Избранное</span>
+                  </span>
+                  {favorites.length > 0 && <span className="header__favourite-number">{favorites.length}</span>}
+                  <span className="visually-hidden">Избранное</span>
                 </Link>
                 <div className="header__buttons-authorized">
                   <div className="header__btn">

@@ -7,6 +7,7 @@ import { getReviewsErrorStatus, getReviews } from '../../store/review-process/re
 import { getSortingTypeByRating, getSortingTypeByDate } from '../../store/filters-process/filters-process.selector';
 import { sortByDate, sortByRating } from '../../utils/utils';
 import { DEFAULT_REVIEWS_COUNT } from '../../const';
+import { resetSorting } from '../../store/filters-process/filters-process.slice';
 import BackArrow from '../../components/back-arrow/back-arrow';
 import CatalogComments from '../../components/catalog-comments/catalog-comments';
 import FilterSort from '../../components/filter-sort/filter-sort';
@@ -17,7 +18,6 @@ import ReviewForm from '../../components/review-form/review-form';
 import ErrorScreen from '../error-screen/error-screen';
 import ReviewsError from '../../components/reviews-error/reviews-error';
 import NoReview from '../../components/no-review/no-review';
-import { resetSorting } from '../../store/filters-process/filters-process.slice';
 
 function ProductScreen():JSX.Element {
   const dispatch = useAppDispatch();

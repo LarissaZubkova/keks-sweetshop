@@ -1,14 +1,20 @@
-function UserInfo() {
+import { useAppSelector } from '../../hooks';
+import { getAvatarUrl, getUserEmail } from '../../store/user-process/user-process.selector';
+
+function UserInfo(): JSX.Element {
+  const avatarUrl = useAppSelector(getAvatarUrl);
+  const email = useAppSelector(getUserEmail);
+
   return (
     <div className="header__user-info-wrap">
       <div className="header__user-info">
         <div className="header__user-avatar">
           <picture>
-            <source type="image/webp" srcSet="img/content/user-avatar.webp, img/content/user-avatar@2x.webp 2x" />
-            <img src="img/content/user-avatar.jpg" srcSet="img/content/user-avatar@2x.jpg 2x" width="62" height="62" alt="Аватар пользователя." />
+            <source type="image/webp" srcSet={avatarUrl} />
+            <img src={avatarUrl} srcSet={avatarUrl} width={62} height={62} alt="Аватар пользователя." />
           </picture>
         </div>
-        <p className="header__user-mail">keks@academy.ru</p>
+        <p className="header__user-mail">{email}</p>
       </div>
     </div>
   );

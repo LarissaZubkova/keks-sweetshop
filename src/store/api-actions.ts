@@ -116,6 +116,7 @@ export const checkAuthAction = createAsyncThunk<UserData, undefined, {
     'user/checkAuth',
     async (_arg, {extra: api}) => {
       const {data} = await api.get<UserData>(APIRout.Login);
+
       return data;
     },
   );
@@ -147,6 +148,18 @@ export const registrationAction = createAsyncThunk<UserData, RegistrationData, {
         return data;
       },
     );
+
+export const fetchAvatarAction = createAsyncThunk<UserData, (RegistrationData & {avatar: File}), {
+      dispatch: AppDispatch;
+      state: State;
+      extra: AxiosInstance;
+      }>(
+  'user/avatar',
+  async (registration, {extra: api}) => {
+    const {data} = await api.post<UserData>(APIRout.Avatar, registration);
+    return data;
+  },
+  );
 
 export const logoutAction = createAsyncThunk<void, undefined, {
     dispatch: AppDispatch;
