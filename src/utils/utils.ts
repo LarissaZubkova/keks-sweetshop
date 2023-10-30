@@ -79,6 +79,12 @@ const filterSecondLevel = {
   [SecondLevelFilter.NewYork]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.NewYork),
   [SecondLevelFilter.Vanilla]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Vanilla),
   [SecondLevelFilter.Vegetarian]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Vegetarian),
+  [SecondLevelFilter.BasketCake]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.BasketCake),
+  [SecondLevelFilter.BrandMuffin]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.BrandMuffin),
+  [SecondLevelFilter.ChocolateMuffin]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.ChocolateMuffin),
+  [SecondLevelFilter.FunnelCake]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.FunnelCake),
+  [SecondLevelFilter.HoneyCake]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.HoneyCake),
+  [SecondLevelFilter.Tart]: (cakes: CakeCard[]) => cakes.filter((cake) => cake.type === TypeFilter.Tart),
 };
 
 export const sortByRating = {

@@ -64,14 +64,33 @@ export enum SecondLevelFilter {
   NewYork = 'Нью-Йорк',
   Lemon = 'Лимонный',
   Vanilla = 'Ваниль',
+  HoneyCake = 'Медовый',
+  Tart = 'Тарт',
+  FunnelCake = 'Mнравейник',
+  BasketCake = 'Корзинка',
+  ChocolateMuffin = 'Шоколадный маффин',
+  BrandMuffin = 'Фирменный маффин',
 }
+
+export const TypeByFirstLevelFilter = {
+  [FirstLevelFilter.Bisque]: [SecondLevelFilter.Chocolate, SecondLevelFilter.Vanilla, SecondLevelFilter.Vegetarian, SecondLevelFilter.HoneyCake],
+  [FirstLevelFilter.Dessert]: [SecondLevelFilter.ChocolateMuffin, SecondLevelFilter.BrandMuffin],
+  [FirstLevelFilter.Cheesecake]: [SecondLevelFilter.Chocolate, SecondLevelFilter.Vanilla, SecondLevelFilter.Vegetarian, SecondLevelFilter.Lemon, SecondLevelFilter.NewYork],
+  [FirstLevelFilter.Shortbread]: [SecondLevelFilter.Tart, SecondLevelFilter.FunnelCake, SecondLevelFilter.BasketCake],
+};
 
 export enum TypeFilter {
   Chocolate = 'chocolate',
   Vegetarian = 'vegetarian',
   NewYork = 'new-york',
   Lemon = 'lemon',
-  Vanilla = 'Ваниль',
+  Vanilla = 'vanilla',
+  HoneyCake = 'honey-cake',
+  Tart = 'tart',
+  FunnelCake = 'funnel-cake',
+  BasketCake = 'basket-cake',
+  ChocolateMuffin = 'chocolate-muffin',
+  BrandMuffin = 'brand-muffin',
 }
 
 export enum APIRout {
