@@ -18,9 +18,9 @@ function FilterFirstLevel({filter}: FilterFirstLevelProps) {
         className={classNames('btn btn--filter-first-level', {'is-active': selectedFilter === filter})}
         type="button"
         onClick={() => {
+          dispatch(resetSecondFilter());
           if (selectedFilter === filter) {
             dispatch(setFirstLevelFilter(null));
-            dispatch(resetSecondFilter());
           } else {
             dispatch(setFirstLevelFilter(filter));
           }
