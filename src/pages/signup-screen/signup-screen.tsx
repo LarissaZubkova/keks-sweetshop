@@ -1,30 +1,26 @@
+import classNames from 'classnames';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Link, Navigate } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import { registrationAction } from '../../store/api-actions';
 import { getAuthorizationStatus, getHasErrorStatus, getIsAlreadyExistStatus } from '../../store/user-process/user-process.selector';
-import { Helmet } from 'react-helmet-async';
-import { useState, FormEvent, useEffect, ChangeEvent } from 'react';
 import { RegistrationData } from '../../types/auth-data';
-import { validateEmail, validatePassword, validateName, validateAvatar } from '../../utils/utils';
-import { fetchAvatarAction, registrationAction } from '../../store/api-actions';
+import { validateAvatar, validateEmail, validateName, validatePassword } from '../../utils/utils';
 
-function SignupScreen() {
+function SignupScreen(): JSX.Element {
   const dispatch = useAppDispatch();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const hasAlreadyExist = useAppSelector(getIsAlreadyExistStatus);
   const hasError = useAppSelector(getHasErrorStatus);
 
-  const [isError, setIsError] = useState({
-    exist: false,
-    error: false,
+  const [formState, setFormState] = useState({
+    name: '',
+    email: '',
+    password: '',
+    avatar: null,
   });
-
-  useEffect(() => {
-    setIsError({
-      exist: hasAlreadyExist,
-      error: hasError,
-    });
-  }, [hasError, hasAlreadyExist]);
 
   const [isValid, setIsValid] = useState({
     name: true,
@@ -33,7 +29,25 @@ function SignupScreen() {
     avatar: true,
   });
 
-  const [avatarName, setAvatarName] = useState('');
+  useEffect(() => {
+    setIsValid({
+      name: validateName(formState.name),
+      email: validateEmail(formState.email),
+      password: validatePassword(formState.password),
+      avatar: true,
+    });
+  }, [formState]);
+
+  const handleFieldChange = (evt: ChangeEvent<HTMLInputElement>) => {
+    const {name, value} = evt.target;
+
+    setFormState({...formState, [name]: value});
+  };
+
+  const [isError, setIsError] = useState({
+    exist: false,
+    error: false,
+  });
 
   if (authorizationStatus === AuthorizationStatus.Auth) {
     return <Navigate to={AppRoute.Main} />;
@@ -41,25 +55,22 @@ function SignupScreen() {
 
   const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
-
     const form = evt.currentTarget;
     const formData = new FormData(form);
-    const data = Object.fromEntries(formData) as (RegistrationData & {avatar: File});
-    const {name, email, password, avatar} = data;
+    const data = Object.fromEntries(formData) as RegistrationData;
+    const currentData = {...formState, avatar: data.avatar};
 
-    setIsValid(
-      {
-        name: validateName(name),
-        email: validateEmail(email),
-        password: validatePassword(password),
-        avatar: validateAvatar(avatar),
-      }
-    );
+    setIsValid({
+      name: validateName(formState.name),
+      email: validateEmail(formState.email),
+      password: validatePassword(formState.password),
+      avatar: validateAvatar(data.avatar),
+    });
 
-    if (data !== null && isValid) {
-      console.log(data);
-      dispatch(registrationAction({name, email, password}));
-      dispatch(fetchAvatarAction(data));
+    const formIsValid = isValid.avatar && isValid.email && isValid.name && isValid.password;
+
+    if (formState && formIsValid) {
+      dispatch(registrationAction(currentData));
       setIsError({
         exist: hasAlreadyExist,
         error: hasError,
@@ -82,10 +93,6 @@ function SignupScreen() {
           <div className="register-page__content">
             <div className="register-page__inner">
               <h1 className="register-page__title">Регистрация</h1>
-              {!isValid.name && <div className="sign-in__message"><p>Пожалуйста, введите имя</p></div>}
-              {!isValid.email && <div className="sign-in__message"><p>Пожалуйста, введите корректный адрес</p></div>}
-              {!isValid.password && <p>Пароль должен содержать букву и цифру</p>}
-              {!isValid.avatar && <p>Для загрузки доступно изображение не более 100 на 100 пикселей, размер менее 1 мб, в формате jpg или png. </p>}
               {isError.exist && <p>Такой адрес уже существует</p>}
               {isError.error && <p>Что-то пошло не так, попробуйте еще раз</p>}
               <div className="register-page__form">
@@ -96,33 +103,62 @@ function SignupScreen() {
                   onSubmit={handleSubmit}
                 >
                   <div className="register-page__fields">
-                    <div className="custom-input register-page__field">
+                    <div className={classNames('custom-input register-page__field',
+                      {'is-valid' : isValid.name},
+                      {'is-invalid' : !isValid.name}
+                    )}
+                    >
                       <label><span className="custom-input__label">Введите ваше имя</span>
-                        <input type="text" name="name" placeholder="Имя" required />
+                        <input
+                          type="text"
+                          name="name"
+                          placeholder="Имя"
+                          onChange={handleFieldChange}
+                        />
                       </label>
+                      {!isValid.name && <span className="custom-input__message">заполните поле</span>}
                     </div>
-                    <div className="custom-input register-page__field">
+                    <div className={classNames('custom-input register-page__field',
+                      {'is-valid' : isValid.email},
+                      {'is-invalid' : !isValid.email}
+                    )}
+                    >
                       <label><span className="custom-input__label">Введите вашу почту</span>
-                        <input type="email" name="email" placeholder="Почта" required />
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Почта"
+                          required
+                          onChange={handleFieldChange}
+                        />
                       </label>
                     </div>
-                    <div className="custom-input register-page__field">
+                    <div className={classNames('custom-input register-page__field',
+                      {'is-valid' : isValid.password},
+                      {'is-invalid' : !isValid.password}
+                    )}
+                    >
                       <label><span className="custom-input__label">Введите ваш пароль</span>
-                        <input type="password" name="password" placeholder="Пароль" required />
+                        <input
+                          type="password"
+                          name="password"
+                          placeholder="Пароль"
+                          required
+                          onChange={handleFieldChange}
+                        />
                       </label>
                     </div>
-                    <div className="custom-input register-page__field">
+                    <div className={classNames('custom-input register-page__field',
+                      {'file-selected': formState.avatar}
+                    )}
+                    >
                       <label><span className="custom-input__label">Введите ваше имя</span>
                         <input
                           type="file"
                           name="avatar"
-                          data-text={avatarName.length !== 0 ? avatarName : 'Аватар'}
+                          data-text='Аватар'
                           accept="image/jpeg, image/png"
-                          onChange={(evt: ChangeEvent<HTMLInputElement>) => {
-                            if (evt.target.files) {
-                              setAvatarName(evt.target.files[0].name);
-                            }
-                          }}
+                          onChange={handleFieldChange}
                         />
                       </label>
                     </div>

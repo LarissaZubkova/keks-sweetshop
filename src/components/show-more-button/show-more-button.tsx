@@ -5,7 +5,7 @@ type ShowMoreButtonProps = {
   setCardsCount: (cardsCount: number) => void;
 }
 
-function ShowMoreButton({cardsCount, setCardsCount}: ShowMoreButtonProps) {
+function ShowMoreButton({cardsCount, setCardsCount}: ShowMoreButtonProps): JSX.Element {
   return (
     <div className="catalog__button-wrapper">
       <button

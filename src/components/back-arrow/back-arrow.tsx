@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
-function BackArrow() {
+function BackArrow(): JSX.Element {
   const navigate = useNavigate();
 
   return (
@@ -12,7 +12,7 @@ function BackArrow() {
             navigate(-1);
           }}
         >Назад
-          <svg className="back-link__icon" width="30" height="16" aria-hidden="true">
+          <svg className="back-link__icon" width={30} height={16} aria-hidden="true">
             <use xlinkHref="#icon-arrow-left"></use>
           </svg>
         </a>

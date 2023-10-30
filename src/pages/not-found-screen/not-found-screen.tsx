@@ -3,7 +3,7 @@ import { AppRoute } from '../../const';
 import { Helmet } from 'react-helmet-async';
 import Header from '../../components/header/header';
 
-function NotFoundScreen() {
+function NotFoundScreen(): JSX.Element {
   return (
     <div className="wrapper">
       <Header />

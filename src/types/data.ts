@@ -8,7 +8,8 @@ export type ShopsInfo = {
 
 export type Shop = {
   name: string;
-address: [number, number];
+  address: [number, number];
+  place: string;
 }
 
 export type SortType = {

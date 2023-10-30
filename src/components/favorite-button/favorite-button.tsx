@@ -1,10 +1,10 @@
 import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus, FavoritesButtonSize } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchAddFavoriteAction, fetchDeleteFavoriteAction } from '../../store/api-actions';
 import { getFavorites } from '../../store/favorite-process/favorite-process.selector';
 import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
-import { AppRoute, AuthorizationStatus } from '../../const';
-import { useNavigate } from 'react-router-dom';
 
 type FavoriteButtonProps = {
   id: string;
@@ -37,7 +37,10 @@ function FavoriteButton({id, isSmall}: FavoriteButtonProps): JSX.Element {
       }}
     >
       <span className="visually-hidden">Добавить в избранное</span>
-      <svg width={isSmall ? 45 : 51} height={isSmall ? 37 : 41} aria-hidden="true">
+      <svg
+        width={isSmall ? FavoritesButtonSize.SMALL.width : FavoritesButtonSize.BIG.width}
+        height={isSmall ? FavoritesButtonSize.SMALL.height : FavoritesButtonSize.BIG.height} aria-hidden="true"
+      >
         <use xlinkHref="#icon-like"></use>
       </svg>
     </button>

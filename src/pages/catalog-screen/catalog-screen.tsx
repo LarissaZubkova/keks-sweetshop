@@ -8,7 +8,7 @@ import Catalog from '../../components/catalog/catalog';
 import BackArrow from '../../components/back-arrow/back-arrow';
 import ErrorScreen from '../error-screen/error-screen';
 
-function CatalogScreen() {
+function CatalogScreen(): JSX.Element {
   const hasError = useAppSelector(getProductsErrorStatus);
 
   return (

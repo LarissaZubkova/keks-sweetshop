@@ -1,10 +1,10 @@
 import { Icon, Marker, layerGroup } from 'leaflet';
-import 'leaflet/dist/leaflet.css';
 import { useEffect } from 'react';
-import './map.css';
-import { URL_MARKER_SHOP, URL_MARKER_PRODUCTION, Shops } from '../../const';
+import { Shops, URL_MARKER_PRODUCTION, URL_MARKER_SHOP } from '../../const';
 import useMap from '../../hooks/use-map';
 import { Shop } from '../../types/data';
+import 'leaflet/dist/leaflet.css';
+import './map.css';
 
 const shopCustomIcon = new Icon({
   iconUrl: URL_MARKER_SHOP,
@@ -15,7 +15,7 @@ const shopCustomIcon = new Icon({
 const productionCustomIcon = new Icon({
   iconUrl: URL_MARKER_PRODUCTION,
   iconSize: [26, 24],
-  iconAnchor: [13, 24],
+  iconAnchor: [26, 24],
 });
 
 type MapProps = {
@@ -40,7 +40,6 @@ function Map({selectedAddress}: MapProps): JSX.Element {
           productionCustomIcon :
           shopCustomIcon)
         .addTo(markerLayer);
-
 
       return () => {
         map.removeLayer(markerLayer);

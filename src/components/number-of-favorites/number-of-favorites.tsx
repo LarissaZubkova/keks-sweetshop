@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
-import { getFormat } from '../../utils/utils';
 import { CakeFullCard } from '../../types/product';
+import { getFormat } from '../../utils/utils';
 
 type NumberOfFavoritesProps = {
   favorites: CakeFullCard[];
@@ -29,6 +29,5 @@ function NumberOfFavorites({favorites}: NumberOfFavoritesProps): JSX.Element {
     </section>
   );
 }
-
 
 export default NumberOfFavorites;

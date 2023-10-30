@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { CakeCard } from '../../types/product';
 import { AppRoute } from '../../const';
+import { CakeCard } from '../../types/product';
 import FavoriteButton from '../favorite-button/favorite-button';
 
 type RandomCardProps = {

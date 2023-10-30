@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 
-function Hero() {
+function Hero(): JSX.Element {
   return (
     <div className="hero">
       <div className="container">

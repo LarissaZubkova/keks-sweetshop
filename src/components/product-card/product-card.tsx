@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
+import { AppRoute } from '../../const';
 import { CakeCard } from '../../types/product';
 import { getFormat } from '../../utils/utils';
-import { AppRoute } from '../../const';
 import FavoriteButton from '../favorite-button/favorite-button';
 
 type ProductCardProps = {
     cake: CakeCard;
 }
 
-function ProductCard({cake}: ProductCardProps) {
+function ProductCard({cake}: ProductCardProps): JSX.Element {
   const {previewImage, previewImageWebp, title, price, isNew, id} = cake;
 
   return (

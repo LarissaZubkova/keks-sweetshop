@@ -4,12 +4,11 @@ import { APIRout, AppRoute } from '../const';
 import { dropToken, saveToken } from '../services/token';
 import { dropAvatarUrl, dropUserEmail, saveAvatarUrl, saveUserEmail } from '../services/user';
 import { AuthData, RegistrationData } from '../types/auth-data';
-import { CakeCard, CakeFullCard } from '../types/product';
+import { CakeCard, CakeFullCard, Category } from '../types/product';
+import { FormData, Review } from '../types/review';
 import { AppDispatch, State } from '../types/state';
 import { UserData } from '../types/user-data';
 import { redirectToRoute } from './action';
-import { Review } from '../types/review';
-import { FormData } from '../types/review';
 
 export const fetchCakesAction = createAsyncThunk<CakeCard[], undefined, {
     dispatch: AppDispatch;
@@ -19,6 +18,18 @@ export const fetchCakesAction = createAsyncThunk<CakeCard[], undefined, {
   'product/fetchCakes',
   async(_arg, {extra: api}) => {
     const {data} = await api.get<CakeCard[]>(APIRout.Products);
+    return data;
+  }
+);
+
+export const fetchCategoriesAction = createAsyncThunk<Category[], undefined, {
+  dispatch: AppDispatch;
+  state: State;
+  extra: AxiosInstance;
+}>(
+  'product/categories',
+  async(_arg, {extra: api}) => {
+    const {data} = await api.get<Category[]>(APIRout.Categories);
     return data;
   }
 );
@@ -137,29 +148,32 @@ export const loginAction = createAsyncThunk<UserData, AuthData, {
     },
   );
 
+export const fetchAvatarAction = createAsyncThunk<UserData, {avatar: File}, {
+    dispatch: AppDispatch;
+    state: State;
+    extra: AxiosInstance;
+    }>(
+      'user/avatar',
+      async ({avatar}, {extra: api}) => {
+        const {data} = await api.post<UserData>(APIRout.Avatar, {avatar});
+        return data;
+      },
+    );
+
 export const registrationAction = createAsyncThunk<UserData, RegistrationData, {
     dispatch: AppDispatch;
     state: State;
     extra: AxiosInstance;
     }>(
       'user/registration',
-      async (registration, {extra: api}) => {
-        const {data} = await api.post<UserData>(APIRout.Registration, registration);
+      async ({name, email, password, avatar}, {dispatch, extra: api}) => {
+        const {data} = await api.post<UserData>(APIRout.Registration, {name, email, password});
+        if(avatar.name) {
+          dispatch(fetchAvatarAction({avatar}));
+        }
         return data;
       },
     );
-
-export const fetchAvatarAction = createAsyncThunk<UserData, (RegistrationData & {avatar: File}), {
-      dispatch: AppDispatch;
-      state: State;
-      extra: AxiosInstance;
-      }>(
-  'user/avatar',
-  async (registration, {extra: api}) => {
-    const {data} = await api.post<UserData>(APIRout.Avatar, registration);
-    return data;
-  },
-  );
 
 export const logoutAction = createAsyncThunk<void, undefined, {
     dispatch: AppDispatch;

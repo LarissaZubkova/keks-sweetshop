@@ -14,7 +14,7 @@ function NoFilteredCakes(): JSX.Element {
             </div>
           </div>
           <div className="not-found__img-wrapper">
-            <img src="img/svg/not-found-keks.svg" width="719" height="607" alt="Картика кота."/>
+            <img src="img/svg/not-found-keks.svg" width={719} height={607} alt="Картика кота."/>
 
           </div>
         </div>

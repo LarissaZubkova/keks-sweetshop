@@ -1,12 +1,13 @@
+import { Provider } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
+import { store } from './store';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import HistoryRouter from './components/history-route/history-route';
+import 'react-toastify/dist/ReactToastify.css';
 import browserHistory from './browser-history';
 import App from './components/app/app';
-import 'react-toastify/dist/ReactToastify.css';
-import { Provider } from 'react-redux';
-import { store } from './store';
-import { ToastContainer } from 'react-toastify';
+import HistoryRouter from './components/history-route/history-route';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

@@ -3,7 +3,7 @@ import { Shops } from '../../const';
 import MapAddressCard from '../map-address-card/map-address-card';
 import Map from '../map/map';
 
-function MapDisplay() {
+function MapDisplay(): JSX.Element {
   const {FIRST_SHOP, SECOND_SHOP, PRODUCTION} = Shops;
   const [selectedAddress, setSelectedAddress] = useState(FIRST_SHOP);
 
@@ -13,7 +13,7 @@ function MapDisplay() {
         <h2 className="map__title">адреса</h2>
         <Map selectedAddress={selectedAddress} />
         <ul className="map__addresses">
-          <MapAddressCard>
+          <MapAddressCard place={FIRST_SHOP.place} >
             <input type="radio"
               value="user-agreement-10"
               id="user-agreement-id-10"
@@ -23,7 +23,7 @@ function MapDisplay() {
             />
             <label className="custom-toggle__label" htmlFor="user-agreement-id-10">{FIRST_SHOP.name}</label>
           </MapAddressCard>
-          <MapAddressCard>
+          <MapAddressCard place={SECOND_SHOP.place} >
             <input
               type="radio"
               value="user-agreement-12"
@@ -34,7 +34,7 @@ function MapDisplay() {
             />
             <label className="custom-toggle__label" htmlFor="user-agreement-id-12">{SECOND_SHOP.name}</label>
           </MapAddressCard>
-          <MapAddressCard>
+          <MapAddressCard place={PRODUCTION.place} >
             <input
               type="radio"
               value="user-agreement-13"

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchProductCardAction, fetchReviewsAction } from '../../store/api-actions';
@@ -19,7 +20,7 @@ import ErrorScreen from '../error-screen/error-screen';
 import ReviewsError from '../../components/reviews-error/reviews-error';
 import NoReview from '../../components/no-review/no-review';
 
-function ProductScreen():JSX.Element {
+function ProductScreen(): JSX.Element {
   const dispatch = useAppDispatch();
   const reviews = useAppSelector(getReviews);
   const hasProductError = useAppSelector(getProductCardErrorStatus);
@@ -29,25 +30,17 @@ function ProductScreen():JSX.Element {
   const {id} = useParams();
   const [reviewsCount, setReviewsCount] = useState(DEFAULT_REVIEWS_COUNT);
   const [isReviewForm, setIsReviewForm] = useState(false);
-  const [sortedReviews, setSortedReviews] = useState(sortByDate[sortTypeDate](reviews));
+
   const sortedByRating = sortByRating[sortTypeRating](reviews);
   const sortedByDate = sortByDate[sortTypeDate](sortedByRating);
 
   useEffect(() => {
-    dispatch(resetSorting);
+    dispatch(resetSorting());
   }, [dispatch]);
 
   useEffect(() => {
     setReviewsCount(DEFAULT_REVIEWS_COUNT);
   }, [sortTypeRating, setReviewsCount]);
-
-  useEffect(() => {
-    setSortedReviews(sortedByRating);
-  }, [sortTypeRating]);
-
-  useEffect(() => {
-    setSortedReviews(sortedByDate);
-  }, [sortTypeDate]);
 
   useEffect(() => {
     if (id) {
@@ -62,18 +55,21 @@ function ProductScreen():JSX.Element {
 
   return (
     <div className="wrapper">
+      <Helmet>
+        <title>Кондитерская Кекс - Карточка товара</title>
+      </Helmet>
       <Header />
       <main>
         <h1 className="visually-hidden">Карточка: пользователь не авторизован</h1>
         <BackArrow />
         <ProductDetails setIsReviewForm={setIsReviewForm} isReviewForm={isReviewForm} />
         {isReviewForm && <ReviewForm id={id} />}
-        {hasReviewsError && <ReviewsError />}
-        {!reviews.length && !hasReviewsError && <NoReview />}
-        {reviews.length && !hasReviewsError &&
+        {hasReviewsError && <ReviewsError id={id}/>}
+        {reviews.length === 0 && !hasReviewsError && <NoReview />}
+        {reviews.length > 0 && !hasReviewsError &&
           <>
             <FilterSort />
-            <CatalogComments reviews={sortedReviews} reviewsCount={reviewsCount} setReviewsCount={setReviewsCount} />
+            <CatalogComments reviews={sortedByDate} reviewsCount={reviewsCount} setReviewsCount={setReviewsCount} />
           </>}
       </main>
       <Footer />

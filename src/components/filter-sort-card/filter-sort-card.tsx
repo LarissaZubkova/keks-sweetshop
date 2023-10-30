@@ -8,7 +8,7 @@ type FilterSortCardProps = {
     index: number;
 }
 
-function FilterSortCard({type, index}: FilterSortCardProps) {
+function FilterSortCard({type, index}: FilterSortCardProps): JSX.Element {
   const dispatch = useAppDispatch();
   const sortTypeRating = useAppSelector(getSortingTypeByRating);
 

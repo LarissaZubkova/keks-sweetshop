@@ -1,4 +1,4 @@
-function Footer() {
+function Footer(): JSX.Element {
   return (
     <footer className="footer">
       <div className="container">
@@ -9,14 +9,14 @@ function Footer() {
           <ul className="footer__list">
             <li className="footer__item">
               <a className="footer__social-link" href="#" target="_blank" rel="nofollow noopener"><span className="visually-hidden">Вконтакте</span>
-                <svg width="50" height="50" aria-hidden="true">
+                <svg width={50} height={50} aria-hidden="true">
                   <use xlinkHref="#icon-vk"></use>
                 </svg>
               </a>
             </li>
             <li className="footer__item">
               <a className="footer__social-link" href="#" target="_blank" rel="nofollow noopener"><span className="visually-hidden">Телеграм</span>
-                <svg width="50" height="50" aria-hidden="true">
+                <svg width={50} height={50} aria-hidden="true">
                   <use xlinkHref="#icon-telegram"></use>
                 </svg>
               </a>

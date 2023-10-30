@@ -1,4 +1,9 @@
+import { Helmet } from 'react-helmet-async';
+
 function ErrorScreen(): JSX.Element {
+  <Helmet>
+    <title>Кондитерская Кекс - Ошибка загрузки страницы</title>
+  </Helmet>;
   return (
     <main>
       <h1 className="visually-hidden">Ошибка загрузки страницы</h1>

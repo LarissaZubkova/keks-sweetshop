@@ -1,7 +1,8 @@
-import { CakeCard } from '../types/product';
-import { RANDOM_MAX_COUNT, FILE_TYPES, DateFormat, FirstLevelFilter, CategoryFilter, SecondLevelFilter, TypeFilter, DEFAULT_LAST_DIGITS_COUNT, FilterSortType, FilterSortDate } from '../const';
 import dayjs from 'dayjs';
+import { CategoryFilter, DEFAULT_LAST_DIGITS_COUNT, DateFormat, FILE_TYPES, FilterSortDate, FilterSortType, FirstLevelFilter, PASSWORD_MIN_LENGTH, RANDOM_MAX_COUNT, REGISTRATION_NAME_MIN_LENGTH, REVIEW_MAX_LENGTH, Rating, SecondLevelFilter, TypeFilter } from '../const';
+import { CakeCard } from '../types/product';
 import { Review } from '../types/review';
+
 export function validateEmail(email: string) {
   if (
     !email ||
@@ -17,7 +18,7 @@ export function validateEmail(email: string) {
 export function validatePassword(password: string) {
   if (
     !password ||
-      password.length < 2 ||
+      password.length < PASSWORD_MIN_LENGTH ||
       !/\d/.test(password) ||
       !/\D/i.test(password) ||
       false
@@ -29,17 +30,17 @@ export function validatePassword(password: string) {
 }
 
 export function validateName(name: string) {
-  return name.length >= 1;
+  return name.length >= REGISTRATION_NAME_MIN_LENGTH;
 }
 
 export function validateAvatar(avatar: File) {
-  if (avatar.size === 0) {
+  if (!avatar.name) {
     return true;
+  } else {
+    const fileName = avatar.name.toLowerCase();
+    const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
+    return matches && avatar.size <= 1024 * 1024 ;
   }
-
-  const fileName = avatar.name.toLowerCase();
-  const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
-  return matches && avatar.size <= 10000000;
 }
 
 export function getFormat(data: number) {
@@ -96,15 +97,15 @@ export function filterByType(secondLevel: SecondLevelFilter[], cakes: CakeCard[]
 }
 
 export function validatePositive(positive: string, rating: number) {
-  if (rating > 3) {
-    return Boolean(positive) && positive.length <= 500;
+  if (rating > Rating.BAD) {
+    return Boolean(positive) && positive.length <= REVIEW_MAX_LENGTH;
   }
   return true;
 }
 
 export function validateNegative(negative: string, rating: number) {
-  if (rating < 4 && rating > 0) {
-    return Boolean(negative) && negative.length <= 500;
+  if (rating < Rating.GOOD && rating > 0) {
+    return Boolean(negative) && negative.length <= REVIEW_MAX_LENGTH;
   }
   return true;
 }
@@ -112,5 +113,3 @@ export function validateNegative(negative: string, rating: number) {
 export function displayAvailableDigits(digits: string): number {
   return DEFAULT_LAST_DIGITS_COUNT - digits.length;
 }
-
-

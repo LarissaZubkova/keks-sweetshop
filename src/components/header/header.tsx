@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
-import { useAppSelector, useAppDispatch } from '../../hooks';
-import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { logoutAction } from '../../store/api-actions';
+import { getFavorites } from '../../store/favorite-process/favorite-process.selector';
+import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
 import classNames from 'classnames';
 import Logo from '../logo/logo';
 import UserInfo from '../user-info/user-info';
-import { getFavorites } from '../../store/favorite-process/favorite-process.selector';
 
 function Header(): JSX.Element {
   const dispatch = useAppDispatch();

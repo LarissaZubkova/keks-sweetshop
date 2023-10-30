@@ -1,15 +1,15 @@
-import { useAppSelector } from '../../hooks';
-import { getProducts } from '../../store/products-process/products-process.selector';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { DEFAULT_CARDS_COUNT } from '../../const';
-import { filterFirstLevel, filterByType } from '../../utils/utils';
+import { useAppSelector } from '../../hooks';
 import { getFirstLevelFilter, getSecondLevelFilter } from '../../store/filters-process/filters-process.selector';
-import ShowMoreButton from '../show-more-button/show-more-button';
-import ProductCard from '../product-card/product-card';
+import { getProducts } from '../../store/products-process/products-process.selector';
+import { filterByType, filterFirstLevel } from '../../utils/utils';
 import NoFilteredCakes from '../no-filtered-cakes/no-filtered-cakes';
+import ProductCard from '../product-card/product-card';
+import ShowMoreButton from '../show-more-button/show-more-button';
 import ToStartButton from '../to-start-button/to-start-button';
 
-function Catalog() {
+function Catalog(): JSX.Element {
   const [cardsCount, setCardsCount] = useState(DEFAULT_CARDS_COUNT);
   const cakes = useAppSelector(getProducts);
   const firstLevel = useAppSelector(getFirstLevelFilter);

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { FiltersProcess} from '../../types/state';
-import { NameSpace,FirstLevelFilter, SecondLevelFilter, FilterSortType, FilterSortDate } from '../../const';
+import { FilterSortDate, FilterSortType, FirstLevelFilter, NameSpace, SecondLevelFilter } from '../../const';
+import { FiltersProcess } from '../../types/state';
 
 const initialState: FiltersProcess = {
   firstLevel: null,
@@ -16,7 +16,7 @@ export const filtersProcess = createSlice({
     setFirstLevelFilter: (state, action: PayloadAction<FirstLevelFilter | null>) => {
       state.firstLevel = action.payload;
     },
-    setSecondLevelFilter: (state, action: PayloadAction<SecondLevelFilter | null>) => {
+    setSecondLevelFilter: (state, action: PayloadAction<SecondLevelFilter>) => {
       if (state.secondLevel.includes(action.payload)) {
         state.secondLevel = state.secondLevel.filter((filter) => filter !== action.payload);
       } else {

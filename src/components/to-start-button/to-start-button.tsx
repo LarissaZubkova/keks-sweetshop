@@ -17,4 +17,5 @@ function ToStartButton(): JSX.Element {
     </div>
   );
 }
+
 export default ToStartButton;

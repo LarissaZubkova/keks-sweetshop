@@ -1,15 +1,15 @@
 type User = {
-    name: string;
-    avatarUrl: string;
+  name: string;
+  avatarUrl: string;
 }
 
 export type Review = {
-    id: string;
-    isoDate: string;
-    user: User;
-    positive: string;
-    negative: string;
-    rating: number;
+  id: string;
+  isoDate: string;
+  user: User;
+  positive: string;
+  negative: string;
+  rating: number;
 }
 
 export type FormData = {

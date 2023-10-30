@@ -1,10 +1,9 @@
 import './loading.css';
 
-function Loading() {
+function Loading(): JSX.Element {
   return (
     <p className="loader"></p>
   );
 }
 
 export default Loading;
-

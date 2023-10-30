@@ -1,13 +1,13 @@
+import { DEFAULT_REVIEWS_COUNT } from '../../const';
 import { useAppSelector } from '../../hooks';
 import { getReviewsLoadingStatus } from '../../store/review-process/review-process.selector';
 import { Review } from '../../types/review';
-import { DEFAULT_REVIEWS_COUNT } from '../../const';
-import ReviewCard from '../review/review';
 import Loading from '../loading/loading';
 import NoSortedReviews from '../no-sorted-reviews/no-sorted-reviews';
+import ReviewCard from '../review/review';
 
 type CatalogCommentsProps = {
-  reviews: Review[] | [];
+  reviews: Review[];
   reviewsCount: number;
   setReviewsCount: (count: number) => void;
 }
@@ -20,7 +20,7 @@ function CatalogComments({reviews, reviewsCount, setReviewsCount}: CatalogCommen
     return <Loading />;
   }
 
-  if (!currentReviews.length) {
+  if (currentReviews.length === 0) {
     return <NoSortedReviews />;
   }
 

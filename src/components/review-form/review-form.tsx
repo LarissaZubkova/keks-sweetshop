@@ -1,9 +1,10 @@
 import classNames from 'classnames';
+import { ChangeEvent, FormEvent, Fragment, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { Fragment, useState, ChangeEvent, FormEvent, useEffect} from 'react';
-import { validatePositive, validateNegative, displayAvailableDigits } from '../../utils/utils';
 import { fetchReviewsAction, fetchSendReviewAction } from '../../store/api-actions';
 import { getReviewSendingStatus, getSendingErrorStatus } from '../../store/review-process/review-process.selector';
+import { displayAvailableDigits, validateNegative, validatePositive } from '../../utils/utils';
+import { Rating, STARS_COUNT } from '../../const';
 
 type ReviewFormProps = {
   id: string | undefined;
@@ -33,11 +34,6 @@ function ReviewForm({id}: ReviewFormProps): JSX.Element {
       negative: validateNegative(formData.negative, formData.rating),
     });
   }, [formData]);
-
-  // useEffect(() => {
-  //   setHasError(false);
-  // }, []);
-
 
   const [digits, setDigits] = useState({
     positive: displayAvailableDigits(formData.positive),
@@ -118,7 +114,7 @@ function ReviewForm({id}: ReviewFormProps): JSX.Element {
                     />
                   </label>
                   {!isFormValid.positive && <span className="custom-input__message">заполните поле</span>}
-                  {formData.rating > 3 && isFormValid.positive && <span className="custom-input__message">осталось {digits.positive} символов</span>}
+                  {formData.rating > Rating.BAD && isFormValid.positive && <span className="custom-input__message">осталось {digits.positive} символов</span>}
                 </div>
                 <div className={classNames('custom-input', {
                   'is-invalid' : !isFormValid.negative,
@@ -136,13 +132,13 @@ function ReviewForm({id}: ReviewFormProps): JSX.Element {
                     />
                   </label>
                   {!isFormValid.negative && <span className="custom-input__message">заполните поле</span>}
-                  {formData.rating < 4 && formData.rating > 0 && formData.negative.length > 0 && <span className="custom-input__message">осталось {digits.negative} символов</span>}
+                  {formData.rating < Rating.GOOD && formData.rating > 0 && formData.negative.length > 0 && <span className="custom-input__message">осталось {digits.negative} символов</span>}
                 </div>
               </div>
               <div className="review-form__submit-wrapper">
                 <div className="review-form__rating-wrapper">
                   <div className="input-star-rating" >
-                    {(Array.from({length: 5}, (_, k) => (
+                    {(Array.from({length: STARS_COUNT}, (_, k) => (
                       <Fragment key={`rating__${k}`} >
                         <input
                           type="radio"

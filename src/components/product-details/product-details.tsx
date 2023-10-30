@@ -1,14 +1,14 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus, DESCRIPTION_MAX_LENGTH } from '../../const';
-import { getFormat } from '../../utils/utils';
 import { useAppSelector } from '../../hooks';
-import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
 import { getProductCard, getProductCardLoadingStatus } from '../../store/product-card-process/product-card-process.selector';
-import { useState } from 'react';
+import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
+import { getFormat } from '../../utils/utils';
 import classNames from 'classnames';
+import FavoriteButton from '../favorite-button/favorite-button';
 import Loading from '../loading/loading';
 import Rating from '../rating/rating';
-import FavoriteButton from '../favorite-button/favorite-button';
 
 type ProductDetailsProps = {
   setIsReviewForm: (data: boolean) => void;

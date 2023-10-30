@@ -1,8 +1,8 @@
 import { FirstLevelFilter, SecondLevelFilter } from '../../const';
 import { useAppSelector } from '../../hooks';
 import { getFirstLevelFilter } from '../../store/filters-process/filters-process.selector';
-import FilterSecondLevel from '../filter-second-level/filter-second-level';
 import FilterFirstLevel from '../filter-first-level/filter-first-level';
+import FilterSecondLevel from '../filter-second-level/filter-second-level';
 
 function CatalogFilter() {
   const firstLevel = useAppSelector(getFirstLevelFilter);

@@ -8,7 +8,7 @@ function FavoritesEmpty(): JSX.Element {
       <div className="container">
         <div className="empty-favorites__bg-wrapper">
           <div className="empty-favorites__wrapper">
-            <svg width="944" height="707" aria-hidden="true">
+            <svg width={944} height={707} aria-hidden="true">
               <use xlinkHref="#icon-empty-favorites-cloud"></use>
             </svg>
             <div className="empty-favorites__content">

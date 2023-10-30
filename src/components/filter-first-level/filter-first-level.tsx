@@ -1,8 +1,8 @@
+import classNames from 'classnames';
 import { FirstLevelFilter } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getFirstLevelFilter } from '../../store/filters-process/filters-process.selector';
-import { setFirstLevelFilter, resetSecondFilter } from '../../store/filters-process/filters-process.slice';
-import classNames from 'classnames';
+import { resetSecondFilter, setFirstLevelFilter } from '../../store/filters-process/filters-process.slice';
 
 type FilterFirstLevelProps = {
     filter: FirstLevelFilter;

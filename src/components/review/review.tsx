@@ -1,8 +1,8 @@
+import { useAppSelector } from '../../hooks';
+import { getLastReviewErrorStatus } from '../../store/review-process/review-process.selector';
 import { Review } from '../../types/review';
 import { getDateFormat } from '../../utils/utils';
 import classNames from 'classnames';
-import { useAppSelector } from '../../hooks';
-import { getLastReviewErrorStatus } from '../../store/review-process/review-process.selector';
 import Loading from '../loading/loading';
 import Rating from '../rating/rating';
 

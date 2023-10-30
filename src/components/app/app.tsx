@@ -14,8 +14,7 @@ import PrivateRoute from '../private-route/private-route';
 import FavoritesScreen from '../../pages/favorites-screen/favorites-screen';
 import ProductScreen from '../../pages/product-screen/product-screen';
 
-
-function App() {
+function App(): JSX.Element {
   const dispatch = useAppDispatch();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
 

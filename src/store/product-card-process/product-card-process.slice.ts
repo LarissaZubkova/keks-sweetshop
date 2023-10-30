@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ProductCardProcess } from '../../types/state';
 import { NameSpace } from '../../const';
+import { ProductCardProcess } from '../../types/state';
 import { fetchProductCardAction } from '../api-actions';
 
 const initialState: ProductCardProcess = {

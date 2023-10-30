@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
-import { getRandomCakes } from '../../utils/utils';
 import { useAppSelector } from '../../hooks';
 import { getProducts, getProductsLoadingStatus } from '../../store/products-process/products-process.selector';
+import { getRandomCakes } from '../../utils/utils';
 import Loading from '../loading/loading';
 import RandomCard from '../random-card/random-card';
 
@@ -21,7 +21,7 @@ function RandomMain() {
       <div className="container">
         <h2 className="random-main__title">кексы</h2>
         <ul className="random-main__list">
-          {randomCakes.map((cake) => <RandomCard key={cake.id} cake={cake} />)}
+          {randomCakes && randomCakes.map((cake) => <RandomCard key={cake.id} cake={cake} />)}
           <li className="random-main__item">
             <Link className="random-main__link" to={AppRoute.Catalog}>
               <div className="random-main__icon-wrapper">

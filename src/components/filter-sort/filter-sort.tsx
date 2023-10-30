@@ -1,9 +1,9 @@
 import { FilterSortDate, FilterSortType } from '../../const';
-import FilterSortCard from '../filter-sort-card/filter-sort-card';
-import classNames from 'classnames';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getSortingTypeByDate, getSortingTypeByRating } from '../../store/filters-process/filters-process.selector';
 import { setSortingTypeByDate } from '../../store/filters-process/filters-process.slice';
+import classNames from 'classnames';
+import FilterSortCard from '../filter-sort-card/filter-sort-card';
 
 function FilterSort(): JSX.Element {
   const dispatch = useAppDispatch();

@@ -1,14 +1,15 @@
-import { useAppDispatch, useAppSelector } from '../../hooks';
-import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
-import { AppRoute, AuthorizationStatus } from '../../const';
-import { Navigate, Link } from 'react-router-dom';
+import classNames from 'classnames';
 import { FormEvent, useState } from 'react';
-import { loginAction } from '../../store/api-actions';
 import { Helmet } from 'react-helmet-async';
+import { Link, Navigate } from 'react-router-dom';
+import { AppRoute, AuthorizationStatus } from '../../const';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { loginAction } from '../../store/api-actions';
+import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
 import { AuthData } from '../../types/auth-data';
 import { validateEmail, validatePassword } from '../../utils/utils';
 
-function LoginScreen() {
+function LoginScreen(): JSX.Element {
   const dispatch = useAppDispatch();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
@@ -28,6 +29,7 @@ function LoginScreen() {
     setIsEmailValid(validateEmail(data.email));
 
     if (data !== null && isPasswordValid && isEmailValid) {
+      console.log(isPasswordValid, isEmailValid);
       dispatch(loginAction(data));
     }
   };
@@ -55,14 +57,19 @@ function LoginScreen() {
                   onSubmit={handleSubmit}
                 >
                   <div className="login-page__fields">
-                    <div className="custom-input login-page__field">
+                    <div className={classNames('custom-input login-page__field',
+                      {'is-valid' : isEmailValid},
+                      {'is-invalid' : !isEmailValid}
+                    )}
+                    >
                       <label><span className="custom-input__label">Введите вашу почту</span>
-                        <input type="email" name="email" placeholder="Почта" required />
+                        <input type="email" name="email" placeholder="Почта" />
                       </label>
+                      {!isEmailValid && <span className="custom-input__label">Введите вашу почту</span>}
                     </div>
                     <div className="custom-input login-page__field">
                       <label><span className="custom-input__label">Введите ваш пароль</span>
-                        <input type="password" name="password" placeholder="Пароль" required />
+                        <input type="password" name="password" placeholder="Пароль" />
                       </label>
                     </div>
                   </div>
