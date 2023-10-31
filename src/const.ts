@@ -40,7 +40,7 @@ export enum AppRoute {
   LogIn = '/logIn',
   SignUp = '/SignUp',
   Catalog = '/Catalog',
-  Favorites = '/Favourites',
+  Favorites = '/Favorites', //Неправильно в макете везде это слово. Везде favourites
   Product = '/ProductPage/:id',
 }
 
