@@ -148,15 +148,16 @@ export const loginAction = createAsyncThunk<UserData, AuthData, {
     },
   );
 
-export const fetchAvatarAction = createAsyncThunk<UserData, {avatar: File}, {
+export const fetchAvatarAction = createAsyncThunk<UserData, RegistrationData, {
     dispatch: AppDispatch;
     state: State;
     extra: AxiosInstance;
     }>(
       'user/avatar',
-      async ({avatar}, {extra: api}) => {
-        const {data} = await api.post<UserData>(APIRout.Avatar, {avatar});
+      async (formData, {extra: api}) => {
+        const {data} = await api.post<UserData>(APIRout.Avatar, formData, {headers: {'Content-Type': 'multipart/form-data'}});
         return data;
+
       },
     );
 
@@ -166,10 +167,13 @@ export const registrationAction = createAsyncThunk<UserData, RegistrationData, {
     extra: AxiosInstance;
     }>(
       'user/registration',
-      async ({name, email, password, avatar}, {dispatch, extra: api}) => {
+      async (formData, {dispatch, extra: api}) => {
+        const {name, email, password} = formData;
         const {data} = await api.post<UserData>(APIRout.Registration, {name, email, password});
-        if(avatar.name) {
-          dispatch(fetchAvatarAction({avatar}));
+
+        if(formData.avatar.name) {
+          saveToken(data.token);
+          dispatch(fetchAvatarAction(formData));
         }
         return data;
       },

@@ -5,13 +5,14 @@ import { Link, Navigate } from 'react-router-dom';
 import { AppRoute, AuthorizationStatus } from '../../const';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { loginAction } from '../../store/api-actions';
-import { getAuthorizationStatus } from '../../store/user-process/user-process.selector';
+import { getAuthorizationStatus, getHasErrorStatus } from '../../store/user-process/user-process.selector';
 import { AuthData } from '../../types/auth-data';
 import { validateEmail, validatePassword } from '../../utils/utils';
 
 function LoginScreen(): JSX.Element {
   const dispatch = useAppDispatch();
   const authorizationStatus = useAppSelector(getAuthorizationStatus);
+  const hasError = useAppSelector(getHasErrorStatus);
   const [isPasswordValid, setIsPasswordValid] = useState(true);
   const [isEmailValid, setIsEmailValid] = useState(true);
 
@@ -29,7 +30,6 @@ function LoginScreen(): JSX.Element {
     setIsEmailValid(validateEmail(data.email));
 
     if (data !== null && isPasswordValid && isEmailValid) {
-      console.log(isPasswordValid, isEmailValid);
       dispatch(loginAction(data));
     }
   };
@@ -49,6 +49,7 @@ function LoginScreen(): JSX.Element {
           <div className="login-page__content">
             <div className="login-page__inner">
               <h1 className="login-page__title">Вход</h1>
+              {hasError && <p>Вы ввели неверные данные или сервер не отвечает</p>}
               <div className="login-page__form">
                 <form
                   action="#"

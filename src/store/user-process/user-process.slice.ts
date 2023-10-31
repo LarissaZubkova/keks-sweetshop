@@ -8,7 +8,9 @@ const initialState: UserProcess = {
   avatarUrl: '',
   email: '',
   isAlreadyExist: false,
+  isLoading: false,
   hasError: false,
+  isRegistrationSuccess: false,
 };
 
 export const userProcess = createSlice({
@@ -38,24 +40,36 @@ export const userProcess = createSlice({
       .addCase(loginAction.rejected, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
         state.isAlreadyExist = false;
-        state.hasError = false;
+        state.hasError = true;
       })
       .addCase(logoutAction.fulfilled, (state) => {
         state.authorizationStatus = AuthorizationStatus.NoAuth;
         state.isAlreadyExist = false;
         state.hasError = false;
       })
+      .addCase(registrationAction.pending, (state) => {
+        state.isAlreadyExist = false;
+        state.isRegistrationSuccess = false;
+        state.isLoading = true;
+        state.hasError = false;
+      })
       .addCase(registrationAction.fulfilled, (state) => {
         state.isAlreadyExist = false;
+        state.isRegistrationSuccess = true;
+        state.isLoading = false;
         state.hasError = false;
       })
       .addCase(registrationAction.rejected, (state, action) => {
         state.hasError = true;
+        state.isRegistrationSuccess = false;
         state.isAlreadyExist = false;
+        state.isLoading = false;
 
         if (action.error.message?.includes('409')) {
           state.isAlreadyExist = true;
+          state.isRegistrationSuccess = false;
           state.hasError = false;
+          state.isLoading = false;
         }
       });
   }

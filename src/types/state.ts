@@ -7,34 +7,36 @@ export type AppDispatch = typeof store.dispatch;
 export type State = ReturnType<typeof store.getState>;
 
 export type ProductsProcess = {
-    products: CakeCard[];
-    categories: Category[];
-    isProductsLoading: boolean;
-    hasProductsError: boolean;
+  products: CakeCard[];
+  categories: Category[];
+  isProductsLoading: boolean;
+  hasProductsError: boolean;
 }
 
 export type ProductCardProcess = {
-    productCard: CakeFullCard | null;
-    isProductCardLoading: boolean;
-    hasProductCardError: boolean;
+  productCard: CakeFullCard | null;
+  isProductCardLoading: boolean;
+  hasProductCardError: boolean;
 }
 
 export type UserProcess = {
-    authorizationStatus: AuthorizationStatus;
-    avatarUrl: string;
-    email: string;
-    isAlreadyExist: boolean;
-    hasError: boolean;
+  authorizationStatus: AuthorizationStatus;
+  avatarUrl: string;
+  email: string;
+  isAlreadyExist: boolean;
+  hasError: boolean;
+  isLoading: boolean;
+  isRegistrationSuccess: boolean;
 }
 
 export type ReviewProcess = {
-    lastReview: Review | null;
-    reviews: Review[];
-    isReviewsLoading: boolean;
-    hasReviewsError: boolean;
-    hasError: boolean;
-    isReviewSending: boolean;
-    hasSendingError: boolean;
+  lastReview: Review | null;
+  reviews: Review[];
+  isReviewsLoading: boolean;
+  hasReviewsError: boolean;
+  hasError: boolean;
+  isReviewSending: boolean;
+  hasSendingError: boolean;
 }
 
 export type FiltersProcess = {
@@ -50,4 +52,5 @@ export type FavoritesProcess = {
   hasFavoritesError: boolean;
   hasAddFAvoritesError: boolean;
   hasDeleteFavoritesError: boolean;
+  isDeleting: boolean;
 }

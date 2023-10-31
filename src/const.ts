@@ -36,19 +36,19 @@ export const FavoritesButtonSize = {
 };
 
 export enum AppRoute {
-    Main = '/',
-    LogIn = '/logIn',
-    SignUp = '/SignUp',
-    Catalog = '/Catalog',
-    Favorites = '/Favourites',
-    Product = '/ProductPage/:id',
+  Main = '/',
+  LogIn = '/logIn',
+  SignUp = '/SignUp',
+  Catalog = '/Catalog',
+  Favorites = '/Favourites',
+  Product = '/ProductPage/:id',
 }
 
 export enum FirstLevelFilter {
-    Bisque = 'Бисквит',
-    Dessert = 'Десерт',
-    Cheesecake = 'Чизкейк',
-    Shortbread = 'Песочное',
+  Bisque = 'Бисквит',
+  Dessert = 'Десерт',
+  Cheesecake = 'Чизкейк',
+  Shortbread = 'Песочное',
 }
 
 export enum CategoryFilter {
@@ -66,7 +66,7 @@ export enum SecondLevelFilter {
   Vanilla = 'Ваниль',
   HoneyCake = 'Медовый',
   Tart = 'Тарт',
-  FunnelCake = 'Mнравейник',
+  FunnelCake = 'Mуравейник',
   BasketCake = 'Корзинка',
   ChocolateMuffin = 'Шоколадный маффин',
   BrandMuffin = 'Фирменный маффин',
@@ -94,37 +94,37 @@ export enum TypeFilter {
 }
 
 export enum APIRout {
-    Products = '/products',
-    Categories = '/categories',
-    Product = '/products/:id',
-    Favorites = '/favorites',
-    Login = 'users/login',
-    Registration = 'users/registration',
-    Logout = 'users/logout',
-    Avatar = 'users/upload',
-    LastReview = 'reviews/getLast',
-    Review = '/reviews/',
+  Products = '/products',
+  Categories = '/categories',
+  Product = '/products/:id',
+  Favorites = '/favorites',
+  Login = 'users/login',
+  Registration = 'users/registration',
+  Logout = 'users/logout',
+  Avatar = 'users/upload',
+  LastReview = 'reviews/getLast',
+  Review = '/reviews/',
 }
 
 export enum NameSpace {
-    Cakes = 'CAKES',
-    CakeCard = 'CAKE_CARD',
-    User = 'USER',
-    Review = 'REVIEW',
-    Filters = 'FILTERS',
-    Favorites = 'FAVORITES',
+  Cakes = 'CAKES',
+  CakeCard = 'CAKE_CARD',
+  User = 'USER',
+  Review = 'REVIEW',
+  Filters = 'FILTERS',
+  Favorites = 'FAVORITES',
 }
 
 export enum AuthorizationStatus {
-    Auth = 'AUTH',
-    NoAuth = 'NO_AUTH',
-    Unknown = 'UNKNOWN',
+  Auth = 'AUTH',
+  NoAuth = 'NO_AUTH',
+  Unknown = 'UNKNOWN',
 }
 
 export enum FilterSortType {
-    All = 'Любой',
-    High = 'Высокий',
-    Low = 'Низкий',
+  All = 'Любой',
+  High = 'Высокий',
+  Low = 'Низкий',
 }
 
 export enum FilterSortDate {

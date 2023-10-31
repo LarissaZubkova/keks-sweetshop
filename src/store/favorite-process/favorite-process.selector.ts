@@ -7,3 +7,4 @@ export const getFavoritesLoadingStatus = (state: Pick<State, NameSpace.Favorites
 export const getFavoritesErrorStatus = (state: Pick<State, NameSpace.Favorites>) => state[NameSpace.Favorites].hasFavoritesError;
 export const getAddStatusError = (state: Pick<State, NameSpace.Favorites>) => state[NameSpace.Favorites].hasAddFAvoritesError;
 export const getDeleteStatusError = (state: Pick<State, NameSpace.Favorites>) => state[NameSpace.Favorites].hasDeleteFavoritesError;
+export const getDeletingStatus = (state: Pick<State, NameSpace.Favorites>) => state[NameSpace.Favorites].isDeleting;

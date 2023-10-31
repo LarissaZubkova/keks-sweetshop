@@ -9,6 +9,7 @@ const initialState: FavoritesProcess = {
   hasFavoritesError: false,
   hasAddFAvoritesError: false,
   hasDeleteFavoritesError: false,
+  isDeleting: false,
 };
 
 export const favoritesProcess = createSlice({
@@ -37,12 +38,18 @@ export const favoritesProcess = createSlice({
       .addCase(fetchAddFavoriteAction.rejected, (state) => {
         state.hasAddFAvoritesError = true;
       })
+      .addCase(fetchDeleteFavoriteAction.pending, (state) => {
+        state.hasDeleteFavoritesError = false;
+        state.isDeleting = true;
+      })
       .addCase(fetchDeleteFavoriteAction.fulfilled, (state, action) => {
         state.hasDeleteFavoritesError = false;
+        state.isDeleting = false;
         state.favorites = state.favorites.filter((cake) => cake.id !== action.payload.id);
       })
       .addCase(fetchDeleteFavoriteAction.rejected, (state) => {
         state.hasDeleteFavoritesError = true;
+        state.isDeleting = false;
       });
   }
 });

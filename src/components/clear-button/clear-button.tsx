@@ -1,5 +1,6 @@
-import { useAppDispatch } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchDeleteFavoriteAction } from '../../store/api-actions';
+import { getDeletingStatus } from '../../store/favorite-process/favorite-process.selector';
 import { CakeFullCard } from '../../types/product';
 
 type ClearButtonProps = {
@@ -8,6 +9,7 @@ type ClearButtonProps = {
 
 function ClearButton({favorites}: ClearButtonProps): JSX.Element {
   const dispatch = useAppDispatch();
+  const isDeleting = useAppSelector(getDeletingStatus);
   const favoritesId = favorites.map((favorite) => favorite.id);
 
   return (
@@ -17,6 +19,7 @@ function ClearButton({favorites}: ClearButtonProps): JSX.Element {
         <button
           className="btn btn--second"
           type="button"
+          disabled={isDeleting}
           onClick={() => favoritesId.map((id) => dispatch(fetchDeleteFavoriteAction(id)))}
         >Очистить
         </button>

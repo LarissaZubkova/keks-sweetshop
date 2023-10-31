@@ -7,3 +7,5 @@ export const getAvatarUrl = (state: Pick<State, NameSpace.User>) => state[NameSp
 export const getUserEmail = (state: Pick<State, NameSpace.User>) => state[NameSpace.User].email;
 export const getIsAlreadyExistStatus = (state: Pick<State, NameSpace.User>): boolean => state[NameSpace.User].isAlreadyExist;
 export const getHasErrorStatus = (state: Pick<State, NameSpace.User>): boolean => state[NameSpace.User].hasError;
+export const getIsLoadingStatus = (state: Pick<State, NameSpace.User>): boolean => state[NameSpace.User].isLoading;
+export const getRegistrationSuccessStatus = (state: Pick<State, NameSpace.User>): boolean => state[NameSpace.User].isRegistrationSuccess;
