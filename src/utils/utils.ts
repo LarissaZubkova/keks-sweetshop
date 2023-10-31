@@ -119,3 +119,15 @@ export function validateNegative(negative: string, rating: number) {
 export function displayAvailableDigits(digits: string): number {
   return DEFAULT_LAST_DIGITS_COUNT - digits.length;
 }
+
+export function getLetter(count: number) {
+  switch (count) {
+    case 1:
+      return '';
+    case 2:
+    case 3:
+      return 'а';
+    default:
+      return 'ов';
+  }
+}

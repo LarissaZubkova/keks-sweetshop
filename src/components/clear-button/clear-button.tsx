@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchDeleteFavoriteAction } from '../../store/api-actions';
-import { getDeletingStatus } from '../../store/favorite-process/favorite-process.selector';
+import { getDeletingStatus} from '../../store/favorite-process/favorite-process.selector';
 import { CakeFullCard } from '../../types/product';
 
 type ClearButtonProps = {

@@ -19,7 +19,7 @@ function FavoritesScreen(): JSX.Element {
     return <Loading />;
   }
 
-  if(hasError || !favorites) {
+  if(hasError) {
     return <ErrorScreen />;
   }
 

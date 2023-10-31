@@ -68,7 +68,11 @@ function LoginScreen(): JSX.Element {
                       </label>
                       {!isEmailValid && <span className="custom-input__label">Введите вашу почту</span>}
                     </div>
-                    <div className="custom-input login-page__field">
+                    <div className={classNames('custom-input login-page__field',
+                      {'is-valid' : isPasswordValid},
+                      {'is-invalid' : !isPasswordValid}
+                    )}
+                    >
                       <label><span className="custom-input__label">Введите ваш пароль</span>
                         <input type="password" name="password" placeholder="Пароль" />
                       </label>

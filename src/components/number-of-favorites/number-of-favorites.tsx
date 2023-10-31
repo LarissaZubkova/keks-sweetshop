@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 import { CakeFullCard } from '../../types/product';
-import { getFormat } from '../../utils/utils';
+import { getFormat, getLetter } from '../../utils/utils';
 
 type NumberOfFavoritesProps = {
   favorites: CakeFullCard[];
@@ -15,7 +15,7 @@ function NumberOfFavorites({favorites}: NumberOfFavoritesProps): JSX.Element {
     <section className="number-of-favourites favorites-page__qty">
       <div className="container">
         <h2 className="visually-hidden">Количество товаров в избранном.</h2>
-        <p className="number-of-favourites__cakes">{favoritesCount} кекса</p>
+        <p className="number-of-favourites__cakes">{favoritesCount} {`кекс${getLetter(favoritesCount)}`}</p>
         <div className="number-of-favourites__wrapper">
           <div className="number-of-favourites__wrap-price">
             <p className="number-of-favourites__text">Всего</p>
