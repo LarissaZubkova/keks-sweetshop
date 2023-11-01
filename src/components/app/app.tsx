@@ -26,7 +26,7 @@ function App(): JSX.Element {
     dispatch(fetchLastReviewAction());
 
     if (authorizationStatus === AuthorizationStatus.Auth) {
-      dispatch(fetchFavoritesAction);
+      dispatch(fetchFavoritesAction());
     }
   }, [dispatch, authorizationStatus]);
 
