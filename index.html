@@ -9,7 +9,19 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="stylesheet" href="css/style.min.css">
-    <script type="module" crossorigin src="/keks-sweetshop/assets/index-26df1982.js"></script>
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="module" crossorigin src="/keks-sweetshop/assets/index-a6651b7b.js"></script>
     <link rel="stylesheet" href="/keks-sweetshop/assets/index-e38d3c30.css">
   </head>
   <body>
