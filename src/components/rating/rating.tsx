@@ -6,15 +6,22 @@ type RatingProps = {
   rating: number;
 }
 
-function Rating({rating}: RatingProps) {
+function Rating({ rating }: RatingProps) {
   return (
-    Array.from({length: STARS_COUNT}, (_,i) => (
-      <Fragment key={i}>
-        <svg className={classNames('star-rating__star', {'star-rating__star--active' : rating > i})} width={30} height={30} aria-hidden="true">
-          <use xlinkHref="#icon-star"></use>
-        </svg>
-      </Fragment>
-    ))
+    <>
+      {Array.from({ length: STARS_COUNT }, (_, i) => (
+        <Fragment key={i}>
+          <svg
+            className={classNames('star-rating__star', { 'star-rating__star--active': rating > i })}
+            width={30}
+            height={30}
+            aria-hidden="true"
+          >
+            <use xlinkHref="#icon-star"></use>
+          </svg>
+        </Fragment>
+      ))}
+    </>
   );
 }
 
