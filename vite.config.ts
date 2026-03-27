@@ -12,4 +12,5 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
   },
+  base: '/keks-sweetshop'
 });
